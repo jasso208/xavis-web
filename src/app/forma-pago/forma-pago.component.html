@@ -1,0 +1,84 @@
+<div class="container">
+        <div class="row">
+               <div class="col-xs-12">
+                   <br>
+                    <a [routerLink]="['/informacion_envio']">Regresar</a>
+               </div>
+                <div class="col-xs-12">
+                    <h1 class="page-header">
+                        Selecciona una forma de pago.
+                    </h1>
+                </div>
+                <div class="col-xs-12" style="text-align: center;">       
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a href="">
+                                Total a Pagar: ${{total_pagar | number:'1.2-2'}}
+                            </a>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-xs-12">
+                                <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12" style="text-align: center;">
+                            
+                            <div id="paypal-checkout-btn"></div>
+                          <!--  <ngx-paypal [config]="payPalConfig"></ngx-paypal>-->
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-xs-12">
+                                    <hr>
+                            </div>
+                        </div>
+                </div>
+        </div>
+</div>
+
+<div id="hover_ticket" *ngIf="muestra_tiket">
+</div>
+<div id="ticket" class="container" *ngIf="muestra_tiket">
+    <div class="row">
+        <div class="col-xs-12">
+            <a id="folio_compra">Folio Compra: {{folio_compra}}</a>
+        </div>
+        <div class="col-xs-12">
+            <h1 class="page-header">
+                    Gracias por su Compra
+            </h1>
+        </div>
+        <div class="col-xs-12">
+            <p>
+                En breve  recibira un correo con la confirmacion y el detalle de su compra.
+            </p>
+        </div>
+        <div class="col-xs-12">
+            <hr>           
+        </div>
+        <div class="col-xs-12">
+            <button class="btn btn-primary btn-block" [routerLink]="['/home']">
+                Aceptar
+            </button>
+        </div>
+        <div class="col-xs-12">
+            <hr>           
+        </div>
+    </div>
+</div>
+
+
+<div class="cls_error_msj" *ngIf="muestra_error">
+    <p>{{msj_error}}</p>
+</div>
+
+
+
+
+<div class="preloader-fondo" *ngIf="cargando">    
+    <div class="preloader">
+
+    </div>
+</div>

@@ -1,0 +1,33 @@
+
+<a [routerLink]="['/home']" class="cls_link_posicion" >Home</a><a class="cls_link_posicion">/</a><a class="cls_link_posicion">Resultado Busqueda</a>
+<hr>
+<div class="container-fluid" id="resultado_busqueda" >
+    <div class="row">
+        <div class="col-xs-6" *ngFor="let prod of productos">
+            <div class="row cls_item_resultado_busqueda">
+                <div class="col-xs-12">
+                    <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
+                </div>
+                <div class="col-xs-12">
+                    <a class="cls_nompre_producto_resultado_busqueda">
+                        {{prod.nombre}}
+                    </a>
+                </div>
+                <div class="col-xs-12">                    
+                    <a class="cls_precio_prod">
+                        ${{prod.precio | number: '1.2-2'}}
+                    </a>
+                </div>
+                <div class="col-xs-12">
+                    <button class="btn btn-primary btn-block" [routerLink]="['/detalle_producto',prod.id]">Ver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="preloader-fondo" *ngIf="cargando">    
+        <div class="preloader">
+
+        </div>
+</div>

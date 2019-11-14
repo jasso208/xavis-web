@@ -1,0 +1,253 @@
+#encabezado
+{
+    width: 100%;
+    height: 60px;
+    top:0;
+    left: 0;
+    background-color:black;
+}
+#encabezado>div
+{
+    display: inline-block;
+}
+#logo
+{
+    width: 12%;
+    height: 100%;
+    text-align: left;
+}
+#logo >img
+{
+    height: 90%;
+    margin-top: -20px;
+    text-align: center;
+}
+
+#menu
+{
+    width:30%;
+    color:white;
+    font-size:25px;
+    height: 100%;
+    padding-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+#menu >a
+{
+    color:white;
+}
+
+#bolsa_compras
+{
+    width: 20%;
+    height: 100%;
+}
+#bolsa_compras:hover{
+    border-color:black;
+}
+#bolsa_compras img
+{
+    height: 60%;
+    margin-top: -10px;
+    text-align: center;
+}
+#pie_menu
+{
+    background-color:black;
+    height: 30px;
+    width: 100%;
+    z-index: -1;
+    top:60px;
+}
+
+#btn_buscar
+{
+ width: 12%;
+ height: 100%;
+}
+#btn_buscar >img
+{
+    height: 60%;
+    margin-top: -10px;
+    text-align: center;
+}
+
+
+#btn_face
+{
+    width: 12%;
+    height: 100%;
+}
+
+#btn_face img
+{
+    height: 60%;
+    margin-top: -10px;
+    text-align: center;
+}
+
+#btn_usuario
+{
+    width: 12%;height: 100%;
+}
+
+#btn_usuario span
+{
+    color:white;
+    font-size:30px;
+    padding-left: 10px;
+}
+#btn_usuario img
+{
+    height: 60%;
+    margin-top: -10px;
+    text-align: center;
+}
+#menu_usuario
+{
+    
+     width:300px;
+     position: absolute;                   
+     text-align: left;
+     background-color:black;
+     padding-left:15px;
+     padding-top:15px;
+     padding-bottom: 20px;
+}
+#menu_usuario>a
+{
+    display: block;
+    color:white;
+    text-decoration: none;
+    font-size:15px;
+    padding-top:5px;
+}
+
+
+
+
+
+#menu_hover
+{
+    width:100%;
+    height: 100%;
+    z-index: 10;
+    position: fixed;
+    top:0;
+    left:0;
+    background-color: black;
+  
+}
+#menu_navegacion
+{
+    width: 100%;
+    height: 100%;
+    z-index: 111;
+    position: fixed;
+    top:0;
+    left:0;    
+    background-color: black;
+}
+
+#img_logo_menu_hover>img
+{
+    width: 60px;
+    margin-top:10px;
+}
+#btn_salir_menu_hover 
+{
+    text-align: right;
+}
+#btn_salir_menu_hover > a
+{
+    text-align: right;
+    color:white;    
+    font-size: 15px;
+    display: inline-block;
+    margin-top:20px;
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: bold;;
+
+}
+.cls_item_menu_hover
+{
+    font-size:20px;
+    color:white;
+    display: inline-block;
+    padding-left:40px;
+    float:left;
+}
+.cls_icon_desplega
+{
+    font-size:20px;
+    color:white;
+    display: inline-block;
+    padding-left:40px;
+    float: right;
+}
+#menu_navegacion >div>.row
+{
+    padding-top:10px;
+    padding-bottom:10px;
+    border-bottom: 1px solid white;;
+}
+.cls_sub_item_menu_hover 
+{
+    color:white;
+    text-decoration: none;
+    font-size:15px;
+    padding-left: 50px;
+    padding-top:15px;
+    padding-bottom: 15px;
+    display: block;
+}
+
+
+
+#buscar_form
+{
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    position: fixed;
+    top:0;
+    left:0;
+    background-color:black;
+}
+#img_logo_buscar_hover>img
+{
+    width: 60px;
+    margin-top:10px;
+}
+
+#btn_salir_buscar_hover 
+{
+    text-align: right;
+}
+#btn_salir_buscar_hover > a
+{
+    text-align: right;
+    color:white;    
+    font-size: 15px;
+    display: inline-block;
+    margin-top:20px;
+    padding:10px;
+    font-weight: bold;
+}
+
+#form_buscar button
+{
+    font-size:15px;
+}
+.cls_encabezado_hover
+{
+    color:white;
+    text-align: center;
+    font-size:25px;
+    margin-top:30px;
+}

@@ -1,0 +1,132 @@
+
+<a [routerLink]="['/home']" class="cls_link_posicion" >Home</a><a class="cls_link_posicion">/</a><a class="cls_link_posicion">Resultado Busqueda</a><a class="cls_link_posicion">/</a><a class="cls_link_posicion">Detalle Productos</a>
+<hr>
+		<div class="container-fluid" id="detalle_producto">
+            <div class="row">
+				
+                <div class="col-xs-12">
+						<h1>
+							{{productos.nom_producto}}
+						</h1>
+				</div>
+				
+				<div class="col-xs-12">					
+					<a id="precio_producto">${{productos.precio | number : "1.2-2"}}</a>
+                </div>
+                
+				<div  class="col-xs-12">					
+						<div  id="galeria_prod">
+                                <div class="cls_galeria_detalle_prod">
+                                    <div id="img_mostrar">
+                                        <img src="{{img}}">
+                                    </div>
+                                    <div id="linea_boton_galeria" style="text-align:center"  >
+                                        <a *ngFor="let img of productos.img_prod" (click)="fn_cambia_img(img.orden)">
+                                            <img class="cls_boton_img_galeria" src="../assets/img/productos/{{img.img_producto}}_{{img.orden}}.png">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+                
+				<div class="col-xs-6">
+                        <select style="border:2px solid black;	font-size:13px;	padding:10px; width: 100%;"   [(ngModel)]="id_talla" name="id_talla" id="id_talla_detalle_producto" [className]="cls_talla" >
+                                <option value="0">Talla</option>
+                                <option *ngFor="let talla of productos.tallas" [value]="talla.id_talla">
+                                    {{talla.talla}}
+                                </option>
+                            </select>
+				</div>
+				<div class="col-xs-6">
+					<button class="btn btn-primary btn-block" id="btn_agregar_a_bolsa" (click)="fn_agregar_bolsa_compras()">
+						Agregar
+					</button>
+                </div>
+                <div class="col-xs-12">
+                    <hr>
+                </div>
+				<div class="col-xs-12">
+					<hr>
+						<div class="row">
+							
+							<div class="col-xs-6">
+								<img src="../../../assets/img/img_envio.png" class="img_envio">
+								<br>
+								<a class="cls_parrafo">
+									Envio gratis en compras mayores a $800.00.
+								</a>
+							</div>
+						
+							<div class="col-xs-6">
+								<img src="../../../assets/img/img_devolucion.png" class="img_devolucion">
+								<br>
+								<a class="cls_parrafo">
+									Envio gratis en compras mayores a $800.00.
+								</a>
+							</div>
+						</div>
+					<hr>
+				</div>
+				
+			</div>
+			<div class="row" id="div_caracteristicas" [ngStyle]="{overflow:val_overflow}" >
+					<div class="col-xs-6">
+							<hr class="hr-color">
+							<a id="titulo_detalle_producto">Caracteristicas</a>						
+							<div class="row" *ngFor="let atr of productos.atributos">
+								<div class="col-xs-4">								
+									<p class="cls_caracteristicas_detalle_prod"><span>{{atr.atributo}}: </span></p>	
+								</div>
+								<div class="col-xs-8">							
+									<p class="cls_caracteristicas_detalle_prod">{{atr.valor_atributo}}</p>	
+								</div>
+							</div>
+							
+						<hr  class="hr-color">
+					</div>
+					
+					<div class="col-xs-6">
+					
+						<hr class="hr-color">
+							<a id="titulo_detalle_producto">Descripcion</a>						
+							<div class="row">
+								<div class="col-xs-12">								
+									<p class="cls_caracteristicas_detalle_prod">
+										{{productos.desc_producto}}
+									</p>	
+								</div>
+								
+							</div>
+						<hr  class="hr-color">
+					</div>
+				
+			</div>
+			<div class="row" id="div_caracteristicas">
+					
+					<div class="col-xs-12">
+						<a id="btn_mostrar_mas" (click)="fn_muestra_mas_detalle()" > Ver mas detalles</a>
+					</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+						<hr>
+				</div>
+			</div>
+		</div>
+
+<div class="cls_error_msj" *ngIf="muestra_error">
+    <p>{{msj_error}}</p>
+</div>
+
+
+<div class="cls_exito_msj" *ngIf="mostrar_msj_exito">
+        <p>{{msj_exito}}</p>
+    </div>
+    
+	<div class="preloader-fondo" *ngIf="cargando">    
+        <div class="preloader">
+
+        </div>
+	</div>
+

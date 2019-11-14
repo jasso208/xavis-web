@@ -1,0 +1,102 @@
+<a [routerLink]="['/home']" class="cls_link_posicion" >Home</a><a class="cls_link_posicion">/</a><a class="cls_link_posicion">Resultado Busqueda</a><a class="cls_link_posicion">/</a><a class="cls_link_posicion">Bolsa de Compras</a>
+<hr>
+<div class="container-fluid" id="bolsa_compras">
+        <div class="row">
+            
+            <div class="col-xs-12">
+                    <h1>
+                        Bolsa de Compras
+                    </h1>
+                    <hr>
+            </div>
+            <div class="col-xs-12">
+                <div *ngFor="let prod of productos">
+                <div class="row" >                    
+                        <div class="col-xs-4">
+                                <img src="../../assets/img/productos/{{prod.nom_img}}_1.png" class="cls_img_carrito">
+                        </div>
+                        <div class="col-xs-8">
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                                <a [routerLink]="['/detalle_producto',prod.id_producto]">
+                                                    <strong>{{prod.nombre}}</strong>    
+                                                </a>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <p><span>Marca: </span>{{prod.marca}}</p>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <p>Talla: {{prod.talla}}</p>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <p><span>Cant: </span>{{prod.cantidad}}</p>
+                                        </div>
+                                            
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="row">
+                                        <div class="col-xs-12">                                            
+                                            <a (click)="eliminaProductoCarrito(prod.id)">Eliminar</a>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <p>{{prod.precio | number:'1.2-2'}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                </div>
+                <hr>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <p id="label_total_pagar">Costo Envio: </p>
+                        
+                    </div>
+                    <div class="col-xs-4">
+                        <p id="label_precio">{{costo_envio | number:'1.2-2'}}</p>
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-8">
+                        <p id="label_total_pagar">Total a Pagar: </p>
+                        
+                    </div>
+                    <div class="col-xs-4">
+                        <p id="label_precio">{{total_pagar | number:'1.2-2'}}</p>                        
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                            <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button class="btn btn-primary btn-block" [routerLink]="['/informacion_envio']">Terminar Compra</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div class="cls_error_msj" *ngIf="muestra_error">
+        <p>{{msj_error}}</p>
+    </div>
+    
+    
+    <div class="cls_exito_msj" *ngIf="mostrar_msj_exito">
+            <p>{{msj_exito}}</p>
+        </div>
+<div class="preloader-fondo" *ngIf="cargando">    
+<div class="preloader">
+
+</div>
+</div>
