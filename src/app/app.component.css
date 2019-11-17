@@ -124,11 +124,6 @@
     font-size:15px;
     padding-top:5px;
 }
-
-
-
-
-
 #menu_hover
 {
     width:100%;
@@ -219,6 +214,9 @@
     left:0;
     background-color:black;
 }
+
+
+
 #img_logo_buscar_hover>img
 {
     width: 60px;

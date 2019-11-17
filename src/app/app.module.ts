@@ -14,6 +14,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { FormaPagoComponent } from './forma-pago/forma-pago.component';
 import { DePasoComponent } from './de-paso/de-paso.component';
+import { ConsultaVentasInvitadoComponent } from './consulta-ventas-invitado/consulta-ventas-invitado.component';
 const rutas: Routes = [
 
 	{ path: '', redirectTo: '/home',pathMatch:'full'},
@@ -23,8 +24,9 @@ const rutas: Routes = [
   { path: 'bolsa_compra', component: CarritoComprasComponent },  
 	{ path: 'informacion_envio', component: InformacionEnvioComponent },
   { path: 'forma_pago', component: FormaPagoComponent },
-  
+  { path: 'consulta_ventas_invitado', component: ConsultaVentasInvitadoComponent },
 
+  
   
 	{ path: 'de_passo/:param_1/:param_2', component: DePasoComponent },
 ];
@@ -38,7 +40,8 @@ const rutas: Routes = [
     CarritoComprasComponent,
     InformacionEnvioComponent,
     FormaPagoComponent,
-    DePasoComponent
+    DePasoComponent,
+    ConsultaVentasInvitadoComponent
   ],
   imports: [
     BrowserModule,   

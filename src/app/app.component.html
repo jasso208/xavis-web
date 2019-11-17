@@ -4,16 +4,15 @@
   </div>
   
   <div id="menu" >                     
-          <a id="btn_categorias" (click)="fn_muestra_menu_navegacion()">Menu ˅ </a>      
+          <a id="btn_categorias" (click)="fn_muestra_menu_navegacion()">Categorias</a>      
   </div>
   <div id="btn_usuario">
       <a (click)="fn_muestra_menu_cliente()">
-          <img  *ngIf="muestra_icono_usuario" src="../assets/img/btn_usuario.png">
-          <span *ngIf="!muestra_icono_usuario">X</span>
+          <img src="../assets/img/btn_usuario.png">      
       </a>
       
       <div id="menu_usuario" *ngIf="mostrar_menu">
-          <a >Sigue tu pedido</a>
+          <a [routerLink]="['consulta_ventas_invitado']" (click)="fn_oculta_menu()" >Sigue tu pedido</a>
           <!--
               <a>Iniciar Session</a>
           <a >Panel Control</a>                        
@@ -155,3 +154,7 @@
 </div>
 
 <!--buscar-->
+
+
+<!--Buscar-->
+

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CuentaProdBolsaService } from './servicios/cuenta-prod-bolsa.service';
 import {SessionService} from './servicios/session.service';
 import { Router }          from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,10 +12,10 @@ export class AppComponent {
   title = 'JassDel.com';
   public mostrar_menu:boolean;
   public mostrar_menu_navegacion:boolean;
-  public muestra_icono_usuario:boolean;
   public mostrar_form_buscar:boolean;
   public txt_buscar:string;
   public cont_prod:string;
+
   constructor(private cont_prod_carrito:CuentaProdBolsaService,private session:SessionService, private router: Router)
   {
     
@@ -41,7 +42,10 @@ export class AppComponent {
 					}
 				) ;
   }
-
+  public fn_oculta_menu()
+  {
+    this.mostrar_menu=false;
+  }
   public fn_go_carrito_compras()
   {
     this.router.navigate(["/bolsa_compra"]);
@@ -54,27 +58,25 @@ export class AppComponent {
   {
     this.mostrar_menu=false;
     this.mostrar_menu_navegacion=false;
-    this.muestra_icono_usuario=true;
     this.mostrar_form_buscar=false;
+
     this.txt_buscar="";
   }
+
+
   public fn_muestra_menu_cliente()
   {
-    
     this.mostrar_menu=!this.mostrar_menu;
-    this.muestra_icono_usuario=!this.muestra_icono_usuario;
   }
   public fn_muestra_menu_navegacion()
   {
     
     this.mostrar_menu=false;
-    this.muestra_icono_usuario=true;
     this.mostrar_menu_navegacion=!this.mostrar_menu_navegacion;    
   }
   public fn_muestra_form_busqueda()
   {    
     this.mostrar_menu=false;    
-    this.muestra_icono_usuario=true;
     this.mostrar_form_buscar=!this.mostrar_form_buscar;
   }
 
