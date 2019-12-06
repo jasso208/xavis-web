@@ -5,8 +5,10 @@ import { GuardaVentaService } from '../servicios/guarda-venta.service';
 import { Router } from '@angular/router';
 import { IPayPalConfig,ICreateOrderRequest } from 'ngx-paypal';
 import { CarritoComprasService } from '../servicios/carrito-compras.service';
+import {FormsModule} from '@angular/forms'
 declare let paypal:any;
 
+import { environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-forma-pago',
@@ -34,41 +36,16 @@ export class FormaPagoComponent implements OnInit {
     public total_pagar:number;
     public productos:any;
     public costo_envio:number;
-    paypalLoad: boolean = true;
-    addScript: boolean = false; 
-    finalAmount: number = 1;
+
    public cargando:boolean;
-    paypalConfig = {
-      env: 'sandbox',
-      client: {
-        sandbox: 'AVmPl8bP0hjmhtBoFRLzB95lAuPqrAqW51MrEYmPqMJfzgdPdeF32jh_2MDeRFBLzhwsMyFwJI-3HBLt',
-        production: '<your-production-key here>'
-      },
-      commit: true,
-      payment: (data, actions) => {
-        return actions.payment.create({
-          payment: {
-            transactions: [
-              { amount: { total: this.total_pagar, currency: 'MXN' } }
-            ]
-          }
-        });
-      },
-      onAuthorize: (data, actions) => {
-        return actions.payment.execute().then((payment) => {
-          this.fn_guarda_venta();
-        })
-      },
-      onError:()=>
-      {
-        this.muestra_tiket=false;
-        this.muestra_error=true;
-        this.msj_error="Error al hacer su pago en el servidor de Paypal";
-        setInterval(()=>{this.muestra_error=false;clearInterval()},4000);
-      }
-    };
+
+public amount:number;
   constructor(private car_service:CarritoComprasService,private r: Router,private gvs:GuardaVentaService,private det:DireccionEnvioTemporalService) { }
+
 	ngOnInit() {	
+   this.total_pagar=0.00; 
+   this.amount=0.00;
+        window.scrollTo(0,0);
       this.cargando=true;
        this.fn_consulta_total_costo();
         this.muestra_tiket=false;
@@ -76,9 +53,10 @@ export class FormaPagoComponent implements OnInit {
         this.msj_error="";
         this.folio_compra="0";
         
-				//this.initConfig();        
+        //this.initConfig();    
+  
   }
-
+  
   fn_consulta_total_costo()
   {
     this.total_pagar=0.00;
@@ -103,29 +81,13 @@ export class FormaPagoComponent implements OnInit {
           {
             this.costo_envio=0;
           }
+          this.amount= this.total_pagar;
+          console.log("entro");
           this.cargando=false;
       }
       );
   }
-  ngAfterViewChecked(): void {
-    if (!this.addScript) {
-      this.addPaypalScript().then(() => {
-        paypal.Button.render(this.paypalConfig, '#paypal-checkout-btn');
-        this.paypalLoad = false;
-      })
-    }
-  }
-  
-  addPaypalScript() {
-    this.addScript = true;
-    return new Promise((resolve, reject) => {
-      let scripttagElement = document.createElement('script');    
-      scripttagElement.src = 'https://www.paypalobjects.com/api/checkout.js';
-      scripttagElement.onload = resolve;
-      document.body.appendChild(scripttagElement);
-    })
-  }
- 
+
 
   fn_guarda_venta()
   {
@@ -154,145 +116,86 @@ export class FormaPagoComponent implements OnInit {
 	  );
   }
 
-  private loadExternalScript(scriptUrl: string) {
-    return new Promise((resolve, reject) => {
-      const scriptElement = document.createElement('script')
-      scriptElement.src = scriptUrl
-      scriptElement.onload = resolve
-      document.body.appendChild(scriptElement)
-  });
+
+  /*
+  private initConfig(): void {
+    this.payPalConfig = {
+    currency: 'MXN',
+    clientId: 'AVmPl8bP0hjmhtBoFRLzB95lAuPqrAqW51MrEYmPqMJfzgdPdeF32jh_2MDeRFBLzhwsMyFwJI-3HBLt',    
+    createOrderOnClient: (data) => <ICreateOrderRequest>{
+      
+      payer: {
+        payment_method: 'paypal'
+      },
+
+      input_fields: {
+        no_shipping: '1',
+        address_override:'1'
+      },
+
+      intent: 'CAPTURE',
+      purchase_units: [
+        {
+          amount: {
+            currency_code: 'MXN',
+            value: '9.99',
+            breakdown: {
+              item_total: {
+                currency_code: 'MXN',
+                value: '9.99'
+              }
+            }
+          },
+          items: [
+            {
+              name: 'Enterprise Subscription',
+              quantity: '1',
+              category: 'DIGITAL_GOODS',
+              unit_amount: {
+                currency_code: 'MXN',
+                value: '9.99',
+              },
+            }
+          ]
+        }
+      ]
+    }
+    ,
+
+    advanced: {
+      commit: 'true'
+    },
+    style: {
+      color:  'blue',
+      shape:  'pill',
+      label:  'pay'
+    }
+    ,
+
+    onApprove: (data, actions) => {
+      console.log('onApprove - transaction was approved, but not authorized', data, actions);
+      actions.order.get().then(details => {
+        console.log('onApprove - you can get full order details inside onApprove: ', details);
+      });
+    },
+    onClientAuthorization: (data) => {
+      console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+      this.showSuccess = true;
+    },
+    onCancel: (data, actions) => {
+      console.log('OnCancel', data, actions);
+    },
+    onError: err => {
+      console.log('OnError', err);
+    },
+    onClick: (data, actions) => {
+      console.log('onClick', data, actions);
+    },
   }
-  
-private initConfig(): void {
-      this.payPalConfig = {
-      currency: 'MXN',
-      clientId: 'AVmPl8bP0hjmhtBoFRLzB95lAuPqrAqW51MrEYmPqMJfzgdPdeF32jh_2MDeRFBLzhwsMyFwJI-3HBLt',
-      createOrderOnClient: (data) => <ICreateOrderRequest>{
-        intent: 'CAPTURE',
-        purchase_units: [
-          {
-            amount: {
-              currency_code: 'MXN',
-              value: String(this.total),
-              breakdown: {
-                item_total: {
-                  currency_code: 'MXN',
-                  value: String(this.total)
-                }
-              }
-            }/*,
-            items: [
-              {
-                name: 'Enterprise Subscription',
-                quantity: '1',
-                category: 'DIGITAL_GOODS',
-                unit_amount: {
-                  currency_code: 'MXN',
-                  value: '9.99',
-                },
-              }
-            ]*/
-          }
-        ]
-      },
-      advanced: {
-        commit: 'true'
-      },
-      style: {
-        label: 'paypal',
-        layout: 'vertical'
-      },
-      onApprove: (data, actions) => {
-        console.log('onApprove - transaction was approved, but not authorized', data, actions);
-        actions.order.get().then(details => {
-          console.log('onApprove - you can get full order details inside onApprove: ', details);
-		      this.fn_guarda_venta();
-        });
-      },
-      onClientAuthorization: (data) => {
-        console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
-        this.showSuccess = true;
-      },
-      onCancel: (data, actions) => {
-        console.log('OnCancel', data, actions);
-      },
-      onError: err => {
-        this.muestra_tiket=false;
-        this.muestra_error=true;
-        this.msj_error="Error al hacer su pago en el servidor de Paypal";
-        setInterval(()=>{this.muestra_error=false;clearInterval()},4000);
-      },
-      onClick: () => {
-        console.log('onClick');
-      },
-    };
-    }
-  private initConfig2(): void {
-        this.payPalConfig = {
-            currency: 'MXN',
-            clientId: 'AVmPl8bP0hjmhtBoFRLzB95lAuPqrAqW51MrEYmPqMJfzgdPdeF32jh_2MDeRFBLzhwsMyFwJI-3HBLt',
-            createOrderOnClient: (data) => < ICreateOrderRequest > {
-                intent: 'CAPTURE',
-                purchase_units: [{
-                    amount: {
-                        currency_code: 'MXN',
-                        value: String(this.total),
-                        breakdown: {
-                            item_total: {
-                                currency_code: 'MXN',
-                                value: String(this.subtotal)
-                            }
-                        }
-                    }/*,
-                    items: [{
-                        name: 'Un Producto',
-                        quantity: '1',
-                        category: 'DIGITAL_GOODS',
-                        unit_amount: {
-                            currency_code: 'MXN',
-                            value: this.subtotal,
-                        },
-                    }]*/
-                }]
-            },
-            advanced: {
-                commit: 'true'
-            },
-            style: {
-                label: 'paypal',
-                layout: 'vertical'
-            },
-            onApprove: (data, actions) => {
-                console.log('onApprove - transaction was approved, but not authorized', data, actions);
-                actions.order.get().then(details => {
-                    console.log('onApprove - you can get full order details inside onApprove: ', details);
-					this.fn_guarda_venta();
-                });
-
-            },
-            onClientAuthorization: (data) => {
-                console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
-                this.showSuccess = true;
-            },
-            onCancel: (data, actions) => {
-                console.log('OnCancel', data, actions);
-                this.showCancel = true;
-
-            },
-            onError: err => {
-                console.log('OnError', err);
-                this.showError2 = true;
-            },
-            onClick: () => {
-                console.log('onClick');
-                this.showSuccess = false;
-				 this.showCancel = false;
-				  this.showError2 = false;
-            },
-        };
-    }
-	
-	
+ 
+  ;
+  }
+*/
 
   fn_regresar()
   {    

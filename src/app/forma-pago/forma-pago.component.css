@@ -17,6 +17,9 @@
     left: 10%;
     width: 80%;
     z-index: 101;
+    padding-left: 20px;
+    padding-right: 20px;
+    
 }
 
 #ticket h1
@@ -38,4 +41,17 @@
 .btn-primary
 {
     font-size:20px;
+}
+
+#div_cargando
+{
+    display: none;
+}
+#div_error
+{
+    display: none;
+}
+.cls_muestra_tiket
+{
+    display: none;
 }

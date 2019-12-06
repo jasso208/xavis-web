@@ -1,0 +1,64 @@
+<div class="container">
+		<div class="row">
+                <div class="col-xs-12" class="cls_container_posicion">
+				<a [routerLink]="['/home']" class="cls_link_posicion" >Home</a><a class="cls_link_posicion">/</a><a class="cls_link_posicion">Resultado Busqueda</a><a class="cls_link_posicion">/</a><a class="cls_link_posicion">Consulta Compras</a>
+			</div>
+		</div>
+</div>
+<hr>
+<div class="container">
+    <div class="row">
+        <div clasS="col-xs-12">
+                <h1>
+                    Mis Ventas
+                </h1>
+        </div>
+    </div>
+</div>
+<div class="container " id="form_buscar" >
+        <div class="row">
+                <br>
+            </div>
+        <div class="row">
+            <div class="col-xs-6">
+                Ingresa que te eviamos a tu Correo Electronico.
+            </div>
+            <div class="col-xs-6 text-right" >
+                <a [routerLink]="['/consulta_ventas']">
+                    < Generar Token
+                </a>
+            </div>
+        </div>
+        <div class="row">
+                <br><br>
+            </div>
+        <div class="row">                               
+            <div class="col-xs-12">
+                    <input type="text" class="form-control"  [(ngModel)]="txt_token">    
+                    <div class="row">
+                            <div
+                                class="col-xs-12 error"
+                                *ngIf="muestra_error_token">
+                                    <a>{{msj_error}}</a>
+                            </div>
+                    </div>                                    
+            </div>                                    
+        </div>
+        <div class="row">
+            <br><br>
+        </div>
+        <div class="row">
+                <div class="col-xs-12 text-center">
+                       <button class="btn btn-primary" (click)="fn_valida_token()" >Consulta tus ventas</button>                                   
+                </div>    
+        </div>
+</div>
+<div class="cls_error_msj" *ngIf="muestra_error">
+        <p>{{msj_error}}</p>
+    </div>
+        
+    <div class="preloader-fondo" *ngIf="cargando">    
+            <div class="preloader">
+    
+            </div>
+        </div>

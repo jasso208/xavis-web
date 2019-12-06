@@ -1,198 +1,380 @@
-<div class="container">
+<hr>
+<div class="container-fluid">
         <div class="row">
-                <form  [formGroup]="cliente" class="form-horizontal" >
-                <div class="col-xs-12">
-                    <div>
-                        <h1  class="page-header">Informacion de Envio</h1>
-                    </div>
+            <div class="col-xs-12">
+                    <h1>
+                        Confirma Informacion de tu compra
+                    </h1>
+            </div>
+            <div class="col-xs-12">
+                <hr>
+            </div>
+            <div class="col-xs-12 col-sm-6"> 
                 
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-4">
-                            <label>Nombre (s).</label>
-                            <input id="nombre" [className]="cls_nombre"  formControlName="nombre" name="nombre">
-        
+                      <div class="container-fluid" id="bolsa_compras_pc" >
                             <div class="row">
-                                <div
-                                class="col-xs-12 error"
-                                  *ngIf="show_error_nombre">
-                                  <a>Nombre requerido</a>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="col-xs-12 col-sm-4">
-                            <label>Apellido Paterno</label>
-                            <input id="apellido_p" [className]="cls_apellido_p"  type="text" formControlName="apellido_p" name="apellido_p">
-        
-                            <div class="row">
-                                <div
-                                        class="col-xs-12 error"
-                                      *ngIf="show_error_apellido_p">
-                                      <a>El apellido paterno es requerido</a>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="col-xs-12 col-sm-4">
-                            <label>Apellido Materno</label>
-                            <input id="apellido_m" class="form-control"  type="text" formControlName="apellido_m" name="apellido_m">
-                        </div>
-        
-        
-        
-        
-                        <div class="col-xs-12 col-sm-4">
-                            <label>Telefono</label>
-                            <input  [className]="cls_telefono" type="text"  formControlName="telefono" name="telefono">
-                            <div class="row">
-                                <div
-                                    class="col-xs-12 error"
-                                  *ngIf="show_error_telefono">
-                                  <a>El telefono es requerido</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <label>RFC</label>
-                            <input class="form-control" type="text"  formControlName="rfc" name="rfc">
-                            <div class="row">
+                                
                                 <div class="col-xs-12">
-                                          <a>Obligatorio en caso de requrir factura</a>
-                              </div>
-                            </div>
-                        </div>
-        
-        
-                    </div>
-                </div>
-        
-        
-                <div class="col-xs-12">
-                    <div class="row">
-                        <div class="col-xs-12">
-                                <h1 class="page-header">Direccion de Envio</h1>
-                        </div>
-                    </div>
-                    <div class="row">
-        
-                    <div class="col-xs-12 ">
-                        <label>Calle</label>
-                        <input id="calle" [className]="cls_calle" type="text" formControlName="calle" name="calle">
-        
-                            <div class="row">
-                            <div
-                                class="col-xs-12 error"
-                              *ngIf="show_error_calle">
-                              <a>La calle es requerida</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-6">
-                        <label>Numero Exterior</label>
-                        <input type="text" name="numero_exterior" [className]="cls_no_ext" formControlName="numero_exterior">
-                        <div class="row">
-                            <div
-                                class="col-xs-12 error"
-                                  *ngIf="show_error_no_ext">
-                                  <a>El numero es requerido</a>
+                                        <h1>
+                                            Bolsa de Compras
+                                        </h1>
+                                        <hr>
                                 </div>
-                        </div>
-                    </div>
-        
-                    <div class="col-xs-6">
-                        <label>Numero Interior</label>
-                        <input type="text" name="numero_interior" class="form-control" formControlName="numero_interior">
-        
-        
-                    </div>
-        
-                    <div class="col-xs-6">
-                        <label>C.P.</label>
-                        <input id="codigo_postal" [className]="cls_cp" type="text" formControlName="cp" name="cp">
-                        <div class="row">
-                            <div
-                                class="col-xs-12 error"
-                                  *ngIf="show_error_cp">
-                                  <a>El codigo postal es requerido</a>
+                                <div class="col-xs-12">
+                                    <div *ngFor="let prod of productos">
+                                    <div class="row" >                    
+                                            <div class="col-xs-4">
+                                                    <img src="../../assets/img/productos/{{prod.nom_img}}_1.png" class="cls_img_carrito">
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <div class="row">
+                                                    <div class="col-xs-8">
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                    <a [routerLink]="['/detalle_producto',prod.id_producto]">
+                                                                        <strong>{{prod.nombre}}</strong>    
+                                                                    </a>
+                                                            </div>
+                                                            <div class="col-xs-12">
+                                                                <p><span>Marca: </span>{{prod.marca}}</p>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <p>Talla: {{prod.talla}}</p>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <p><span>Cant: </span>{{prod.cantidad}}</p>
+                                                            </div>
+                                                                
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="row">
+                                                           
+                                                            <div class="col-xs-12">
+                                                                <p>{{prod.precio | number:'1.2-2'}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                    </div>
+                                    <hr>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-8">
+                                            <p id="label_total_pagar">Costo Envio: </p>
+                                            
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <p id="label_precio">{{costo_envio | number:'1.2-2'}}</p>
+                                            
+                                        </div>
+                                    </div>
+                    
+                                    <div class="row">
+                                        <div class="col-xs-8">
+                                            <p id="label_total_pagar">Total a Pagar: </p>
+                                            
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <p id="label_precio">{{total_pagar | number:'1.2-2'}}</p>                        
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                                <hr>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                            <div class="col-xs-12">
+                                                    <hr>
+                                            </div>
+                                        </div>
+                                </div>
                             </div>
-                        </div>
                     </div>
-                    <div class="col-xs-6">
-                        <label>Municipio</label>
-                        <input type="text" [className]="cls_mun" formControlName="municipio" name="municipio">
-        
-                        <div class="row">
-                            <div
-                                class="col-xs-12 error"
-                              *ngIf="show_error_mun">
-                              <a>El municipio es requerido</a>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                    <div class="row">
+                            <form  [formGroup]="cliente" class="form-horizontal" >
+                            <div class="col-xs-12">
+                                    <div class="col-xs-12">
+                                            <h1>
+                                                ¿Quien Recibe?
+                                            </h1>
+                                            <hr>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-4">
+                                        <label>Nombre (s).</label>
+                                        <input id="nombre" [className]="cls_nombre"  formControlName="nombre" name="nombre">
+                    
+                                        <div class="row">
+                                            <div
+                                            class="col-xs-12 error"
+                                              *ngIf="show_error_nombre">
+                                              <a>Nombre requerido</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="col-xs-12 col-sm-4">
+                                        <label>Apellido Paterno</label>
+                                        <input id="apellido_p" [className]="cls_apellido_p"  type="text" formControlName="apellido_p" name="apellido_p">
+                    
+                                        <div class="row">
+                                            <div
+                                                    class="col-xs-12 error"
+                                                  *ngIf="show_error_apellido_p">
+                                                  <a>El apellido paterno es requerido</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <label>Apellido Materno</label>
+                                        <input id="apellido_m" class="form-control"  type="text" formControlName="apellido_m" name="apellido_m">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <label>Telefono</label>
+                                        <input  [className]="cls_telefono" type="text"  formControlName="telefono" name="telefono">
+                                        <div class="row">
+                                            <div
+                                                class="col-xs-12 error"
+                                              *ngIf="show_error_telefono">
+                                              <a>El telefono es requerido</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-        
-                    <div class="col-xs-6">
-                        <label>Estado</label>
-                        <input type="text" [className]="cls_est" formControlName="estado" name="estado">
-        
-                        <div class="row">
-                            <div
-                                class="col-xs-12 error"
-                              *ngIf="show_error_est">
-                              <a>El estado es requerido</a>
+                            <div class="col-xs-12">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                            <h1 class="page-header">Direccion de Envio</h1>
+                                    </div>
+                                </div>
+                                <div class="row">
+                    
+                                <div class="col-xs-12 ">
+                                    <label>Calle</label>
+                                    <input id="calle" [className]="cls_calle" type="text" formControlName="calle" name="calle">
+                    
+                                        <div class="row">
+                                        <div
+                                            class="col-xs-12 error"
+                                          *ngIf="show_error_calle">
+                                          <a>La calle es requerida</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <label>Numero Exterior</label>
+                                    <input type="text" name="numero_exterior" [className]="cls_no_ext" formControlName="numero_exterior">
+                                    <div class="row">
+                                        <div
+                                            class="col-xs-12 error"
+                                              *ngIf="show_error_no_ext">
+                                              <a>El numero es requerido</a>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <label>Numero Interior</label>
+                                    <input type="text" name="numero_interior" class="form-control" formControlName="numero_interior">
+                                </div>
+                                <div class="col-xs-6">
+                                    <label>C.P.</label>
+                                    <input id="codigo_postal" [className]="cls_cp" type="text" formControlName="cp" name="cp">
+                                    <div class="row">
+                                        <div
+                                            class="col-xs-12 error"
+                                              *ngIf="show_error_cp">
+                                              <a>El codigo postal es requerido</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                        <label>Colonia</label>
+                                        <input id="colonia" [className]="cls_colonia" type="text" formControlName="colonia" name="colonia">
+                                        <div class="row">
+                                            <div
+                                                class="col-xs-12 error"
+                                                  *ngIf="show_error_colonia">
+                                                  <a>La colonia es requerida</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <div class="col-xs-6">
+                                    <label>Municipio</label>
+                                    <input type="text" [className]="cls_mun" formControlName="municipio" name="municipio">
+                    
+                                    <div class="row">
+                                        <div
+                                            class="col-xs-12 error"
+                                          *ngIf="show_error_mun">
+                                          <a>El municipio es requerido</a>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-xs-6">
+                                    <label>Estado</label>
+                                    <input type="text" [className]="cls_est" formControlName="estado" name="estado">
+                    
+                                    <div class="row">
+                                        <div
+                                            class="col-xs-12 error"
+                                          *ngIf="show_error_est">
+                                          <a>El estado es requerido</a>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-xs-6">
+                                    <label>Pais</label>
+                                    <input type="text" [className]="cls_pais" formControlName="pais" name="pais">
+                    
+                                    <div class="row">
+                                        <div
+                                            class="col-xs-12 error"
+                                          *ngIf="show_error_pais">
+                                          <a>El pais es requerido</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12">
+                                    <label>E-Mail</label>
+                                    <input [className]="cls_email" type="email" formControlName="e_mail" name="e_mail" disallow-spaces>
+                                    <div class="row">
+                                        <div
+                                            class="col-xs-12 error"
+                                          *ngIf="show_error_email">
+                                          <a>El e-Mail es requerido</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <label>Referencias de Domicilio</label>
+                                    <input type="text" [className]="cls_referencia" formControlName="referencia" name="referencia">
+                                    <div class="row">
+                                        <div
+                                            class="col-xs-12 error"
+                                          *ngIf="show_error_referencia">
+                                          <a>Debe indicar las referencias de la direccion</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <hr>
+                                </div>
+                                <div class="col-xs-12 col-sm-6"> 
+                                        <button type="button" class="btn btn-outline-info btn-block" (click)="fn_muestra_prod_bolsa()">{{msj_btn_mostrar}}</button>
+                                        <div class="container-fluid" id="bolsa_compras_movil" *ngIf="muestra_prod_carrito">
+                                                <div class="row">
+                                                    
+                                                    <div class="col-xs-12">
+                                                            <h1>
+                                                                Bolsa de Compras
+                                                            </h1>
+                                                            <hr>
+                                                    </div>
+                                                    <div class="col-xs-12">
+                                                        <div *ngFor="let prod of productos">
+                                                        <div class="row" >                    
+                                                                <div class="col-xs-4">
+                                                                        <img src="../../assets/img/productos/{{prod.nom_img}}_1.png" class="cls_img_carrito">
+                                                                </div>
+                                                                <div class="col-xs-8">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-8">
+                                                                            <div class="row">
+                                                                                <div class="col-xs-12">
+                                                                                        <a [routerLink]="['/detalle_producto',prod.id_producto]">
+                                                                                            <strong>{{prod.nombre}}</strong>    
+                                                                                        </a>
+                                                                                </div>
+                                                                                <div class="col-xs-12">
+                                                                                    <p><span>Marca: </span>{{prod.marca}}</p>
+                                                                                </div>
+                                                                                <div class="col-xs-6">
+                                                                                    <p>Talla: {{prod.talla}}</p>
+                                                                                </div>
+                                                                                <div class="col-xs-6">
+                                                                                    <p><span>Cant: </span>{{prod.cantidad}}</p>
+                                                                                </div>
+                                                                                    
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-xs-4">
+                                                                            <div class="row">
+                                                                               
+                                                                                <div class="col-xs-12">
+                                                                                    <p>{{prod.precio | number:'1.2-2'}}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                        </div>
+                                                        <hr>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-8">
+                                                                <p id="label_total_pagar">Costo Envio: </p>
+                                                                
+                                                            </div>
+                                                            <div class="col-xs-4">
+                                                                <p id="label_precio">{{costo_envio | number:'1.2-2'}}</p>
+                                                                
+                                                            </div>
+                                                        </div>
+                                        
+                                                        <div class="row">
+                                                            <div class="col-xs-8">
+                                                                <p id="label_total_pagar">Total a Pagar: </p>
+                                                                
+                                                            </div>
+                                                            <div class="col-xs-4">
+                                                                <p id="label_precio">{{total_pagar | number:'1.2-2'}}</p>                        
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                    <hr>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                                <div class="col-xs-12">
+                                                                        <hr>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+
+                                <div class="col-xs-12" style="text-align:center;">
+                                    <button class="btn btn-primary btn-block"  style="margin:0 auto;margin-top:30px" (click)="insertaDireccionEnvio()" >
+                                           Pagar
+                                    </button>
+                                </div>
+                                <div class="col-xs-12">
+                                    <hr>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-        
-                    <div class="col-xs-6">
-                        <label>Pais</label>
-                        <input type="text" [className]="cls_pais" formControlName="pais" name="pais">
-        
-                        <div class="row">
-                            <div
-                                class="col-xs-12 error"
-                              *ngIf="show_error_pais">
-                              <a>El pais es requerido</a>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <label>E-Mail</label>
-                        <input [className]="cls_email" type="email" formControlName="e_mail" name="e_mail" >
-        
-                        <div class="row">
-                            <div
-                                class="col-xs-12 error"
-                              *ngIf="show_error_email">
-                              <a>El e-Mail es requerido</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <label>Referencias de Domicilio</label>
-                        <input type="text" [className]="cls_referencia" formControlName="referencia" name="referencia">
-        
-                        <div class="row">
-                            <div
-                                class="col-xs-12 error"
-                              *ngIf="show_error_referencia">
-                              <a>Debe indicar las referencias de la direccion</a>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <div class="col-xs-12" style="text-align:center;">
-                        <button class="btn btn-primary btn-block"  style="margin:0 auto;margin-top:30px" (click)="insertaDireccionEnvio()" >
-                                Confirma tu pedido
-                        </button>
-                    </div>
-                    <div class="col-xs-12">
-                        <hr>
-                    </div>
+                    </form>
                 </div>
-                </div>
-        </form>
-    </div>
-        
+            </div>
+        </div>
 </div>
 
 <div class="cls_error_msj" *ngIf="muestra_error">

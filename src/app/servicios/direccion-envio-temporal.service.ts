@@ -42,6 +42,7 @@ export class DireccionEnvioTemporalService {
 	  urlSearchParams.append("estado",cliente_temporal.value.estado);
 	  urlSearchParams.append("pais",cliente_temporal.value.pais);
 	  urlSearchParams.append("referencia",cliente_temporal.value.referencia);
+	  urlSearchParams.append("colonia",cliente_temporal.value.colonia);
 	  return this.http.post(environment.api_url+'direccion_envio_temporal/',
 			urlSearchParams
 		)

@@ -26,6 +26,7 @@ export class ConsultaVentasInvitadoComponent implements OnInit {
   constructor(private rps: EnviaTokenService,private cvi:ConsultaVentasInvitadoService) { }
 
   ngOnInit() {
+    window.scrollTo(0,0);
    this.fn_reinicia_form(); 
    this.muestra_form=true;
    this.muestra_detalle_ventas=false;
@@ -85,7 +86,7 @@ export class ConsultaVentasInvitadoComponent implements OnInit {
         this.muestra_error_e_mail=true;
         setInterval(()=>{this.fn_oculta_error();},4000);
       }
-  
+      
       if (ok==1)
       {
         return 0;

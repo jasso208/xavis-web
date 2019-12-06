@@ -1,21 +1,4 @@
-#promocion_primera_compra
-{
-    width: 100%;
-   
-   border:1px solid black;
-   padding-top:10px;
-   padding-bottom: 10px;
 
-}
-#promocion_primera_compra p
-{
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    font-family: 'Bebas Neue', cursive;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
 #img_publicidad_buenfin
 {
     width: 100%;

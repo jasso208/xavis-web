@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DireccionEnvioTemporalService} from '../servicios/direccion-envio-temporal.service';
 import { Router } from '@angular/router';
-
+import { CarritoComprasService } from '../servicios/carrito-compras.service';
 import { FormControl, FormGroup,Validators ,ReactiveFormsModule   } from '@angular/forms';
 @Component({
   selector: 'app-informacion-envio',
@@ -17,6 +17,7 @@ export class InformacionEnvioComponent implements OnInit {
 	public telefono:string="";
 	public calle:string="";
 	public cp:string="";
+	public colonia:string="";
 	public municipio:string="";
 	public estado:string="";
 	public pais:string="";
@@ -24,9 +25,9 @@ export class InformacionEnvioComponent implements OnInit {
 	public referencia:string="";
 	public numero_interior:string="";
 	public numero_exterior:string="";
+	public muestra_prod_carrito:boolean;
   public rfc:string="";
   cliente:FormGroup;
-
   public show_error_nombre:boolean;
 	public cls_nombre:string;
 	public show_error_apellido_p:boolean;
@@ -49,6 +50,10 @@ export class InformacionEnvioComponent implements OnInit {
 	public cls_email:string;
 	public show_error_referencia:boolean;
 	public cls_referencia:string;
+
+	public cls_colonia:string;
+	public show_error_colonia:boolean;
+
 	public show_error_reinicia_direccion:boolean;
 	public msj_reinicia:string;
 	public mostrar_confirma_salir:boolean;
@@ -56,9 +61,18 @@ export class InformacionEnvioComponent implements OnInit {
 	public mostrar_msj_exito:boolean;
 	public msj_error:string;
 	public msj_exito:string;
-  constructor(private det:DireccionEnvioTemporalService,private router:Router) { }
+	public costo_envio:number;
+	public total_pagar:number;
+	public productos:any;
+	public msj_btn_mostrar:string;
+  constructor(private det:DireccionEnvioTemporalService,private router:Router,private car_service:CarritoComprasService) { }
 
   ngOnInit() {
+	window.scrollTo(0,0);
+	this.costo_envio=0.00;
+	this.total_pagar=0.00;
+	this.muestra_prod_carrito=false;
+	this.msj_btn_mostrar="Muestra productos en la Bolsa";
     this.cliente=new FormGroup({
 			nombre:new FormControl(this.nombre,[Validators.required]),
 			apellido_p:new FormControl(this.apellido_p,[Validators.required]),
@@ -66,6 +80,7 @@ export class InformacionEnvioComponent implements OnInit {
 			telefono:new FormControl(this.telefono,[Validators.required]),
 			calle:new FormControl(this.calle,[Validators.required]),
 			cp:new FormControl(this.cp,[Validators.required]),
+			colonia:new FormControl(this.colonia,[Validators.required]),
 			municipio:new FormControl(this.municipio,[Validators.required]),
 			estado:new FormControl(this.estado,[Validators.required]),
 			pais:new FormControl(this.pais,[Validators.required]),
@@ -78,6 +93,46 @@ export class InformacionEnvioComponent implements OnInit {
 			this.cargando=true;
 			this.fn_reinicia_styles();
 			this.fn_obtiene_direccion_envio_temporal();
+			this.fn_consulta_carrito();
+  }
+  fn_muestra_prod_bolsa()
+  {
+	  this.muestra_prod_carrito=!this.muestra_prod_carrito;
+	  if (this.muestra_prod_carrito)
+	  {
+		this.msj_btn_mostrar="Ocultar productos en la Bolsa";
+	  }
+	  else
+	  {
+		this.msj_btn_mostrar="Muestra productos en la Bolsa";
+	  }
+	  
+  }
+  public fn_consulta_carrito()
+  {
+
+    this.total_pagar=0.00;
+    this.car_service.consultaCarrito()
+      .subscribe(data=>{
+          this.productos=data;
+          var x=0;
+          for(x=0;x<this.productos.length;x++)
+          {
+              this.total_pagar=this.total_pagar+parseFloat(this.productos[x].precio);
+          }
+          if(this.total_pagar<800)
+          {
+            this.total_pagar=this.total_pagar+100;
+            this.costo_envio=100;
+          }
+          else
+          {
+            this.costo_envio=0;
+          }
+          this.cargando=false;
+      }
+      );
+
   }
   fn_reinicia_styles()
   {
@@ -119,6 +174,9 @@ export class InformacionEnvioComponent implements OnInit {
 	  this.show_error_referencia=false;
 	  this.cls_referencia="form-control";
 
+	  this.cls_colonia="form-control";
+	  this.show_error_colonia=false;
+
 	  this.show_error_reinicia_direccion=false;
 	  this.msj_reinicia="";
 	  
@@ -138,6 +196,13 @@ export class InformacionEnvioComponent implements OnInit {
 		this.fn_reinicia_styles();
 
 		var form_ok=0;
+
+		if (this.cliente.value.colonia=="" || this.cliente.value.colonia==null)
+		{
+			this.cls_colonia="form-control error_form";
+			this.show_error_colonia=true;
+			form_ok=1;
+		}
 
 
 		if (this.cliente.value.nombre=="" || this.cliente.value.nombre==null)
@@ -301,6 +366,7 @@ export class InformacionEnvioComponent implements OnInit {
 				this.referencia=data[0].referencia;
 				this.numero_interior=data[0].numero_interior;
 				this.numero_exterior=data[0].numero_exterior;
+				this.colonia=data[0].colonia;
 				this.rfc=data[0].rfc;
 
 				this.cliente=new FormGroup({
@@ -309,7 +375,8 @@ export class InformacionEnvioComponent implements OnInit {
 				apellido_m:new FormControl(this.apellido_m,[Validators.required]),
 				telefono:new FormControl(this.telefono,[Validators.required]),
 				calle:new FormControl(this.calle,[Validators.required]),
-				cp:new FormControl(this.cp,[Validators.required]),
+				cp:new FormControl(this.cp,[Validators.required]),				
+				colonia:new FormControl(this.colonia,[Validators.required]),
 				municipio:new FormControl(this.municipio,[Validators.required]),
 				estado:new FormControl(this.estado,[Validators.required]),
 				pais:new FormControl(this.pais,[Validators.required]),

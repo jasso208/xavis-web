@@ -1,6 +1,6 @@
 <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+                <div class="col-xs-12" class="cls_container_posicion">
                 <a [routerLink]="['/home']" class="cls_link_posicion" >Home</a><a class="cls_link_posicion">/</a><a class="cls_link_posicion">Resultado Busqueda</a>
             </div>
         </div>
@@ -8,7 +8,7 @@
 <hr>
 <div class="container-fluid" id="resultado_busqueda" >
     <div class="row">
-        <div class="col-xs-6" *ngFor="let prod of productos">
+        <div class="col-xs-6  col-sm-3" *ngFor="let prod of productos">
             <div class="row cls_item_resultado_busqueda">
                 <div class="col-xs-12">
                     <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
@@ -29,6 +29,9 @@
             </div>
         </div>
     </div>
+    <div class="col-xs-12">
+            <hr>
+        </div>
 </div>
 
 <div class="preloader-fondo" *ngIf="cargando">    

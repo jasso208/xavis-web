@@ -17,11 +17,12 @@ export class CarritoComprasComponent implements OnInit {
   public costo_envio:number;
   public total_pagar:number;
   public cargando:boolean;
+  public cls_boton:string;
   constructor(private car_service:CarritoComprasService,private cont_prod_carrito:CuentaProdBolsaService) { }
 
   ngOnInit() {
-
-      this.fn_reinicia_styles();
+    window.scrollTo(0,0);
+    this.fn_reinicia_styles();
     this.fn_consulta_carrito();
     this.cargando=true;
   }
@@ -30,7 +31,6 @@ export class CarritoComprasComponent implements OnInit {
   {
     this.msj_error="";
     this.msj_exito="";
-      
     this.mostrar_msj_exito=false;
     this.muestra_error=false;
   }

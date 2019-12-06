@@ -15,7 +15,9 @@ export class AppComponent {
   public mostrar_form_buscar:boolean;
   public txt_buscar:string;
   public cont_prod:string;
-
+  public muestra_menu_jassdel:boolean;
+  public muestra_menu_politicas:boolean;
+  public muestra_menu_ayuda:boolean;
   constructor(private cont_prod_carrito:CuentaProdBolsaService,private session:SessionService, private router: Router)
   {
     
@@ -59,7 +61,9 @@ export class AppComponent {
     this.mostrar_menu=false;
     this.mostrar_menu_navegacion=false;
     this.mostrar_form_buscar=false;
-
+    this.muestra_menu_jassdel=false;
+    this.muestra_menu_politicas=false;
+    this.muestra_menu_ayuda=false;
     this.txt_buscar="";
   }
 
@@ -70,14 +74,28 @@ export class AppComponent {
   }
   public fn_muestra_menu_navegacion()
   {
-    
     this.mostrar_menu=false;
     this.mostrar_menu_navegacion=!this.mostrar_menu_navegacion;    
+    this.mostrar_form_buscar=false;
   }
   public fn_muestra_form_busqueda()
   {    
     this.mostrar_menu=false;    
     this.mostrar_form_buscar=!this.mostrar_form_buscar;
+    this.mostrar_menu_navegacion=false;
+  }
+  public fn_muestra_menu_jassdel()
+  {
+    this.muestra_menu_jassdel=!this.muestra_menu_jassdel;
+  }
+  public fn_muestra_menu_politicas()
+  {
+    
+    this.muestra_menu_politicas=!this.muestra_menu_politicas;
+  }
+  public fn_muestra_menu_ayuda()
+  {
+    this.muestra_menu_ayuda=!this.muestra_menu_ayuda;
   }
 
 }

@@ -2,3 +2,43 @@
 {
     font-size:20px;
 }
+
+.cls_img_carrito
+{
+    width: 100%;
+}
+#label_total_pagar
+{
+    font-size: 20px;
+    text-align: right;
+    margin-right: 10px;
+}
+#label_precio
+{
+    text-align: left;
+    font-size:20px;
+}
+.btn-primary 
+{
+    font-size:20px;
+}
+
+#bolsa_compras_movil
+{
+    display: block;
+}
+#bolsa_compras_pc
+{
+    display: none;
+}
+
+@media (min-width: 768px) {
+    #bolsa_compras_movil
+    {
+        display: none;
+    }
+    #bolsa_compras_pc
+    {
+        display: block;
+    }
+}

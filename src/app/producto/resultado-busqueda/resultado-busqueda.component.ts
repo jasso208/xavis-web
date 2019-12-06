@@ -24,6 +24,7 @@ export class ResultadoBusquedaComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0,0);
       this.cargando=true;
       //buscamos los productos que coincidan con los parametros
       this.fn_busca_productos();

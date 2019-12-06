@@ -27,26 +27,43 @@ export class DetalleProductoComponent implements OnInit {
   public mostrar_msj_exito:boolean;
   public cargando:boolean;
   public val_overflow:string;
+  public val_overflow_b:boolean;
+  public str_btn_ver_mas:string;
+  public muestra_galeria:boolean;
   constructor(private prod:DetalleProductoService,private ruta_activa:ActivatedRoute,private carrito_compras:CarritoComprasService,private cont_prod_carrito:CuentaProdBolsaService) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    window.scrollTo(0,0);
+    this.val_overflow_b=false;
     this.val_overflow="hidden";
+    this.str_btn_ver_mas="Ver mas detalle";
     this.id_talla="0";
     this.contador_img=1;
     this.id_producto=this.ruta_activa.snapshot.params.id_producto;
-    
     this.muestra_error=false;
     this.cargando=true;
-    this.cls_talla=" forms_control ";
-    
+    this.cls_talla=" forms_control";
+    this.muestra_galeria=false;
     this.fn_consulta_producto();
-
+    
     setInterval(()=>{this.fn_cambia_img_automatico()},4000);
-
   }
+
   fn_muestra_mas_detalle()
   {
-    this.val_overflow="visible";
+      this.val_overflow_b=!this.val_overflow_b;
+      if(this.val_overflow_b)
+      {      
+        this.val_overflow="visible";
+        
+    this.str_btn_ver_mas="Ver menos detalle";
+      }
+      else
+      {
+        this.val_overflow="hidden";        
+        this.str_btn_ver_mas="Ver mas detalle";
+      }
   }
 
   fn_reinicia_form()
@@ -76,7 +93,11 @@ export class DetalleProductoComponent implements OnInit {
 				if (data[0].estatus==0)
 				{
             this.muestra_error=true;						
-						this.msj_error=data[0].msj;
+            this.msj_error=data[0].msj;
+            this.cargando=false;
+            setInterval(()=>{
+              this.muestra_error=false;
+            },4000)
 				}
 				else
 				{
@@ -142,6 +163,7 @@ export class DetalleProductoComponent implements OnInit {
         }
         this.fn_cambia_img(1);
         this.cargando=false;
+        this.muestra_galeria=true;
     }
     );
   }

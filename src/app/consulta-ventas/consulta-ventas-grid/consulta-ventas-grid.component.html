@@ -1,0 +1,247 @@
+<div style="width:100%;height: 100%;position:fixed;top:0;left:0;background-color:black;opacity: 1;z-index: 200;;">
+
+</div>
+
+<DIV class="container" id="div_form">
+    <div class="row">
+        <div class="col-xs-12">            
+            <div class="row" style="background-color:black;">
+                    <div clasS="col-xs-12">
+                            <br>
+                        </div>
+                <div class="col-xs-3">
+                    <img src="../../../assets/img/logo_peque.png" style="height: 50px;">
+                    
+                </div>
+                <div class="col-xs-9" style="text-align: right;color:white;font-weight: bold;font-size:30px;">
+                    <p>
+                        Tus Compras
+                    </p>
+                </div>
+                <div class="col-xs-12">
+                        <hr>
+                    </div>
+            </div>            
+            <div *ngIf="muestra_grid">
+                    <div class="row">
+                        <div class="col-xs-12 ">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row" >
+                            <div class="col-xs-12 ">
+                                    <br>
+                            </div>
+                            <div class="col-xs-2  cls_encabezado_grid">
+                                    <p class="cls_encabezado" >Folio:</p>                
+                            </div>
+                            
+                            <div class="col-xs-3 cls_encabezado_grid">
+                                    <p class="cls_encabezado">Fecha:</p>                
+                            </div>
+                            
+                            <div class="col-xs-2 cls_encabezado_grid">
+                                    <p class="cls_encabezado">Estatus: </p>
+                            </div>
+                            <div class="col-xs-2 cls_encabezado_grid" >
+                                    <p class="cls_encabezado">Importe</p>
+                                </div>
+                            <div class="col-xs-3">
+                            </div>
+                            <div class="col-xs-12">
+                                    <hr>
+                            </div>
+                        </div> 
+                        <div class="row" *ngFor="let v of ventas">
+                                <div class="col-xs-12">
+                                        <br>
+                                </div>
+            
+                            <div class="col-xs-2">
+                                    <br>
+                                    <p class="cls_item_grid" >{{v.folio}}</p>                
+                            </div>
+                            
+                            <div class="col-xs-3">
+                                    <br>
+                                    <p class="cls_item_grid" >{{v.fecha}}</p>                
+                            </div>
+                            
+                            <div class="col-xs-2">
+                                    <br>
+                                    <p class="cls_item_grid" >{{v.estatus}}</p>
+                            </div>
+                            <div class="col-xs-2">
+                                    <br>
+                                    <p class="cls_item_grid">${{v.total | number:'1.2-2'}}</p>
+                                </div>
+                            <div class="col-xs-3">
+                                <button  class="btn btn-outline-info  " >Seguir Envio</button>
+                                <a class="cls_btn_detalle_venta" (click)="fn_consulta_detalle_ventas(v.folio)">Detalle</a>
+                            </div>
+            
+                            <div class="col-xs-12">
+                                    <hr>
+                            </div>
+                        </div>   
+                        <div class="row">
+                                <div class="col-xs-12">
+                                        <button class="btn btn-primary" [routerLink]="['/home']">
+                                            Continuar Comprando
+                                        </button>
+                
+                                </div>
+                            </div>
+            </div>
+            <div *ngIf="!muestra_grid">
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-xs-12">
+                            <a (click)="this.muestra_grid=true"> < Lista de Ventas</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h1>
+                            Detalle de Venta.
+                        </h1>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-xs-12">
+                                <br>
+                        </div>
+                        <div class="col-xs-4">
+                            Folio Venta:
+                        </div>
+                        <div class="col-xs-2">
+                                {{folio_venta}}
+                        </div>
+                        <div class="col-xs-6 text-right">
+                             <button class="btn btn-outline-info ">Seguir Envio</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-xs-12">
+                                    <hr>
+                            </div>
+                    </div>
+                    <div class="row" *ngFor="let prod of detalle_venta">
+                            <div class="col-xs-4 col-sm-2">
+                                    <img src="../../assets/img/productos/{{prod.nom_img}}_1.png" class="cls_img_det_venta">
+                            </div>
+                            <div class="col-xs-8 col-sm-10">
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                    <a>
+                                                        <strong>{{prod.nombre}}</strong>    
+                                                    </a>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <p><span>Marca: </span>{{prod.marca}}</p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>Talla: {{prod.talla}}</p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p><span>Cant: </span>{{prod.cantidad}}</p>
+                                            </div>
+                                                
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="row">
+                                            
+                                            <div class="col-xs-12">
+                                                <p>${{prod.precio_unitario | number:'1.2-2'}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                        <hr>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-xs-12">
+                                    <hr>
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <p id="label_total_pagar">Sub Total: </p>
+                            
+                        </div>
+                        <div class="col-xs-3">
+                            <p id="label_precio">{{subtotal | number:'1.2-2'}}</p>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <p id="label_total_pagar">Costo Envio: </p>
+                            
+                        </div>
+                        <div class="col-xs-3">
+                            <p id="label_precio">{{costo_envio | number:'1.2-2'}}</p>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <p id="label_total_pagar">Total a Pagar: </p>
+                            
+                        </div>
+                        <div class="col-xs-3">
+                            <p id="label_precio">{{total_pagar | number:'1.2-2'}}</p>                        
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                                <hr>
+                        </div>
+                    </div>
+
+
+
+
+           </div>
+           
+            <div class="row">
+                <div class="col-xs-12 ">
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</DIV>
+
+
+
+<div class="preloader-fondo" *ngIf="cargando">    
+        <div class="preloader">
+
+        </div>
+    </div>
+
+
+    <div class="cls_error_msj" *ngIf="muestra_error">
+            <p>{{msj_error}}</p>
+        </div>
+            

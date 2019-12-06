@@ -1,0 +1,13 @@
+#img_envio
+{
+    display:none;
+}
+
+@media (min-width: 736px) {
+    #img_envio
+    {
+        display: inline-block;
+        width: 90%;
+        margin-left: 5%;;
+    }    
+}

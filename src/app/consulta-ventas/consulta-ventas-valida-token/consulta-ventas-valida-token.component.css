@@ -1,0 +1,36 @@
+.btn-primary
+{
+    font-size: 20px;
+}
+#btn-text
+{
+    display: block;
+    padding-top: 10px;
+}
+.cls_btn_detalle_venta
+{
+    font-weight: bold;
+    font-size: 15px;
+}
+.cls_encabezado
+{
+    font-size:15px;
+    color:black;
+    font-weight: bold;;
+}
+
+.cls_img_det_venta
+{
+    width: 100%;
+}
+#label_total_pagar
+{
+    font-size: 20px;
+    text-align: right;
+    margin-right: 10px;
+}
+#label_precio
+{
+    text-align: left;
+    font-size:20px;
+}

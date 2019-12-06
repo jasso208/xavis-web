@@ -1,6 +1,6 @@
 <div class="container">
 		<div class="row">
-			<div class="col-xs-12">
+                <div class="col-xs-12" class="cls_container_posicion">
 				<a [routerLink]="['/home']" class="cls_link_posicion" >Home</a><a class="cls_link_posicion">/</a><a class="cls_link_posicion">Resultado Busqueda</a><a class="cls_link_posicion">/</a><a class="cls_link_posicion">Consulta Compras</a>
 			</div>
 		</div>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="row">                               
                             <div class="col-xs-12">
-                                    <input type="email" class="form-control"  [(ngModel)]="txt_e_mail"> 
+                                    <input type="email" class="form-control"  [(ngModel)]="txt_e_mail" disallow-spaces> 
                                     <div class="row">
                                             <div
                                                 class="col-xs-12 error"
@@ -248,8 +248,15 @@
                     </div>
                 </div>
         </div>
+       
     </div>
-    
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                    <hr>
+            </div>
+        </div>
+    </div>
     <!--buscar-->
     
     <div class="cls_error_msj" *ngIf="muestra_error">

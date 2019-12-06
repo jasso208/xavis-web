@@ -17,3 +17,11 @@
 {
     font-size:20px;
 }
+@media (min-width: 768px) {
+    .cls_img_carrito
+    {
+        display: block;
+        width: 60%;
+        margin:0 auto;
+    }
+}

@@ -15,6 +15,16 @@ import {  ReactiveFormsModule } from '@angular/forms';
 import { FormaPagoComponent } from './forma-pago/forma-pago.component';
 import { DePasoComponent } from './de-paso/de-paso.component';
 import { ConsultaVentasInvitadoComponent } from './consulta-ventas-invitado/consulta-ventas-invitado.component';
+import { BlogComponent } from './blog/blog.component';
+import { CostoEnvioComponent } from './detalle_pie/costo-envio/costo-envio.component';
+import { SeguimientoPedidoComponent } from './detalle_pie/seguimiento-pedido/seguimiento-pedido.component';
+import { DevolucionesComponent } from './detalle_pie/devoluciones/devoluciones.component';
+import { HorarioAtencionComponent } from './detalle_pie/horario-atencion/horario-atencion.component';
+import { PoliticaDevolucionComponent } from './detalle_pie/politica-devolucion/politica-devolucion.component';
+import { PoliticaPrivacidadComponent } from './detalle_pie/politica-privacidad/politica-privacidad.component';
+import { ConsultaVentasTokenComponent } from './consulta-ventas/consulta-ventas-token/consulta-ventas-token.component';
+import { ConsultaVentasValidaTokenComponent } from './consulta-ventas/consulta-ventas-valida-token/consulta-ventas-valida-token.component';
+import { ConsultaVentasGridComponent } from './consulta-ventas/consulta-ventas-grid/consulta-ventas-grid.component';
 const rutas: Routes = [
 
 	{ path: '', redirectTo: '/home',pathMatch:'full'},
@@ -24,8 +34,19 @@ const rutas: Routes = [
   { path: 'bolsa_compra', component: CarritoComprasComponent },  
 	{ path: 'informacion_envio', component: InformacionEnvioComponent },
   { path: 'forma_pago', component: FormaPagoComponent },
-  { path: 'consulta_ventas_invitado', component: ConsultaVentasInvitadoComponent },
-
+  { path: 'consulta_ventas_invitado', component: ConsultaVentasInvitadoComponent },  
+  { path: 'detalle_blog/:id_blog', component: BlogComponent },
+  { path: 'costo_envio', component: CostoEnvioComponent },
+  { path: 'seg_pedido', component: SeguimientoPedidoComponent },
+  { path: 'devoluciones', component: DevolucionesComponent },
+  { path: 'horario_atencion', component: HorarioAtencionComponent },
+  { path: 'politica_devolucion', component: PoliticaDevolucionComponent },
+  { path: 'politica_privacidad', component: PoliticaPrivacidadComponent },
+  { path: 'consulta_ventas', component: ConsultaVentasTokenComponent },
+  { path: 'valida_token', component: ConsultaVentasValidaTokenComponent },
+  { path: 'listado_ventas/:token', component: ConsultaVentasGridComponent },
+  
+  
   
   
 	{ path: 'de_passo/:param_1/:param_2', component: DePasoComponent },
@@ -41,7 +62,17 @@ const rutas: Routes = [
     InformacionEnvioComponent,
     FormaPagoComponent,
     DePasoComponent,
-    ConsultaVentasInvitadoComponent
+    ConsultaVentasInvitadoComponent,
+    BlogComponent,
+    CostoEnvioComponent,
+    SeguimientoPedidoComponent,
+    DevolucionesComponent,
+    HorarioAtencionComponent,
+    PoliticaDevolucionComponent,
+    PoliticaPrivacidadComponent,
+    ConsultaVentasTokenComponent,
+    ConsultaVentasValidaTokenComponent,
+    ConsultaVentasGridComponent
   ],
   imports: [
     BrowserModule,   
