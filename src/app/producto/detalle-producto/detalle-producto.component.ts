@@ -30,6 +30,7 @@ export class DetalleProductoComponent implements OnInit {
   public val_overflow_b:boolean;
   public str_btn_ver_mas:string;
   public muestra_galeria:boolean;
+  public myhtml:string;
   constructor(private prod:DetalleProductoService,private ruta_activa:ActivatedRoute,private carrito_compras:CarritoComprasService,private cont_prod_carrito:CuentaProdBolsaService) { }
 
   ngOnInit() 
@@ -48,6 +49,7 @@ export class DetalleProductoComponent implements OnInit {
     this.fn_consulta_producto();
     
     setInterval(()=>{this.fn_cambia_img_automatico()},4000);
+    
   }
 
   fn_muestra_mas_detalle()
@@ -145,7 +147,8 @@ export class DetalleProductoComponent implements OnInit {
       this.prod.getProductos(this.id_producto).subscribe(data=>{
         this.numero_img=data[0].img_prod.length;
         this.productos=data[0];
-	      this.id_producto=data[0].id_producto;
+        this.id_producto=data[0].id_producto;
+        this.myhtml=this.productos.desc_producto;
 
 		    this.fn_genera_img_producto();
         /*calculamos el descuento*/

@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {DireccionEnvioTemporalService} from '../servicios/direccion-envio-temporal.service';
+import { DireccionEnvioTemporalService } from '../servicios/direccion-envio-temporal.service';
+import { GuardaVentaService } from '../servicios/guarda-venta.service';
+
 import { Router } from '@angular/router';
 import { CarritoComprasService } from '../servicios/carrito-compras.service';
 import { FormControl, FormGroup,Validators ,ReactiveFormsModule   } from '@angular/forms';
+
+
 @Component({
   selector: 'app-informacion-envio',
   templateUrl: './informacion-envio.component.html',
@@ -59,13 +63,15 @@ export class InformacionEnvioComponent implements OnInit {
 	public mostrar_confirma_salir:boolean;
 	public muestra_error:boolean;
 	public mostrar_msj_exito:boolean;
+	public mostrar_msj_aviso:boolean;
 	public msj_error:string;
 	public msj_exito:string;
 	public costo_envio:number;
 	public total_pagar:number;
 	public productos:any;
 	public msj_btn_mostrar:string;
-  constructor(private det:DireccionEnvioTemporalService,private router:Router,private car_service:CarritoComprasService) { }
+	public mostrar_conf_pedido:boolean;
+  constructor(private gvs:GuardaVentaService,private det:DireccionEnvioTemporalService,private router:Router,private car_service:CarritoComprasService) { }
 
   ngOnInit() {
 	window.scrollTo(0,0);
@@ -73,6 +79,8 @@ export class InformacionEnvioComponent implements OnInit {
 	this.total_pagar=0.00;
 	this.muestra_prod_carrito=false;
 	this.msj_btn_mostrar="Muestra productos en la Bolsa";
+	this.mostrar_msj_aviso=true;
+	this.mostrar_conf_pedido=false;
     this.cliente=new FormGroup({
 			nombre:new FormControl(this.nombre,[Validators.required]),
 			apellido_p:new FormControl(this.apellido_p,[Validators.required]),
@@ -94,6 +102,30 @@ export class InformacionEnvioComponent implements OnInit {
 			this.fn_reinicia_styles();
 			this.fn_obtiene_direccion_envio_temporal();
 			this.fn_consulta_carrito();
+  }
+  fn_ocultar_msj()
+  {
+	this.mostrar_msj_aviso=false;
+  }
+  fn_guarda_venta()
+  {
+	  this.cargando=true;
+	  this.gvs.fn_inserta_venta()
+	  .subscribe(
+		  data=>{
+			this.cargando=false;
+			  if(data[0].estatus=="0")
+			  {
+				this.muestra_error=true;
+				this.msj_error=data[0].msj;
+				setInterval(()=>{this.fn_oculta_msj_temporal()},4000);
+			  }
+			  else
+			  {
+				this.mostrar_conf_pedido=true;
+			  }
+		  }
+	  );
   }
   fn_muestra_prod_bolsa()
   {
@@ -323,11 +355,13 @@ export class InformacionEnvioComponent implements OnInit {
 					{
 						//el 1 en la variable de session nueva_direccion indica que ya se ha modificado la direccion
 						//por lo cual debera cargar siempre esta.
-						this.router.navigate(['/forma_pago']);
+						//this.router.navigate(['/forma_pago']);
+						this.fn_guarda_venta();
 
 					}
 					this.cargando=false;
 
+					
 
 				}
 			);

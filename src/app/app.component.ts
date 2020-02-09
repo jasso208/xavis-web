@@ -18,6 +18,10 @@ export class AppComponent {
   public muestra_menu_jassdel:boolean;
   public muestra_menu_politicas:boolean;
   public muestra_menu_ayuda:boolean;
+  public muestra_menu_dama:boolean;
+  public muestra_menu_dama_bolsos:boolean;
+  public muestra_menu_dama_ropa:boolean;
+  public muestra_menu_dama_ocacion:boolean;
   constructor(private cont_prod_carrito:CuentaProdBolsaService,private session:SessionService, private router: Router)
   {
     
@@ -25,13 +29,12 @@ export class AppComponent {
   
   ngOnInit()
   {
-    this.fn_reinicia_style();   
-    //esta funcion ejecuta el algoritmo para generar la session, solo en caso de que no exista
-    this.session.setSession();
-    
-    this.cont_prod_carrito.change.subscribe(cont_prod=>{
+      this.fn_reinicia_style();   
+      //esta funcion ejecuta el algoritmo para generar la session, solo en caso de que no exista
+      this.session.setSession();
+
+      this.cont_prod_carrito.change.subscribe(cont_prod=>{
       this.cont_prod=cont_prod;
-       
     });
 
     this.cont_prod_carrito.fn_cont_prod_carrito()
@@ -43,6 +46,13 @@ export class AppComponent {
 
 					}
 				) ;
+  }
+  fn_reinicia_menu()
+  {
+      this.muestra_menu_dama=true;
+      this.muestra_menu_dama_bolsos=false;
+      this.muestra_menu_dama_ropa=false;
+      this.muestra_menu_dama_ocacion=false;
   }
   public fn_oculta_menu()
   {
@@ -72,11 +82,29 @@ export class AppComponent {
   {
     this.mostrar_menu=!this.mostrar_menu;
   }
+  fn_muestra_menu_dama()
+  {
+    this.muestra_menu_dama=!this.muestra_menu_dama;
+  }
+  fn_muestra_submenu_bolsos()
+  {
+    this.muestra_menu_dama_bolsos=!this.muestra_menu_dama_bolsos;
+  }
+  fn_muestra_menu_ocacion()
+  {
+    this.muestra_menu_dama_ocacion=!this.muestra_menu_dama_ocacion;
+  }
+  fn_muestra_menu_ropa()
+  {
+    this.muestra_menu_dama_ropa=!this.muestra_menu_dama_ropa;
+  }
   public fn_muestra_menu_navegacion()
   {
+    this.fn_reinicia_menu();
     this.mostrar_menu=false;
     this.mostrar_menu_navegacion=!this.mostrar_menu_navegacion;    
     this.mostrar_form_buscar=false;
+    
   }
   public fn_muestra_form_busqueda()
   {    

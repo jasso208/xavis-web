@@ -358,37 +358,133 @@
                           <a id="btn_cerrar" (click)="fn_muestra_menu_navegacion()" >X</a>
                       </div>
               </div>
-              <div class="row">
-                  <div class="col-xs-12">
-                      
-                          <br><br>
-                  </div>
-              </div>
-              <div class="row">                        
+              
+              <div class="row" >                        
                   <div class="col-xs-12 " >
-                          <a class="cls_item_menu_hover" >Dama </a>
-                          <a class="cls_icon_desplega">-</a>
-                          <div class="row ">
+                          <a class="cls_item_menu_hover" (click)="fn_muestra_menu_dama()">Dama</a>
+                          <a class="cls_icon_desplega"><span *ngIf="!muestra_menu_dama">ͮ</span><span *ngIf="muestra_menu_dama">-</span> </a>
+                          <div class="row" *ngIf="muestra_menu_dama">
                                   <div class="col-xs-12 ">
-                                      <a class="cls_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,1]">Carteras</a>
+                                        <a class="cls_sub_item_menu_hover" (click)="fn_muestra_submenu_bolsos()">
+                                            Bolsos
+                                        </a>
+                                        <a class="cls_icon_desplega"><span *ngIf="!muestra_menu_dama_bolsos" >ͮ
+                                            </span><span *ngIf="muestra_menu_dama_bolsos">-</span> 
+                                        </a>
+
+                                        <div class="row" *ngIf="muestra_menu_dama_bolsos">
+                                            <div class="col-xs-12">
+                                                <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,9]" >
+                                                    Bolso de Mano
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,10]" >
+                                                    Back Pack
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,11]" >
+                                                    Carteras
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,12]" >
+                                                    Cangureras
+                                                </a>
+                                            </div>
+                                        </div>
                                   </div>
                                       <div class="col-xs-12 ">
-                                              <a class="cls_sub_item_menu_hover"  (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,2]">Bolsas</a>
+                                                <a class="cls_sub_item_menu_hover" (click)="fn_muestra_menu_ropa()" >
+                                                    Ropa
+                                                </a>
+                                                <a class="cls_icon_desplega"><span *ngIf="!muestra_menu_dama_ropa" >ͮ
+                                                    </span><span *ngIf="muestra_menu_dama_ropa">-</span> 
+                                                </a>
+
+                                                <div class="row" *ngIf="muestra_menu_dama_ropa">
+                                                    <div class="col-xs-12">
+                                                        <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,24]" >
+                                                           Camisas
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-12">
+                                                        <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,13]" >
+                                                           Sudaderas
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-12">
+                                                        <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,14]" >
+                                                            Chamarras
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-12">
+                                                        <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,15]" >
+                                                            Blusas 
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-12">
+                                                        <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,16]" >
+                                                            Jeans
+                                                        </a>
+                                                    </div>
+                                                    
+                                                    <div class="col-xs-12">
+                                                        <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,17]" >
+                                                            Bermuda
+                                                        </a>
+                                                    </div>
+                                                    
+                                                    <div class="col-xs-12">
+                                                        <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,18]" >
+                                                            Leggins
+                                                        </a>
+                                                    </div>
+                                                    
+                                                    <div class="col-xs-12">
+                                                        <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,19]" >
+                                                            Palazzo
+                                                        </a>
+                                                    </div>
+                                                    
+                                                    <div class="col-xs-12">
+                                                        <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,20]" >
+                                                            Pantalon
+                                                        </a>
+                                                    </div>
+                                                </div>
+
                                       </div>
+                          
                                       
                                       <div class="col-xs-12 ">
-                                              <a class="cls_sub_item_menu_hover"  (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,3]">Back Pack</a>
-                                      </div>
-                                      
-                                      <div class="col-xs-12 ">
-                                              <a class="cls_sub_item_menu_hover"  (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,4]">Invierno</a>
+                                            <a class="cls_sub_item_menu_hover" (click)="fn_muestra_menu_ocacion()" >Ocacion</a>
+                                            <a class="cls_icon_desplega"><span *ngIf="!muestra_menu_dama_ocacion" >ͮ
+                                                </span><span *ngIf="muestra_menu_dama_ocacion">-</span> 
+                                            </a>
+                                            <div class="row" *ngIf="muestra_menu_dama_ocacion">
+                                                <div class="col-xs-12">
+                                                    <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,21]" >
+                                                       Formal
+                                                    </a>
+                                                </div>
+                                                <div class="col-xs-12">
+                                                    <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,22]" >
+                                                        Casual
+                                                    </a>
+                                                </div>
+                                                <div class="col-xs-12">
+                                                    <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,23]" >
+                                                        Toda Ocacion 
+                                                    </a>
+                                                </div>                                                
                                       </div>
                           </div>
                   </div>
               </div>
          
       </div>
-      
   </div>
 
 <!--Menu navegacion-->

@@ -85,7 +85,8 @@
 				</div>
 				<div class="col-xs-12">
 						<div class="row" id="div_caracteristicas" [ngStyle]="{overflow:val_overflow}" >
-								<div class="col-xs-6" *ngIf="muestra_galeria">
+							<!--
+							<div class="col-xs-6" *ngIf="muestra_galeria">
 										<hr class="hr-color">
 										<a id="titulo_detalle_producto">Caracteristicas</a>						
 										<div class="row" *ngFor="let atr of productos.atributos">
@@ -99,15 +100,17 @@
 										
 									<hr  class="hr-color">
 								</div>
-								
-								<div class="col-xs-6" *ngIf="muestra_galeria">
+							-->
+								<div class="col-xs-12" *ngIf="muestra_galeria">
 								
 									<hr class="hr-color" >
 										<a id="titulo_detalle_producto">Descripcion</a>						
 										<div class="row">
-											<div class="col-xs-12">								
-												<p class="cls_caracteristicas_detalle_prod">
-													{{productos.desc_producto}}
+										
+											<div class="col-xs-12">	
+																		
+												<p [innerHTML]="myhtml"  class="cls_caracteristicas_detalle_prod" id="descripcion" >
+													
 												</p>	
 											</div>
 											

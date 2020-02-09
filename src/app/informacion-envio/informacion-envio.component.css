@@ -9,19 +9,16 @@
 }
 #label_total_pagar
 {
-    font-size: 20px;
+    font-size: 12px;
     text-align: right;
     margin-right: 10px;
 }
 #label_precio
 {
     text-align: left;
-    font-size:20px;
+    font-size:12px;
 }
-.btn-primary 
-{
-    font-size:20px;
-}
+
 
 #bolsa_compras_movil
 {
@@ -30,6 +27,17 @@
 #bolsa_compras_pc
 {
     display: none;
+}
+
+#div_msj_aviso
+{
+    width: 90%;
+    position: fixed;
+    left: 5%;
+    top:10%;
+    z-index: 101;
+    background-color: white;
+    padding: 10px;
 }
 
 @media (min-width: 768px) {
