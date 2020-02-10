@@ -108,7 +108,8 @@ export class AppComponent {
   }
   public fn_muestra_form_busqueda()
   {    
-    this.mostrar_menu=false;    
+    this.mostrar_menu=false;  
+    alert("funciona");  
     this.mostrar_form_buscar=!this.mostrar_form_buscar;
     this.mostrar_menu_navegacion=false;
   }
