@@ -260,19 +260,11 @@
 {
     width: 100%;
     height: 100%;
-    z-index: 11;
+    z-index: 200;
     position: fixed;
     top:0;
     left:0;
     background-color:black;
-}
-
-
-
-#img_logo_buscar_hover>img
-{
-    height: 60px;
-    margin-top:10px;
 }
 
 #btn_salir_buscar_hover 

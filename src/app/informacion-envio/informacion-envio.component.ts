@@ -152,7 +152,7 @@ export class InformacionEnvioComponent implements OnInit {
           {
               this.total_pagar=this.total_pagar+parseFloat(this.productos[x].precio);
           }
-          if(this.total_pagar<800)
+          if(this.total_pagar<500)
           {
             this.total_pagar=this.total_pagar+100;
             this.costo_envio=100;
@@ -356,10 +356,11 @@ export class InformacionEnvioComponent implements OnInit {
 						//el 1 en la variable de session nueva_direccion indica que ya se ha modificado la direccion
 						//por lo cual debera cargar siempre esta.
 						//this.router.navigate(['/forma_pago']);
+						this.cargando=true;
 						this.fn_guarda_venta();
 
 					}
-					this.cargando=false;
+					//this.cargando=false;
 
 					
 

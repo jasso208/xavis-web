@@ -11,7 +11,7 @@
     <div class="row">
 		<div class="col-xs-12" *ngIf="muestra_galeria">
 			<div class="col-xs-12">
-					<h1>
+					<h1 >
 						{{productos.nom_producto}}
 					</h1>
 			</div>
@@ -46,7 +46,10 @@
 				<div class="col-xs-12">
 					<hr>
 				</div>
-				<div class="col-xs-6" *ngIf="muestra_galeria">
+				<div class="col-xs-3">
+					<input [className]="cls_cantidad"  type="text" style="border:2px solid black;	font-size:13px;	padding:10px; width: 100%;" placeholder="cantidad" [(ngModel)]="cantidad" >
+				</div>
+				<div class="col-xs-5" *ngIf="muestra_galeria">
 					<select style="border:2px solid black;	font-size:13px;	padding:10px; width: 100%;"   [(ngModel)]="id_talla" name="id_talla" id="id_talla_detalle_producto" [className]="cls_talla" >
 						<option value="0">Talla</option>
 						<option *ngFor="let talla of productos.tallas" [value]="talla.id_talla">
@@ -54,7 +57,7 @@
 						</option>
 					</select>
 				</div>
-				<div class="col-xs-6">
+				<div class="col-xs-4">
 					<button class="btn btn-primary btn-block" id="btn_agregar_a_bolsa" (click)="fn_agregar_bolsa_compras()">
 						Agregar
 					</button>
@@ -69,7 +72,7 @@
 							<img src="../../../assets/img/img_envio.png" class="img_envio">
 							
 							<a class="cls_parrafo">
-								Envio gratis en compras mayores a $800.00.
+								Envio gratis en compras mayores a $600.00.
 							</a>
 						</div>
 					
@@ -77,7 +80,7 @@
 							<img src="../../../assets/img/img_devolucion.png" class="img_devolucion">
 							
 							<a class="cls_parrafo">
-								Envio gratis en compras mayores a $800.00.
+								Devolucion completamente gratis.
 							</a>
 						</div>
 					</div>
@@ -119,13 +122,13 @@
 								</div>
 							
 						</div>
-						<div class="row" id="div_caracteristicas">
+					<!--	<div class="row" id="div_caracteristicas">
 								
 								<div class="col-xs-12">
 									<a id="btn_mostrar_mas" (click)="fn_muestra_mas_detalle()" > {{str_btn_ver_mas}}</a>
 								</div>
 						</div>
-			
+			-->
 						<div class="row">
 							<div class="col-xs-12">
 									<hr>
@@ -154,3 +157,4 @@
         </div>
 	</div>
 
+	

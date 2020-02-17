@@ -8,9 +8,13 @@
                 </div>
                 
                 <div id="btn_face" class="col-xs-2 col-sm-1 text-center"  >
+
                    
                     
-                    </div>
+                </div>
+                <div class="col-xs-2 col-sm-1 text-center" >
+                
+                </div>
                 <div id="menu" class="col-xs-2 col-sm-1 text-center" >                     
                         <a id="btn_categorias" (click)="fn_muestra_menu_navegacion()">
                                 <span class="glyphicon glyphicon-align-justify"></span>
@@ -27,11 +31,6 @@
                     </div>
                     -->
                 </div>
-                <div class="col-xs-2 col-sm-1 text-center" id="btn_buscar" (click)="fn_muestra_form_busqueda()">
-                    <img src="../assets/img/btn_buscar.png" alt="">
-                </div>
-
-                
                 <div class="col-xs-2 col-sm-1 text-center" id="bolsa_compras" (click)="fn_go_carrito_compras()">                   
                                 <img src="../assets/img/bolsa_compras.png" >  
                                 <a id="cont_prod_carrito">{{cont_prod}}</a>  
@@ -410,6 +409,11 @@
                                                         </a>
                                                     </div>
                                                     <div class="col-xs-12">
+                                                        <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,25]" >
+                                                           Playeras
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-12">
                                                         <a class="cls_sub_sub_item_menu_hover" (click)="fn_muestra_menu_navegacion()" [routerLink]="['/de_passo',1,13]" >
                                                            Sudaderas
                                                         </a>
@@ -492,17 +496,17 @@
 
 <!--Buscar-->
 
-<div  id="buscar_form" *ngIf="mostrar_form_buscar">
+
     <div class="container">
             <div class="row">
                     <div class="col-xs-3" id="img_logo_buscar_hover">
-                        <img  src="../assets/img/logo_peque.png" alt="">
+                        
                     </div>
                     <div class="col-xs-6">
                         <h1 class="cls_encabezado_hover"> Buscar</h1>
                     </div>
                     <div class="col-xs-3"  id="btn_salir_buscar_hover">
-                        <a  (click)="fn_muestra_form_busqueda()">X</a>
+                        
                     </div>
             </div>
             <div class="row">

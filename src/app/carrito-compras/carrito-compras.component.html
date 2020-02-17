@@ -31,15 +31,15 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                                 <a [routerLink]="['/detalle_producto',prod.id_producto]">
-                                                    <strong>{{prod.nombre}}</strong>    
+                                                    <strong>{{prod.nombre}} -  </strong>    
+                                                    <strong style="color:black"> {{prod.talla}}</strong> 
                                                 </a>
                                         </div>
+                                        <br>
                                         <div class="col-xs-12">
                                             <p><span>Marca: </span>{{prod.marca}}</p>
                                         </div>
-                                        <div class="col-xs-6">
-                                            <p>Talla: {{prod.talla}}</p>
-                                        </div>
+                                       
                                         <div class="col-xs-6">
                                             <p><span>Cant: </span>{{prod.cantidad}}</p>
                                         </div>

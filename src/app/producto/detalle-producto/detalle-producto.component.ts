@@ -3,6 +3,9 @@ import { DetalleProductoService } from '../../servicios/detalle-producto.service
 import { ActivatedRoute,Params} from  '@angular/router';
 import { CarritoComprasService }  from '../../servicios/carrito-compras.service';
 import { CuentaProdBolsaService } from '../../servicios/cuenta-prod-bolsa.service';
+declare var jQuery:any;
+declare var $:any;
+
 @Component({
   selector: 'app-detalle-producto',
   templateUrl: './detalle-producto.component.html',
@@ -31,6 +34,8 @@ export class DetalleProductoComponent implements OnInit {
   public str_btn_ver_mas:string;
   public muestra_galeria:boolean;
   public myhtml:string;
+  public cantidad:number;
+  public cls_cantidad:string;
   constructor(private prod:DetalleProductoService,private ruta_activa:ActivatedRoute,private carrito_compras:CarritoComprasService,private cont_prod_carrito:CuentaProdBolsaService) { }
 
   ngOnInit() 
@@ -46,6 +51,7 @@ export class DetalleProductoComponent implements OnInit {
     this.cargando=true;
     this.cls_talla=" forms_control";
     this.muestra_galeria=false;
+    this.cantidad=0;
     this.fn_consulta_producto();
     
     setInterval(()=>{this.fn_cambia_img_automatico()},4000);
@@ -73,6 +79,7 @@ export class DetalleProductoComponent implements OnInit {
     this.muestra_error=false;
     this.mostrar_msj_exito=false;
     this.cls_talla=" forms_control ";
+    this.cls_cantidad=" forms_control";
   }
   fn_agregar_bolsa_compras()
   {
@@ -86,8 +93,15 @@ export class DetalleProductoComponent implements OnInit {
       return 0;      
     
     }
+    if( this.cantidad==0)
+    {
+      this.muestra_error=true;
+      this.cls_cantidad=" forms_control cls_error";
+      this.msj_error="La cantidad debe mayor a cero.";
+      return 0;      
+    }
     this.cargando=true;
-    this.carrito_compras.insertaCarrito((this.id_producto).toString(),("1").toString(),(this.id_talla).toString()).subscribe
+    this.carrito_compras.insertaCarrito((this.id_producto).toString(),(this.cantidad).toString(),(this.id_talla).toString()).subscribe
 	  (
 		data=>
 		{
@@ -167,10 +181,19 @@ export class DetalleProductoComponent implements OnInit {
         this.fn_cambia_img(1);
         this.cargando=false;
         this.muestra_galeria=true;
+       
+          
+          
+
+        
     }
     );
   }
 
+  public fn_muestra_galeria()
+  {
+    $("#img_hover_1").addClass("active");
+  }
   
   public fn_genera_img_producto()
   {

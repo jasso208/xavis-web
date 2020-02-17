@@ -407,7 +407,7 @@
             Al dar click en "Enviar Pedido" alguien de nuestro equipo de eventas te contactara para cordinar la entrega de tu pedido.
         <br>
         <br>
-        <strong>
+        <strong style="color:red;">
             Recuerda realizaras el pago al momento de recibir tu producto.
         </strong>
         
@@ -418,10 +418,6 @@
         Continuar
     </button>
 </div>
-
-
-
-
 <div  *ngIf="mostrar_conf_pedido" style="width: 100%;height: 100%;position: fixed;top:0;left: 0;z-index: 100; background-color: black;opacity: 0.7;">
 
 </div>
@@ -429,8 +425,6 @@
     <div style="width: 100%;text-align: center;">
         <img src="../../assets/img/logo_peque.png" style="width:70px;margin:0 auto" >
     </div>
-    
-
     <h1>
         Gracias por su preferencia
         <br>
@@ -438,14 +432,13 @@
             En breve uno de nuestros asesores de ventas se contactara con usted para cordinar tu entrega.
         <br>
         <br>
-        <strong>
+        <strong style="color:red;">
             Recuerda realizaras el pago al momento de recibir tu producto.
         </strong>
-        
         <br>
     </h1>
     <hr>
-    <button class="btn btn-primary center-block" style="margin:0 auto ;" (click)="fn_ocultar_msj()">
+    <button class="btn btn-primary center-block" style="margin:0 auto ;" (click)="fn_ocultar_msj()" [routerLink]="['/home']">
         Continuar
     </button>
 </div>

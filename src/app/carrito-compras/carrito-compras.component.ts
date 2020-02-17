@@ -46,7 +46,7 @@ export class CarritoComprasComponent implements OnInit {
           {
               this.total_pagar=this.total_pagar+parseFloat(this.productos[x].precio);
           }
-          if(this.total_pagar<800)
+          if(this.total_pagar<500)
           {
             this.total_pagar=this.total_pagar+100;
             this.costo_envio=100;

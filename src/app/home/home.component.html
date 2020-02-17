@@ -8,46 +8,147 @@
 </div>
 <hr>
 <div class="container">
-    <div class="row">
-    
-    <div class="row">
+    <div clasS="row">
         <div class="col-xs-12">
-                <hr>
+            <img src="../../assets/img/Prueba_Publicidad.png"  style="width:100%;">
+        </div>
+        <div class="col-xs-12">
+            <hr>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="resultado_busqueda" >
+    <div class="row">
+        <h1>Jeans</h1>
+        <hr>
+        <div class="col-xs-6  col-sm-3" *ngFor="let prod of jeans">
+            <div class="row cls_item_resultado_busqueda"  [routerLink]="['/detalle_producto',prod.id]">
+                <div class="col-xs-12">
+                    <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
+                </div>
+                <div class="col-xs-12">
+                    <a class="cls_nompre_producto_resultado_busqueda">
+                        {{prod.nombre}}
+                    </a>
+                </div>
+                <div class="col-xs-12">                    
+                    <a class="cls_precio_prod">
+                        ${{prod.precio | number: '1.2-2'}}
+                    </a>
+                </div>
+               
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <button class="btn btn-primary btn-block" style="background-color: gray;color:white;padding-top:15px;padding-bottom: 15px;" [routerLink]="['/de_passo',1,16]">Ver todos los Jeans</button>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-xs-12">
-                <img src="./../../assets/img/publicidad_buen_fin.png" id="img_publicidad_buenfin" >
-        </div>
+    <div class="col-xs-12">
+            <hr>
     </div>
+</div>
+
+<div class="container-fluid" id="resultado_busqueda" >
     <div class="row">
-            <div class="col-xs-12">
-                    <hr>
-            </div>
-    </div>
-    <div class="row"  style="background-color:#f2ecea;padding-top:10px;padding-bottom: 10px;">
-							
-            <div class="col-xs-6">
-                <img src="../../assets/img/img_envio.png" class="img_envio">
-                <br>
-                <a class="cls_parrafo">
-                    Envio gratis en compras mayores a $800.00.
-                </a>
-            </div>
-        
-            <div class="col-xs-6">
-                <img src="../../assets/img/img_devolucion.png" class="img_devolucion">
-                <br>
-                
-                <a class="cls_parrafo">
-                    Envio gratis en compras mayores a $800.00.
-                </a>
-            </div>
-        </div>
-        <div class="row">
+        <h1>Blusas</h1>
+        <hr>
+        <div class="col-xs-6  col-sm-3" *ngFor="let prod of blusa">
+            <div class="row cls_item_resultado_busqueda"  [routerLink]="['/detalle_producto',prod.id]">
                 <div class="col-xs-12">
-                        <hr>
+                    <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
                 </div>
+                <div class="col-xs-12">
+                    <a class="cls_nompre_producto_resultado_busqueda">
+                        {{prod.nombre}}
+                    </a>
+                </div>
+                <div class="col-xs-12">                    
+                    <a class="cls_precio_prod">
+                        ${{prod.precio | number: '1.2-2'}}
+                    </a>
+                </div>
+               
+            </div>
         </div>
+        <div class="col-xs-12">
+            <button class="btn btn-primary btn-block" [routerLink]="['/de_passo',1,15]" style="background-color: gray;color:white;padding-top:15px;padding-bottom: 15px;">Ver todas las Blusas</button>
+        </div>
+    </div>
+
+    <div class="col-xs-12">
+            <hr>
+    </div>
+</div>
+
+
+<div class="container-fluid" id="resultado_busqueda" >
+    <div class="row">
+        <h1>Bolsos</h1>
+        <hr>
+        <div class="col-xs-6  col-sm-3" *ngFor="let prod of bolsos">
+            <div class="row cls_item_resultado_busqueda"  [routerLink]="['/detalle_producto',prod.id]">
+                <div class="col-xs-12">
+                    <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
+                </div>
+                <div class="col-xs-12">
+                    <a class="cls_nompre_producto_resultado_busqueda">
+                        {{prod.nombre}}
+                    </a>
+                </div>
+                <div class="col-xs-12">                    
+                    <a class="cls_precio_prod">
+                        ${{prod.precio | number: '1.2-2'}}
+                    </a>
+                </div>
+               
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <button class="btn btn-primary btn-block" style="background-color: gray;color:white;padding-top:15px;padding-bottom: 15px;" [routerLink]="['/de_passo',1,9]">Ver todos los Bolsos</button>
+        </div>
+    </div>
+
+    <div class="col-xs-12">
+            <hr>
+    </div>
+</div>
+
+
+<div class="container-fluid" id="resultado_busqueda" >
+    <div class="row">
+        <h1>Carteras</h1>
+        <hr>
+        <div class="col-xs-6  col-sm-3" *ngFor="let prod of carteras">
+            <div class="row cls_item_resultado_busqueda"  [routerLink]="['/detalle_producto',prod.id]">
+                <div class="col-xs-12">
+                    <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
+                </div>
+                <div class="col-xs-12">
+                    <a class="cls_nompre_producto_resultado_busqueda">
+                        {{prod.nombre}}
+                    </a>
+                </div>
+                <div class="col-xs-12">                    
+                    <a class="cls_precio_prod">
+                        ${{prod.precio | number: '1.2-2'}}
+                    </a>
+                </div>
+               
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <button class="btn btn-primary btn-block" [routerLink]="['/de_passo',1,11]" style="background-color: gray;color:white;padding-top:15px;padding-bottom: 15px;">Ver todas las Carteras</button>
+        </div>
+    </div>
+
+    <div class="col-xs-12">
+            <hr>
+    </div>
+</div>
+
+<div class="preloader-fondo" *ngIf="cargando">    
+    <div class="preloader">
+
+    </div>
 </div>
