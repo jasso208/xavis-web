@@ -22,6 +22,7 @@ export class AppComponent {
   public muestra_menu_dama_bolsos:boolean;
   public muestra_menu_dama_ropa:boolean;
   public muestra_menu_dama_ocacion:boolean;
+  public muestra_form_buscar:boolean;
   constructor(private cont_prod_carrito:CuentaProdBolsaService,private session:SessionService, private router: Router)
   {
     
@@ -68,6 +69,7 @@ export class AppComponent {
   }
   public fn_reinicia_style()
   {
+    this.muestra_form_buscar=false;
     this.mostrar_menu=false;
     this.mostrar_menu_navegacion=false;
     this.mostrar_form_buscar=false;
@@ -76,7 +78,10 @@ export class AppComponent {
     this.muestra_menu_ayuda=false;
     this.txt_buscar="";
   }
-
+  public fn_muestra_form_buscar()
+  {
+    this.muestra_form_buscar=true;
+  }
 
   public fn_muestra_menu_cliente()
   {

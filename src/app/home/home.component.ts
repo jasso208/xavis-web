@@ -19,7 +19,10 @@ export class HomeComponent implements OnInit {
     window.scrollTo(0,0);
     this.fn_consulta_prod_x_bloque();
   }
-
+  fn_muestra_menu_cliente()
+  {
+    
+  }
   fn_consulta_prod_x_bloque()
   {
     this.cargando=true;

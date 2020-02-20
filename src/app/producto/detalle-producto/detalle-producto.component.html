@@ -47,7 +47,7 @@
 					<hr>
 				</div>
 				<div class="col-xs-3">
-					<input [className]="cls_cantidad"  type="text" style="border:2px solid black;	font-size:13px;	padding:10px; width: 100%;" placeholder="cantidad" [(ngModel)]="cantidad" >
+					<input [className]="cls_cantidad"  type="number" style="border:2px solid black;	font-size:13px;	padding:10px; width: 100%;" placeholder="cantidad" [(ngModel)]="cantidad" >
 				</div>
 				<div class="col-xs-5" *ngIf="muestra_galeria">
 					<select style="border:2px solid black;	font-size:13px;	padding:10px; width: 100%;"   [(ngModel)]="id_talla" name="id_talla" id="id_talla_detalle_producto" [className]="cls_talla" >

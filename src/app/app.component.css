@@ -113,14 +113,14 @@
 
 
 
-#btn_usuario{
+#btn_buscar{
     position: relative;
 
   }
-#btn_usuario:hover{
+#btn_buscar:hover{
     border-color:black;
 }
-#btn_usuario img
+#btn_buscar img
 {    
     position: absolute;
     width: 40px;

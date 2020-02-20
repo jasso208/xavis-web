@@ -8,29 +8,22 @@
                 </div>
                 
                 <div id="btn_face" class="col-xs-2 col-sm-1 text-center"  >
-
-                   
-                    
                 </div>
                 <div class="col-xs-2 col-sm-1 text-center" >
                 
+                </div>
+                <div class="col-xs-2 col-sm-1 text-center" id="btn_buscar"  (click)="fn_muestra_form_buscar()">
+                    <!-- <a (click)="fn_muestra_menu_cliente()">
+                        <img src="../assets/img/btn_buscar.png">      
+                    </a>
+                -->
                 </div>
                 <div id="menu" class="col-xs-2 col-sm-1 text-center" >                     
                         <a id="btn_categorias" (click)="fn_muestra_menu_navegacion()">
                                 <span class="glyphicon glyphicon-align-justify"></span>
                         </a>      
                 </div>
-                <div class="col-xs-2 col-sm-1 text-center" id="btn_usuario"  [routerLink]="['consulta_ventas']" >
-                    <a (click)="fn_muestra_menu_cliente()">
-                        <img src="../assets/img/btn_usuario.png">      
-                    </a>
-                    <!--
-                    <div   id="menu_usuario" *ngIf="mostrar_menu">
-                       <a [routerLink]="['consulta_ventas']" (click)="fn_oculta_menu()" >Sigue tu pedido</a>
-
-                    </div>
-                    -->
-                </div>
+                
                 <div class="col-xs-2 col-sm-1 text-center" id="bolsa_compras" (click)="fn_go_carrito_compras()">                   
                                 <img src="../assets/img/bolsa_compras.png" >  
                                 <a id="cont_prod_carrito">{{cont_prod}}</a>  
@@ -38,6 +31,19 @@
         </div>  
 </div>
 <div id="pie_menu">
+
+</div>
+<div class="container" style="background-color:black; padding-bottom: 10px;" >
+    <div class="row">
+        <div class="col-xs-7">
+
+            <input type="text" class="form-control col-xs-12" style="height: 42px;border:1px solid black;margin-top:1px"  [(ngModel)]="txt_buscar" >    
+            
+        </div>
+        <div class="col-xs-5">
+            <button class="btn btn-primary btn-block" (click)="fn_muestra_form_busqueda()" [routerLink]="['/de_passo',2,txt_buscar]"> Buscar</button>                                   
+        </div>
+    </div>
 
 </div>
 
@@ -91,25 +97,18 @@
                          <a [routerLink]="['/costo_envio']">Costo de Envio</a>                        
                         </div>
                     </div>
-                    <div class="row">
+                   <!-- <div class="row">
                         <div class="col-xs-12">
                            <a [routerLink]="['/seg_pedido']">Seguir Pedido</a>                        
                         </div>
                     </div>
+                    -->
                     <div class="row">
                         <div class="col-xs-12">
                             <a [routerLink]="['/devoluciones']">Devoluciones</a>                        
                         </div>
                     </div>
-                    <div class="row">                        
-                        <div class="col-xs-12">
-                            <hr>  
-                        </div>
-                        <div class="col-xs-12">
-                                <br>
-                                
-                            </div>
-                    </div>
+                   
 
                     
                 </div>  
@@ -180,11 +179,7 @@
                             <a [routerLink]="['/politica_privacidad']">Politica Privacidad</a>                        
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <a>Contactanos</a>                        
-                        </div>
-                    </div>
+                   
             </div>  
            
         </div>            
@@ -318,11 +313,7 @@
                         <a>Trabaja con nosotros</a>                        
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <a>Contactanos</a>                        
-                    </div>
-                </div>
+              
         </div>  
         <div class="col-xs-12">
             <hr>
@@ -494,46 +485,7 @@
 <!--Menu navegacion-->
 
 
-<!--Buscar-->
 
 
-    <div class="container">
-            <div class="row">
-                    <div class="col-xs-3" id="img_logo_buscar_hover">
-                        
-                    </div>
-                    <div class="col-xs-6">
-                        <h1 class="cls_encabezado_hover"> Buscar</h1>
-                    </div>
-                    <div class="col-xs-3"  id="btn_salir_buscar_hover">
-                        
-                    </div>
-            </div>
-            <div class="row">
-                    <div class="col-xs-12">
-                        <br><br>
-                    </div>
 
-                    <div class="col-xs-12">
-                        <input type="text" class="form-control"  [(ngModel)]="txt_buscar">                                        
-                    </div>                                    
-
-                    <div class="col-xs-12">
-                        <br><br>
-                    </div>
-
-                    <div class="col-xs-12 text-center">
-                        <button class="btn btn-primary" (click)="fn_muestra_form_busqueda()" [routerLink]="['/de_passo',2,txt_buscar]"> Buscar</button>                                   
-                    </div>    
-
-            </div>
-           
-           
-    </div>
-</div>
-
-<!--buscar-->
-
-
-<!--Buscar-->
 

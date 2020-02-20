@@ -7,8 +7,23 @@
 </div>
 <hr>
 <div class="container-fluid" id="resultado_busqueda" >
-    <div class="row">
-        <div class="col-xs-6  col-sm-3" *ngFor="let prod of productos">
+    <div class="row" *ngIf="muestra_msj_no_prod">
+        <div class="col-xs-12" >
+            <div style="width: 100%;text-align: center;padding-top:20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;background-color:gray;">
+                <p style="font-weight: bold;color:white">
+                    No se encontraron resultados con los parametros de busqueda.
+                    <br>
+                    <br>
+                    Intente Nuevamente.
+                </p >
+
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="!muestra_msj_no_prod">
+       
+    
+        <div  class="col-xs-6  col-sm-3" *ngFor="let prod of productos">
             <div class="row cls_item_resultado_busqueda"  [routerLink]="['/detalle_producto',prod.id]">
                 <div class="col-xs-12">
                     <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >

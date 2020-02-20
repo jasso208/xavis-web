@@ -18,6 +18,7 @@ export class CarritoComprasComponent implements OnInit {
   public total_pagar:number;
   public cargando:boolean;
   public cls_boton:string;
+  public muestra_msj_no_prod:boolean;
   constructor(private car_service:CarritoComprasService,private cont_prod_carrito:CuentaProdBolsaService) { }
 
   ngOnInit() {
@@ -25,6 +26,7 @@ export class CarritoComprasComponent implements OnInit {
     this.fn_reinicia_styles();
     this.fn_consulta_carrito();
     this.cargando=true;
+    this.muestra_msj_no_prod=true;
   }
 
   public fn_reinicia_styles()
@@ -40,6 +42,8 @@ export class CarritoComprasComponent implements OnInit {
     this.total_pagar=0.00;
     this.car_service.consultaCarrito()
       .subscribe(data=>{
+        if (data.length>0)
+        {
           this.productos=data;
           var x=0;
           for(x=0;x<this.productos.length;x++)
@@ -55,6 +59,14 @@ export class CarritoComprasComponent implements OnInit {
           {
             this.costo_envio=0;
           }
+          this.muestra_msj_no_prod=false;
+        }
+        else
+        {
+          this.muestra_msj_no_prod=true;
+        }
+         
+         
           this.cargando=false;
       }
       );

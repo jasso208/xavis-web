@@ -16,6 +16,7 @@ export class ResultadoBusquedaComponent implements OnInit {
   public tipo_busqueda:string;
   public productos:any;
   public cargando:boolean;
+  public muestra_msj_no_prod:boolean;
   constructor( private rutaActiva: ActivatedRoute, public bps:BuscaProductosService) 
   {     
     this.tipo_busqueda=  rutaActiva.snapshot.params.tipo_busqueda;
@@ -24,6 +25,7 @@ export class ResultadoBusquedaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.muestra_msj_no_prod=true;
     window.scrollTo(0,0);
       this.cargando=true;
       //buscamos los productos que coincidan con los parametros
@@ -35,8 +37,12 @@ export class ResultadoBusquedaComponent implements OnInit {
 		.subscribe(
 			data=>
 			{
-        
-        this.productos=data;
+        if (data.length>0)
+        {
+          this.muestra_msj_no_prod=false;            
+          this.productos=data;
+          
+        }
         this.cargando=false;
 			}
 		);
