@@ -71,7 +71,7 @@
 							</div>
 							<div class="form-group">
 								<label>Numero de Tarjeta</label>
-								<input class="form-control" type="text" placeholder="16 digitos" autocomplete="off" data-openpay-card="card_number" id="card_number">
+								<input class="form-control" type="number" placeholder="16 digitos" autocomplete="off" data-openpay-card="card_number" id="card_number">
 								<div class="row">
 									<div
 									class="col-xs-12 error"
@@ -88,21 +88,19 @@
 										<label>Fecha de expiración</label>
 										<div class="row">
 											<div class="col-xs-6">
-												<input class="form-control" type="text" placeholder="MM" data-openpay-card="expiration_month" id="expiration-month">
+												<input class="form-control" type="number" placeholder="MM" data-openpay-card="expiration_month" id="expiration-month">
 											</div>
 											<div class="col-xs-6">
-												<input class="form-control" type="text" placeholder="YY" data-openpay-card="expiration_year" id="expiration-year">
+												<input class="form-control" type="number" placeholder="YY" data-openpay-card="expiration_year" id="expiration-year">
 											</div>
-										</div>
-									
+										</div>									
 										<div class="row">
 											<div
 											class="col-xs-12 error"
 											  id="error_fecha_exp" style="display:none;text-align:center">
 												<a id="error_txt_fecha_exp" ></a>
 											</div>
-										</div>
-									
+										</div>									
 									</div>
 								</div>
 							
@@ -111,7 +109,7 @@
 									<label>CVV</label>
 									<div class="row">
 										<div class="col-xs-12">										
-											<input class="form-control col-xs-3" type="text" placeholder="3 digitos" autocomplete="off" data-openpay-card="cvv2" id="cvv2">							
+											<input class="form-control col-xs-3" type="number" placeholder="3 digitos" autocomplete="off" data-openpay-card="cvv2" id="cvv2">							
 										</div>
 									</div>
 									<div class="row">
