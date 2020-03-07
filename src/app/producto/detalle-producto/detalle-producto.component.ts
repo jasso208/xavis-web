@@ -178,13 +178,14 @@ export class DetalleProductoComponent implements OnInit {
           this.descuento=false;
           this.precio_venta=parseFloat((this.productos.precio).toString()).toFixed(2);
         }
+        if (this.productos.tallas.length==1)
+        {
+          this.id_talla="1";
+        }
         this.fn_cambia_img(1);
         this.cargando=false;
         this.muestra_galeria=true;
        
-          
-          
-
         
     }
     );

@@ -23,6 +23,12 @@ export class AppComponent {
   public muestra_menu_dama_ropa:boolean;
   public muestra_menu_dama_ocacion:boolean;
   public muestra_form_buscar:boolean;
+  public muestra_menu_ropa:boolean;
+  public muestra_menu_dama_calzado:boolean;
+  public muestra_menu_dama_accesorios:boolean;
+  public muestra_menu_caballero:boolean;
+  public muestra_menu_ropa_cab:boolean;
+  public muestra_menu_calzado_cab:boolean;
   constructor(private cont_prod_carrito:CuentaProdBolsaService,private session:SessionService, private router: Router)
   {
     
@@ -48,6 +54,20 @@ export class AppComponent {
 					}
 				) ;
   }
+
+  fn_muestra_submenu_ropa()
+  {
+    this.muestra_menu_ropa=!this.muestra_menu_ropa;
+  }
+  fn_muestra_menu_calzado()
+  {
+    this.muestra_menu_dama_calzado=!this.muestra_menu_dama_calzado;    
+  }
+  fn_muestra_submenu_calzado_caballero()
+  {
+    this.muestra_menu_calzado_cab=!this.muestra_menu_calzado_cab;
+  }
+
   fn_reinicia_menu()
   {
       this.muestra_menu_dama=true;
@@ -76,7 +96,21 @@ export class AppComponent {
     this.muestra_menu_jassdel=false;
     this.muestra_menu_politicas=false;
     this.muestra_menu_ayuda=false;
+    this.muestra_menu_ropa=false;
+    this.muestra_menu_dama_calzado=false;
+    this.muestra_menu_dama_accesorios=false;
+    this.muestra_menu_caballero=true;
+    this.muestra_menu_ropa_cab=false;
+    this.muestra_menu_calzado_cab=false;
     this.txt_buscar="";
+  }
+  public fn_muestra_submenu_ropa_caballero()
+  {
+    this.muestra_menu_ropa_cab=!this.muestra_menu_ropa_cab;
+  }
+  public fn_muestra_menu_caballero()
+  {
+    this.muestra_menu_caballero=!this.muestra_menu_caballero;
   }
   public fn_muestra_form_buscar()
   {
@@ -86,6 +120,10 @@ export class AppComponent {
   public fn_muestra_menu_cliente()
   {
     this.mostrar_menu=!this.mostrar_menu;
+  }
+  public fn_muestra_menu_accesorios()
+  {
+    this.muestra_menu_dama_accesorios=!this.muestra_menu_dama_accesorios;
   }
   fn_muestra_menu_dama()
   {

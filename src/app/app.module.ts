@@ -25,6 +25,7 @@ import { PoliticaPrivacidadComponent } from './detalle_pie/politica-privacidad/p
 import { ConsultaVentasTokenComponent } from './consulta-ventas/consulta-ventas-token/consulta-ventas-token.component';
 import { ConsultaVentasValidaTokenComponent } from './consulta-ventas/consulta-ventas-valida-token/consulta-ventas-valida-token.component';
 import { ConsultaVentasGridComponent } from './consulta-ventas/consulta-ventas-grid/consulta-ventas-grid.component';
+import { PruebaComponent } from './prueba/prueba.component';
 const rutas: Routes = [
 
 	{ path: '', redirectTo: '/home',pathMatch:'full'},
@@ -72,7 +73,8 @@ const rutas: Routes = [
     PoliticaPrivacidadComponent,
     ConsultaVentasTokenComponent,
     ConsultaVentasValidaTokenComponent,
-    ConsultaVentasGridComponent
+    ConsultaVentasGridComponent,
+    PruebaComponent
   ],
   imports: [
     BrowserModule,   

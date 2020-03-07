@@ -41,6 +41,7 @@ export class ResultadoBusquedaComponent implements OnInit {
         {
           this.muestra_msj_no_prod=false;            
           this.productos=data;
+		  console.log(this.productos);
           
         }
         this.cargando=false;

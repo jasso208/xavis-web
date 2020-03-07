@@ -15,7 +15,9 @@ export class GuardaVentaService {
   public fn_inserta_venta()
   {
 	 let urlSearchParams=new URLSearchParams();
-	 urlSearchParams.append("session",localStorage.getItem("session"));
+	 urlSearchParams.append("session",localStorage.getItem("session"));	 
+	 urlSearchParams.append("tipo_compra","1");
+
 	 return this.http.post(environment.api_url+'ventas/guarda_venta/',
 		urlSearchParams)
 		.pipe(

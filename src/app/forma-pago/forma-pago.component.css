@@ -55,3 +55,14 @@
 {
     display: none;
 }
+
+#div_msj_aviso_1,#div_msj_aviso,#div_msj_aviso_2     
+{
+    width: 90%;
+    position: fixed;
+    left: 5%;
+    top:10%;
+    z-index: 101;
+    background-color: white;
+    padding: 10px;
+}

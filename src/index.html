@@ -10,9 +10,9 @@
   
 
 
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
   <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
   <script type="text/javascript" 
@@ -22,27 +22,194 @@
 <script type='text/javascript' src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js"></script>
 
 
-<script type="text/javascript">
-        $(document).ready(function() {
+<script >
+		var deviceSessionId = OpenPay.deviceData.setup("formId", "deviceIdHiddenFieldName");
+		OpenPay.setId('myllylbt6vwlywximkxg');
+		OpenPay.setApiKey('pk_c5b567e442c344f4b0e34e21262cb90a');
+		OpenPay.setSandboxMode(true);
+    
+    $("#muestra_error_general").hide();
+    $("#mostrar_conf_pedido_2").hide();
+    $("#div_msj_aviso_2").hide();
+    $("#btn_cerrer_form_pago").hide();
+    
+		function fn_pagar()
+		{
+			//ocultamos todos los msj de errores para que solo se muestre los reales.
+			$("#error_nombre_tarjeta").hide();
+			$("#error_txt_num_tarjeta").hide();
+			$("#error_cvv").hide();
+			$("#error_fecha_exp").hide();
+			
+      $("#muestra_error_general").hide();
+      
+   
+     
 
-         
+      $("#mostrar_conf_pedido_2").hide();      
+      $("#div_msj_aviso_2").hide();
+      $("#btn_cerrer_form_pago").hide();
+      
+			//si la funcion de validacion regresa 1, es que funciono todo correctamente.
+			if(fn_valida_formulario()==1)
+			{
+          $("#div_cargando").show();
+          console.log("empieza");
+          //si el token se ejecuta correctamente ejecutamos la funcion: sucess_callbak
+          //si el token no se genera correctamente ejecutamos la funcion: error_callbak
+          OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak); 
+          console.log("termina");
+                
+      }
+      
+		}
+		function sucess_callbak(response)
+		{ 
+      console.log("exito");
+			var content = '';
+			content += 'Id tarjeta: ' + response.data.id+ '<br />';
+			content += 'A nombre de: ' + response.data.holder_name + '<br />';
+			content += 'Marca de tarjeta usada: ' + response.data.brand + '<br />';
+			
+			guarda_venta(response);
+			
+    }
+    
+    function guarda_venta(response)
+    {
+        var params = {
+            'session':localStorage.getItem("session"), //aqui defines el valor del parametro
+            'token_id': response.data.id,
+            'amount':localStorage.getItem("total_pagar"),
+            'description':"Compra Sitio Web",
+            'deviceIdHiddenFieldName':deviceSessionId,            
+            'tipo_compra':"2"
+        };
+
+        var request = $.ajax({
+            //url: "http://127.0.0.1:8000/ventas/guarda_venta/",//qa
+            url: "https://admin.jassdel.com/ventas/guarda_venta/",//produccion
+            data:params,
+            method: "POST"
+        });
+
+        request.done(function( data ) {
+          //si es cero es porque marco error
+          if (data[0].estatus=="0")
+          {
+            $("#muestra_error_general").show();
+			      $("#msj_error_general_pago").text(data[0].msj);
+           
+
+            $("#div_cargando").hide();
+          }
+          else
+          {
+            $("#div_cargando").hide();
+            $("#mostrar_conf_pedido_2").show();
+            
+            $("#div_msj_aviso_2").show();
+            $("#folio_compra_2").text(data[0].folio);
+
+            $(".cls_muestra_tiket").show();
+          }
+
+
+
+        });
+
           
-
-          autosize(document.getElementById("txt_desc_prod"));
+        request.fail(function( error ) {
+            console.log( 'Error: ' , error );
+            $("#div_cargando").hide();
+        });
+    }
+    function fn_oculta_form_pagar()
+    {      
+      alert("funciona");
+      $("#mostrar_conf_pedido_2").hide();      
+      $("#div_msj_aviso_2").hide();
+      $("#btn_cerrar_form_pago").hide();
+      
+    }
+		function error_callbak(response)
+		{
+      console.log("error");
+			//abano se muestra como se lee el error 
+			 var content = '';
+			content += 'Estatus del error: ' + response.data.status + '<br />';
+			content += 'Error: ' + response.message + '<br />';
+			content += 'Descripción: ' + response.data.description + '<br />';
+			content += 'ID de la petición: ' + response.data.request_id + '<br />';
+			$("#muestra_error_general").show();
+			$("#msj_error_general_pago").text(content);
+      $("#div_cargando").hide();
+		}
+		
+		function fn_valida_formulario()
+		{
+			
+		
+			if($("#holder_name").val()=="")
+			{
+				$("#error_nombre_tarjeta").show();
+				return 0;
+			}
+			
+			
+			//validamos que el tipo de tarjeta sea valido.
+			if (!OpenPay.card.validateCardNumber($("#card_number").val()))
+			{				
+				$("#error_txt_num_tarjeta").show();
+				$("#error_num_tarjeta").text("El número de tarjeta no es valido.");
+				return 0;
+			}
+			
+			//validamos que el codigo CVV corresponda con la tarjeta.
+			if (!OpenPay.card.validateCVC($("#cvv2").val(),$("#card_number").val()))
+			{				
+				$("#error_cvv").show();				
+				return 0;
+			}
+			
+			//validamos que el codigo CVV corresponda con la tarjeta.
+			if (!OpenPay.card.validateExpiry($("#expiration-month").val(),$("#expiration-year").val()))
+			{				
+				$("#error_fecha_exp").show();
+				$("#error_txt_fecha_exp").text("La fecha de expiracion es incorrecta");				
+				return 0;
+			}
+			
+			//validamos la longitud del año
+			if ($("#expiration-year").val().length!=2)
+			{
+				$("#error_fecha_exp").show();				
+				$("#error_txt_fecha_exp").text("El año debe ser de dos caracteres.");				
+				return 0;
+			}
+			
+			return 1;
+			
+		}
+		
+		
+        $(document).ready(function() {
+		
+            autosize(document.getElementById("txt_desc_prod"));
             $("#div_cargando").hide();
             $("#div_error").hide();
-            OpenPay.setId('myllylbt6vwlywximkxg');
-            OpenPay.setApiKey('pk_c5b567e442c344f4b0e34e21262cb90a');
-            OpenPay.setSandboxMode(true);
-            //Se genera el id de dispositivo
-            var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
-            
-            $('#pay-button').on('click', function(event) {
-              $("#div_cargando").show();
-                event.preventDefault();
-                $("#pay-button").prop( "disabled", true);
-                OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak); 
-            });
+
+			/* 
+			var fn_valida_formulario=function()
+			{
+				if($("#nom_titular").val()=="")
+				{
+					$("#error_nombre_tarjeta").show();
+					return 0;
+				}
+				return 1;
+				
+			}
 
             var sucess_callbak = function(response) {
               console.log(response);              
@@ -123,7 +290,7 @@
                   }
                 ,8000)
             };
-
+		*/
         });
     </script>
 

@@ -7,6 +7,10 @@ import { IPayPalConfig,ICreateOrderRequest } from 'ngx-paypal';
 import { CarritoComprasService } from '../servicios/carrito-compras.service';
 import {FormsModule} from '@angular/forms'
 declare let paypal:any;
+// Declaramos las variables para jQuery
+declare var jQuery:any;
+declare var OpenPay:any;
+declare var $:any;
 
 import { environment} from '../../environments/environment';
 
@@ -36,13 +40,17 @@ export class FormaPagoComponent implements OnInit {
     public total_pagar:number;
     public productos:any;
     public costo_envio:number;
-
+    public mostrar_msj_aviso_1:boolean;
+    mostrar_msj_aviso:boolean;
    public cargando:boolean;
-
+public mostrar_conf_pedido:boolean;
 public amount:number;
+public muestra_error_general:boolean;
+public holder_name:string="";
   constructor(private car_service:CarritoComprasService,private r: Router,private gvs:GuardaVentaService,private det:DireccionEnvioTemporalService) { }
 
 	ngOnInit() {	
+
    this.total_pagar=0.00; 
    this.amount=0.00;
         window.scrollTo(0,0);
@@ -50,13 +58,64 @@ public amount:number;
        this.fn_consulta_total_costo();
         this.muestra_tiket=false;
         this.muestra_error=false;
+        this.mostrar_msj_aviso_1=false;
         this.msj_error="";
         this.folio_compra="0";
-        
+        this.mostrar_conf_pedido=false;
+		
         //this.initConfig();    
   
   }
-  
+
+  fn_ocultar_form_pago()
+  {
+    this.mostrar_msj_aviso_1=!this.mostrar_msj_aviso_1;
+  }
+
+  fn_guarda_venta()
+  {
+	  this.cargando=true;
+	  this.gvs.fn_inserta_venta()
+	  .subscribe(
+		  data=>{
+        console.log(data);
+			this.cargando=false;
+			  if(data[0].estatus=="0")
+			  {
+          this.muestra_error=true;
+          this.msj_error=data[0].msj;
+         
+          setInterval(()=>{this.fn_oculta_msj_temporal()},4000);
+			  }
+			  else
+			  {
+          
+          this.folio_compra=data[0].folio;
+          this.mostrar_conf_pedido=true;
+          
+			  }
+		  }
+	  );
+  }
+  fn_oculta_msj_temporal()
+	{
+		
+		this.muestra_error=false;			
+		this.msj_error="";
+		clearInterval();
+	}
+  fn_pago_tarjeta()
+  {
+    this.mostrar_msj_aviso_1=true;
+  }
+  fn_ocultar_msj_1()
+  {
+    this.mostrar_msj_aviso_1=false;
+  }
+  fn_ocultar_msj()
+  {
+    this.mostrar_msj_aviso=false;
+  }
   fn_consulta_total_costo()
   {
     this.total_pagar=0.00;
@@ -89,113 +148,8 @@ public amount:number;
   }
 
 
-  fn_guarda_venta()
-  {
-    
-    this.cargando=true;
-	  this.gvs.fn_inserta_venta()
-	  .subscribe
-	  (
-      data=>
-      {			
-          if (data[0].estatus=="1")
-          {					
-            this.muestra_tiket=true;            
-            this.muestra_error=false;
-            this.folio_compra=data[0].folio;
-          }   
-          else
-          {            
-            this.muestra_tiket=false;
-            this.muestra_error=true;
-            this.msj_error=data[0].msj;
-          }   
-          
-        this.cargando=false;  
-      }
-	  );
-  }
-
-
-  /*
-  private initConfig(): void {
-    this.payPalConfig = {
-    currency: 'MXN',
-    clientId: 'AVmPl8bP0hjmhtBoFRLzB95lAuPqrAqW51MrEYmPqMJfzgdPdeF32jh_2MDeRFBLzhwsMyFwJI-3HBLt',    
-    createOrderOnClient: (data) => <ICreateOrderRequest>{
-      
-      payer: {
-        payment_method: 'paypal'
-      },
-
-      input_fields: {
-        no_shipping: '1',
-        address_override:'1'
-      },
-
-      intent: 'CAPTURE',
-      purchase_units: [
-        {
-          amount: {
-            currency_code: 'MXN',
-            value: '9.99',
-            breakdown: {
-              item_total: {
-                currency_code: 'MXN',
-                value: '9.99'
-              }
-            }
-          },
-          items: [
-            {
-              name: 'Enterprise Subscription',
-              quantity: '1',
-              category: 'DIGITAL_GOODS',
-              unit_amount: {
-                currency_code: 'MXN',
-                value: '9.99',
-              },
-            }
-          ]
-        }
-      ]
-    }
-    ,
-
-    advanced: {
-      commit: 'true'
-    },
-    style: {
-      color:  'blue',
-      shape:  'pill',
-      label:  'pay'
-    }
-    ,
-
-    onApprove: (data, actions) => {
-      console.log('onApprove - transaction was approved, but not authorized', data, actions);
-      actions.order.get().then(details => {
-        console.log('onApprove - you can get full order details inside onApprove: ', details);
-      });
-    },
-    onClientAuthorization: (data) => {
-      console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
-      this.showSuccess = true;
-    },
-    onCancel: (data, actions) => {
-      console.log('OnCancel', data, actions);
-    },
-    onError: err => {
-      console.log('OnError', err);
-    },
-    onClick: (data, actions) => {
-      console.log('onClick', data, actions);
-    },
-  }
  
-  ;
-  }
-*/
+
 
   fn_regresar()
   {    

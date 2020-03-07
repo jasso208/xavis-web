@@ -71,6 +71,7 @@ export class InformacionEnvioComponent implements OnInit {
 	public productos:any;
 	public msj_btn_mostrar:string;
 	public mostrar_conf_pedido:boolean;
+	public nom_titular:string="";
   constructor(private gvs:GuardaVentaService,private det:DireccionEnvioTemporalService,private router:Router,private car_service:CarritoComprasService) { }
 
   ngOnInit() {
@@ -160,7 +161,8 @@ export class InformacionEnvioComponent implements OnInit {
           else
           {
             this.costo_envio=0;
-          }
+		  }
+		  localStorage.setItem("total_pagar",this.total_pagar.toString());
           this.cargando=false;
       }
       );
@@ -355,9 +357,9 @@ export class InformacionEnvioComponent implements OnInit {
 					{
 						//el 1 en la variable de session nueva_direccion indica que ya se ha modificado la direccion
 						//por lo cual debera cargar siempre esta.
-						//this.router.navigate(['/forma_pago']);
-						this.cargando=true;
-						this.fn_guarda_venta();
+						this.router.navigate(['/forma_pago']);
+						//this.cargando=true;
+						//this.fn_guarda_venta();
 
 					}
 					//this.cargando=false;
