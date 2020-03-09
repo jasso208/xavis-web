@@ -1,29 +1,17 @@
 <!--<div id="encabezado" >-->
     <div class="container-fluid" id="encabezado">
         <div class="row">
-                <div class="col-xs-2 col-sm-7 text-center" id="logo" (click)="fn_go_home()"  >
-                        <img src="../assets/img/logo_peque.png" alt="" id="logo_peque">
-                        <img src="../assets/img/logo_grande.png" alt="" id="logo_grande">
-                      
-                </div>
-                
-                <div id="btn_face" class="col-xs-2 col-sm-1 text-center"  >
-                </div>
-                <div class="col-xs-2 col-sm-1 text-center" >
-                
-                </div>
-                <div class="col-xs-2 col-sm-1 text-center" id="btn_buscar"  (click)="fn_muestra_form_buscar()">
-                    <!-- <a (click)="fn_muestra_menu_cliente()">
-                        <img src="../assets/img/btn_buscar.png">      
-                    </a>
-                -->
-                </div>
+                <div class="col-xs-6 col-sm-7 text-center" id="logo" (click)="fn_go_home()"  >
+                        <img src="../assets/img/logo_grande.png" alt="" id="logo_peque">
+                        <img src="../assets/img/logo_grande.png" alt="" id="logo_grande">                      
+                </div>                            
+                <div class="col-xs-2 col-sm-1 text-center" >                
+                </div>               
                 <div id="menu" class="col-xs-2 col-sm-1 text-center" >                     
                         <a id="btn_categorias" (click)="fn_muestra_menu_navegacion()">
                                 <span class="glyphicon glyphicon-align-justify"></span>
                         </a>      
-                </div>
-                
+                </div>                
                 <div class="col-xs-2 col-sm-1 text-center" id="bolsa_compras" (click)="fn_go_carrito_compras()">                   
                                 <img src="../assets/img/bolsa_compras.png" >  
                                 <a id="cont_prod_carrito">{{cont_prod}}</a>  
@@ -31,20 +19,16 @@
         </div>  
 </div>
 <div id="pie_menu">
-
 </div>
 <div class="container" style="background-color:black; padding-bottom: 10px;" >
     <div class="row">
-        <div class="col-xs-7">
-
-            <input type="text" class="form-control col-xs-12" style="height: 42px;border:1px solid black;margin-top:1px"  [(ngModel)]="txt_buscar" >    
-            
+        <div class="col-xs-8">
+            <input type="text" class="form-control col-xs-12" style="height: 30px;border:1px solid black;margin-top:1px"  [(ngModel)]="txt_buscar" >                
         </div>
-        <div class="col-xs-5">
-            <button class="btn btn-primary btn-block" (click)="fn_muestra_form_busqueda()" [routerLink]="['/de_passo',2,txt_buscar]"> Buscar</button>                                   
+        <div class="col-xs-4">
+            <button class="btn btn-primary btn-block" style="height: 30px;margin-top:1px;font-size:15px"  (click)="fn_muestra_form_busqueda()" [routerLink]="['/de_passo',2,txt_buscar]"> Buscar</button>                                   
         </div>
     </div>
-
 </div>
 
 <router-outlet></router-outlet>
@@ -78,11 +62,7 @@
                     <span class="glyphicon glyphicon-earphone"> </span>   CENTER: 8113127511
             </p>
         </div>
-        <div class="col-xs-12" style="background-color:gray;">
-            <p>
-                <span class="glyphicon glyphicon-earphone"> </span>   CENTER: 8113127511
-            </p>
-        </div>
+      
         <div class="col-xs-12">
             <hr>
         </div>
@@ -99,23 +79,14 @@
                 <div class="col-xs-12 cls_item_pie_2" *ngIf="muestra_menu_ayuda" >
                     <div class="row">
                         <div class="col-xs-12">
-                         <a [routerLink]="['/costo_envio']">Costo de Envio</a>                        
+                         <a [routerLink]="['/costo_envio']">Preguntas frecuentes: compras</a>                        
                         </div>
-                    </div>
-                   <!-- <div class="row">
-                        <div class="col-xs-12">
-                           <a [routerLink]="['/seg_pedido']">Seguir Pedido</a>                        
-                        </div>
-                    </div>
-                    -->
+                    </div>                   
                     <div class="row">
                         <div class="col-xs-12">
-                            <a [routerLink]="['/devoluciones']">Devoluciones</a>                        
+                            <a [routerLink]="['/devoluciones']">Preguntas frecuentes: devoluciones.</a>                        
                         </div>
-                    </div>
-                   
-
-                    
+                    </div>                   
                 </div>  
                 <div class="col-xs-12">
                     <hr>
@@ -192,142 +163,9 @@
     <div class="col-xs-12">
         <hr>
     </div>  
-</div>
-
-<div class="row" id="pie_pc">
-    <div class="col-xs-12"  id="btn_face">
-        <p >
-            Siguenos en Redes Sociales.
-        </p>           
-        <a style="display: block;text-align: center;" href="https://www.facebook.com/pg/JassDel-101388937904521/reviews/?referrer=page_recommendations_see_all&ref=page_internal">
-            <img src="../assets/img/btn_face_negro.png" alt="">
-        </a> 
+    <div class="col-xs-12 text-center" >
+        <img src="../assets/img/cards1.png" alt="">
     </div>
-    <div class="col-xs-12">
-            <hr>
-        </div>
-    <div class="col-xs-12">
-        <p>
-                <span class="glyphicon glyphicon-earphone"> </span>   CENTER: 8113127511
-        </p>
-    </div>
-    <div class="col-xs-12">
-        <hr>
-    </div>
-    <div class=" col-xs-12 col-sm-4">
-        <div class="row">
-            <div class="col-xs-12 cls_item_pie">
-                <a (click)="fn_muestra_menu_ayuda()" >
-                    AYUDA   
-                    <span  *ngIf="!muestra_menu_ayuda">+</span>
-                    <span  *ngIf="muestra_menu_ayuda">-</span>
-                </a>
-            </div>
-
-            <div class="col-xs-12 cls_item_pie_2" >
-                <div class="row">
-                    <div class="col-xs-12">
-                     <a [routerLink]="['/costo_envio']">Costo de Envio</a>                        
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                       <a [routerLink]="['/seg_pedido']">Seguir Pedido</a>                        
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <a [routerLink]="['/devoluciones']">Devoluciones</a>                        
-                    </div>
-                </div>
-                <div class="row">                        
-                    <div class="col-xs-12">
-                        <hr>  
-                    </div>
-                    <div class="col-xs-12">
-                            <br>
-                            
-                        </div>
-                </div>
-
-                
-            </div>  
-            <div class="col-xs-12">
-                <hr>
-            </div>
-        </div>            
-    </div>  
-    <div class=" col-xs-12  col-sm-4">
-        <div class="row">
-            <div class="col-xs-12 cls_item_pie">
-                    <a (click)="fn_muestra_menu_jassdel()" >JASSDEL   <span *ngIf="!muestra_menu_jassdel">+</span> <span *ngIf="muestra_menu_jassdel">-</span></a>
-            </div>      
-            <div class="col-xs-12 cls_item_pie_2"  >
-                <div class="row">
-                    <div class="col-xs-12" style="text-align: center;">
-                        <p>
-                            En Jassdel nos gustaria saber de ti, no dudes en hacernos saber tus comentarios y/o opiniones:
-                            <br>
-                            <br>
-                            Whatsapp: (81)-1312-7511
-                            <br>
-                            <br>
-                            e-mail: gerencia.jassdel@jassdel.com
-                            <br>
-                            <br>
-                            Llamada telefonica: (81)-1312-7511
-                            <br>
-                            <br>              
-
-                        </p>
-                        <h1 >
-                            Horarios de Atencion
-                        </h1>
-                        <hr>
-
-                        <p>
-                            De 9 A.M. a 6 P.M.
-                        </p>
-                            
-                    </div>
-                </div>     
-                <div class="col-xs-12">
-                    <hr>
-                </div>
-            </div>                              
-        </div>
-       
-</div>
-<div class="col-xs-12 col-sm-4" >
-    <div class="row">
-        <div class="col-xs-12 cls_item_pie" >
-                <a (click)="fn_muestra_menu_politicas()" >
-                    POLITICAS   
-                    <span  *ngIf="!muestra_menu_politicas">+</span>
-                    <span  *ngIf="muestra_menu_politicas">-</span>
-                </a>
-        </div>
-        <div class="col-xs-12 cls_item_pie_2" >
-            <div class="row">
-                <div class="col-xs-12">
-                    <a [routerLink]="['/detalle_blog']">Devoluciones</a>                        
-                </div>
-            </div>
-            <div class="row">
-                    <div class="col-xs-12">
-                        <a>Trabaja con nosotros</a>                        
-                    </div>
-                </div>
-              
-        </div>  
-        <div class="col-xs-12">
-            <hr>
-        </div>
-    </div>            
-</div>
-<div class="col-xs-12">
-    <hr>
-</div>  
 </div>
 
 

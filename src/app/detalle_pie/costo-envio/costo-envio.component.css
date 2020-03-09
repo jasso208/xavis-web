@@ -1,13 +1,11 @@
-#img_envio
+.cls_boton_item
 {
-    display:none;
+    
+    padding-top:20px;
+    padding-bottom: 20px;
 }
-
-@media (min-width: 736px) {
-    #img_envio
-    {
-        display: inline-block;
-        width: 90%;
-        margin-left: 5%;;
-    }    
+.cls_parrafo
+{
+    text-align: justify;
+    font-size: 15px;
 }

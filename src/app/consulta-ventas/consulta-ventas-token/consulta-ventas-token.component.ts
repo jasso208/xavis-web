@@ -28,6 +28,7 @@ export class ConsultaVentasTokenComponent implements OnInit {
   constructor(private rps:EnviaTokenService,private router:Router) { }
 
   ngOnInit() {
+    window.scrollTo(0,0);
     this.mostrar_msj_exito=false;
     this.msj_exito="";
     this.txt_e_mail=""

@@ -1,60 +1,197 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12">
-            <h1 >
-                    Costo Envio
-            </h1>                    
-        </div>
-        <div class="col-xs-12">
-                <hr>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-4">
-            <img src="./../../../assets/img/box-send.jpg" id="img_envio">
-        </div>      
-        <div class="col-xs-12 col-sm-8">
-                <div class="row">
-                        <div class="col-xs-12">
-                            <p>
-                                    Manejamos dos tarifas de envío dependiendo del importe total de tu compra:
-                                    <br>
-                                    <br>
-                                    Cuando tu compra sea menor a $500.00:
-                                    <br>
-                                    <br>
-                            </p>
-                            <p style="text-align: center;">
-                                    Costo de envío = $100.00.
-                                    <br>
-                                    <br>
-                            </p>
-                            <p>
-                                    Cuando tu compra sea mayor o igual a $500.00:
-                                    <br>
-                                    <br>
-                            </p>
-                            <p style="text-align: center;">
-                                    Costo de envío = <span style="color: red;font-weight: bold;"> Gratis.  </span>    
-                                    <br>
-                                    <br>
-                            </p>
-                            <br>
-                            <br>
-                            <p style="text-align: center; color:gray">
-                                    (Recuerda que actualmente solo hacemos entregas en la Ciudad de Monterrey y su Area Metropolitana.)    
-                            </p>
-                        </div>
-                    </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-12">
-                <hr>
-        </div>
-    </div>
-
+<div class="container">
+        <div class="row">			
+                <div class="col-xs-12" class="cls_container_posicion">
+                        <a [routerLink]="['/home']" class="cls_link_posicion" >Home</a>/<a class="cls_link_posicion">Preguntas frecuentes: compras.</a>
+                </div>
+        </div>        
 </div>
+<hr>
+<div class="container">
+        <div class="row">
+                <div class="col-xs-12">
+                        <h1>
+                                Preguntas frecuentes: compras.
+                        </h1>
+                </div>
+        </div>
+        <div class="row">                
+                <div class="col-xs-12">
+                        <br>
+                        <br>
+                </div>
+                <div class="col-xs-12">
+                        <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_1()">
+                                ¿Cómo puedo saber si se realizó mi pedido?
+                        </button>
+                        <div class="col-xs-12" *ngIf="muestra_pr_1">
+                                <br>
+                                <p class="cls_parrafo">
+                                        Al final del proceso se te mostrara una pantalla confirmando tu pedido. Unos minutos después recibirás un e-mail con la información de tu compra.
+                                        <br>
+                                        <br>                                        
+                                        Si al finalizar tu compra seleccionaste la opción “pago al recibir mi producto” (esta modalidad solo está disponible para Monterrey Nuevo León y su área metropolitana), en breve uno de nuestros asesores de ventas se pondrá en contacto con usted para coordinar la entrega del producto. En caso de que hayas seleccionado la opción “pago con tarjeta”, se te notificara por correo electrónico cuando tu compra sea depositada en la paquetería. Este correo electrónico también contendrá la información de la guía para que puedas dar seguimiento a tu pedido.
+                                </p>
+                        </div>
+                </div>    
 
+                <div class="col-xs-12">
+                        <br>                        
+                </div>
+                <div class="col-xs-12">
+                        <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_2()">
+                                ¿En cuánto tiempo recibiré mi producto?
+                        </button>
+                        <div class="col-xs-12" *ngIf="muestra_pr_2">
+                                <br>
+                                <p class="cls_parrafo">                                                                              
+                                        El tiempo de entrega con el servicio “Pago al recibir mi producto”, se le informara cuando uno de nuestros asesores de ventas se comunique con usted (esta modalidad solo está disponible para Monterrey Nuevo León y su área metropolitana).
+                                        <br>
+                                        <br>
+                                        Si su forma de pago fue con tarjeta de crédito, su pedido le será entregado de 3 a 7 días. Cuando el pedido sea entregado a la paquetería, usted recibirá un correo electrónico donde se le direccionara a la página de la paquetería donde usted podrá dar seguimiento a su pedido.                                        
+                                </p>
+                        </div>
+                </div>          
+                <div class="col-xs-12">
+                        <br>                        
+                </div>
+                <div class="col-xs-12">
+                        <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_3()">
+                                ¿Cómo puedo dar seguimiento a mis compras?
+                        </button>
+                        <div class="col-xs-12" *ngIf="muestra_pr_3">
+                                <br>
+                                <p class="cls_parrafo">                                                                              
+                                        Dando clic en este                                 
+                                        <a [routerLink]="['/consulta_ventas']">[link]</a>                                         
+                                        le direccionaremos a una página donde usted poda indicarnos el email que usted registró al hacer sus compras. Una vez que presione el botón “Consulta tus ventas” se te enviara a tu correo un link el cual, al dar clic te mostrara  todas tus ventas y el detalle de estas.
+                                </p>
+                        </div>
+                </div>  
+                <div class="col-xs-12">
+                        <br>                        
+                </div>
+                <div class="col-xs-12">
+                        <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_4()">
+                                ¿Cómo obtener el número de guia?
+                        </button>
+                        <div class="col-xs-12" *ngIf="muestra_pr_4">
+                                <br>
+                                <p class="cls_parrafo">                                                                              
+                                        Dando clic en este                                 
+                                        <a [routerLink]="['/consulta_ventas']">[link]</a>                                         
+                                        le direccionaremos a una página donde usted poda indicarnos el email que usted registró al hacer sus compras. Una vez que presione el botón “Consulta tus ventas” se te enviara a tu correo un link el cual, al dar clic te mostrara  todas tus ventas y el detalle de estas.
+                                </p>
+                        </div>
+                </div>  
+                <div class="col-xs-12">
+                        <br>                        
+                </div>
+                <div class="col-xs-12">
+                        <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_5()">
+                                ¿Opciones de pago?
+                        </button>
+                        <div class="col-xs-12" *ngIf="muestra_pr_5">
+                                <br>
+                                <p class="cls_parrafo">                                                                              
+                                        Contamos con dos formas de pago:
+                                        <br>
+                                        <br>
+                                        <strong>“Pago al recibir  mi producto”: </strong>esta modalidad te permite hacer tu pedido y pagar hasta que te entreguemos tu producto (Esta modalidad solo está disponible para Monterrey Nuevo León y su área metropolitana).
+                                        <br>
+                                        <br>
+                                        <strong>“Pago con tarjeta”: </strong>en esta opción aceptamos el pago con tarjeta, y una vez que tu transacción sea aprobada, tu producto será enviado por medio de nuestro servicio de paquetería.                                        
+                                </p>
+                        </div>
+                </div>  
+                <div class="col-xs-12">
+                        <br>                        
+                </div>
+                <div class="col-xs-12">
+                        <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_6()">
+                                ¿Cuánto cuesta él envió de los productos?
+                        </button>
+                        <div class="col-xs-12" *ngIf="muestra_pr_6">
+                                <br>
+                                <p class="cls_parrafo">                                                                              
+                                        Si la compra total de tu compra es superior a $499.00 MXN, el costo del envío es gratuito. Si haces una compra inferior o igual a este importe, el costo de envío es de $100.00 MXN.
+                                </p>
+                        </div>
+                </div>  
+                <div class="col-xs-12">
+                        <br>                        
+                </div>
+                <div class="col-xs-12">
+                        <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_7()">
+                                ¿Cómo puedo consultar el historial de mis compras?
+                        </button>
+                        <div class="col-xs-12" *ngIf="muestra_pr_7">
+                                <br>
+                                <p class="cls_parrafo">                                                                              
+                                        Dando clic en este                                 
+                                        <a [routerLink]="['/consulta_ventas']">[link]</a>                                         
+                                        le direccionaremos a una página donde usted poda indicarnos el email que usted registró al hacer sus compras. Una vez que presione el botón “Consulta tus ventas” se te enviara a tu correo un link el cual, al dar clic te mostrara  todas tus ventas y el detalle de estas.
+                                </p>
+                        </div>
+                </div> 
+                <div class="col-xs-12">
+                        <br>                        
+                </div>
+                <div class="col-xs-12">
+                        <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_8()">
+                                ¿Es seguro pagar en Jassdel.com?
+                        </button>
+                        <div class="col-xs-12" *ngIf="muestra_pr_8">
+                                <br>
+                                <p class="cls_parrafo">                                                                              
+                                        Todas nuestras transacciones están hechas a través de la plataforma OpenPay, la cual cuenta con protocolos de seguridad que son aplicados a las compras de todos nuestros clientes. Los métodos de pago que se hacen en línea cuentan con tecnología de seguridad de clase mundial.
+                                </p>
+                        </div>
+                </div> 
+                <div class="col-xs-12">
+                        <br>                        
+                </div>
+                <div class="col-xs-12">
+                        <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_9()">
+                                ¿Puedo cancelar una compra en línea?
+                        </button>
+                        <div class="col-xs-12" *ngIf="muestra_pr_9">
+                                <br>
+                                <p class="cls_parrafo">                                                                              
+                                	Puedes realizar la cancelación de tu compra siempre y cuando tus productos no hayan sido depositados en la paquetería. Si una vez que recibiste los productos quieres devolverlos, puedes solicitar la devolución de estos.
+                                </p>
+                        </div>
+                </div>
+
+                <div class="col-xs-12">
+                        <br>                        
+                </div>
+                <div class="col-xs-12">
+                        <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_10()">
+                                ¿Tengo un cargo doble en mi tarjeta?
+                        </button>
+                        <div class="col-xs-12" *ngIf="muestra_pr_10">
+                                <br>
+                                <p class="cls_parrafo">                                                                              
+                                	Comunícate al Call Center (81) 1312 7511 y te apoyaremos a resolver tu caso.
+                                </p>
+                        </div>
+                </div>
+
+                <div class="col-xs-12">
+                        <br>                        
+                </div>
+                <div class="col-xs-12">
+                        <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_11()">
+                                ¿Puedo cambiar mi dirección de entrega?
+                        </button>
+                        <div class="col-xs-12" *ngIf="muestra_pr_11">
+                                <br>
+                                <p class="cls_parrafo">                                                                              
+                                	Sí, pero debes hacerlo antes de finalizar la compra. Te recomendamos que confirmes que la información esté capturada correctamente, ya que después de finalizar la compra no podrás cambiar la dirección de envío.
+                                </p>
+                        </div>
+                </div>
+               
+        </div>
+</div>

@@ -49,16 +49,10 @@
 
 }
 
-
-
-  
-
-
-
 #pie_menu
 {
     background-color:black;
-    height: 30px;
+    height: 10px;
     width: 100%;
     z-index: -1;
     top:60px;

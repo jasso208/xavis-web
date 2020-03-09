@@ -1,86 +1,194 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12">
-            <h1 >
-                    Devoluciones
-            </h1>                    
-        </div>
-        <div class="col-xs-12">
-                <hr>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-4">
-            <img src="./../../../assets/img/devoluciones.jpg" id="img_envio">
-        </div>      
-        <div class="col-xs-12 col-sm-8">
-                <div class="row">
-                        <div class="col-xs-12">
-                            <p>
-                                En Jassdel estamos comprometidos con su satisfacción por lo cual, si usted tiene algún problema con su pedido, la devolución correrá por nuestra cuenta.
-                                <br>
-                                <br>
-                                <a [routerLink]="['/politica_devolucion']">
-                                    (En este Link podras consultar las politicas de devoluciones)
-                                </a>
-                                <br>
-                                <br>
-                                A continuación le describimos el proceso para la devolución de productos:
-                                <br>
-                                <br>
-                                1.- Una vez que usted haya recibido su pedido y alguno  o todos los productos no cumplan con sus expectativas (ya se por que la talla no fue la correcta, no le gusto el producto, defecto de fabrica o cualquiera otra razon que usted tenga), usted deberá notificarnos por alguno de los siguientes medios.
-                                <br>
-                                <br>
-                                &nbsp;&nbsp;&nbsp;Whatsapp:	(81)-1312-7511
-                                <br>
-                                <br>
-                                &nbsp;&nbsp;&nbsp;e-mail: gerencia.jassdel@jassdel.com
-                                <br>
-                                <br>
-                                &nbsp;&nbsp;&nbsp;Llamada telefonica: (81)-1312-7511
-                                <br>
-                                <br>
-                                &nbsp;&nbsp;&nbsp;En el medio que usted elija deberá mencionar la siguiente información:
-                                <br>
-                                <br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;* Correo Electronico del comprador.                                
-                                <br>
-                                <br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;* Razón de la devolución.                                                               
-                                <br>
-                                <br>
-                                2.- Uno de nuestros asesores recibira su solicitud y le dara el seguimiento hasta que su solicitud sea resuelta.                                
-                                <br>
-                                <br> 
-                        </p>
-                                            
-                        </div>
-                    </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-12">
-                <hr>
-        </div>
-    </div>
-
+<div class="container">
+    <div class="row">			
+            <div class="col-xs-12" class="cls_container_posicion">
+                    <a [routerLink]="['/home']" class="cls_link_posicion" >Home</a>/<a class="cls_link_posicion"> Preguntas frecuentes: cambios y devoluciones.</a>
+            </div>
+    </div>        
 </div>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+                <h1>
+                        Preguntas frecuentes: cambios y devoluciones.
+                </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <br>
+            <br>
+        </div>
+        <div class="col-xs-12">
+            <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_1()">
+                    ¿Cuáles son las políticas de cambios y devoluciones?
+            </button>
+            <div class="col-xs-12" *ngIf="muestra_pr_1">
+                    <br>
+                    <p class="cls_parrafo">
+                        En este 
+                        <a [routerLink]="['/politica_devolucion']">
+                            [link] 
+                        </a>
+                        podrás consultar nuestras políticas de devolución.                           
+                    </p>
+            </div>
+        </div>  
+        <div class="col-xs-12">
+            <br>            
+        </div>
+        <div class="col-xs-12">
+            <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_2()">
+                	¿Cómo puedo hacer un cambio de talla o modelo?
+            </button>
+            <div class="col-xs-12" *ngIf="muestra_pr_2">
+                    <br>
+                    <p class="cls_parrafo">
+                        No puedes hacer este tipo de cambios. En caso de que requieras hacerlos, te recomendamos cancelar la compra (podrás cancelar tu compra siempre y cuando tus productos no hayan sido depositados en la paquetería) y posteriormente hacer nuevamente la compra con los productos correctos.               
+                    </p>
+            </div>
+        </div>  
+        <div class="col-xs-12">
+            <br>
+            
+        </div>
+        <div class="col-xs-12">
+            <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_3()">
+                	¿Tiene algún costo mi devolución?
+            </button>
+            <div class="col-xs-12" *ngIf="muestra_pr_3">
+                    <br>
+                    <p class="cls_parrafo">
+                        No, las devoluciones son completamente gratis.
+                    </p>
+            </div>
+        </div>  
+        <div class="col-xs-12">
+            <br>
+            
+        </div>
+        <div class="col-xs-12">
+            <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_4()">
+                	¿Qué productos no puedo devolver?
+            </button>
+            <div class="col-xs-12" *ngIf="muestra_pr_4">
+                    <br>
+                    <p class="cls_parrafo">
+                        En este 
+                        <a [routerLink]="['/politica_devolucion']">
+                            [link] 
+                        </a>
+                        podrás consultar nuestras políticas de devolución.     
+                    </p>
+            </div>
+        </div>  
+        <div class="col-xs-12">
+            <br>
+            
+        </div>
+        <div class="col-xs-12">
+            <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_5()">
+                	¿Cómo hago una devolución por paquetería?
+            </button>
+            <div class="col-xs-12" *ngIf="muestra_pr_5">
+                    <br>
+                    <p class="cls_parrafo">
+                        En este 
+                        <a [routerLink]="['/devoluciones']">
+                            [link] 
+                        </a>
+                        podrás consultar consultar el proceso para hacer una devolución.
+                    </p>
+            </div>
+        </div> 
+        <div class="col-xs-12">
+            <br>
+            
+        </div>
+        <div class="col-xs-12">
+            <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_6()">
+                	¿Cuánto tiempo toma una devolución?
+            </button>
+            <div class="col-xs-12" *ngIf="muestra_pr_6">
+                    <br>
+                    <p class="cls_parrafo">
+                        Usted cuenta con 5 días naturales a partir de que recibe sus productos para notificarnos que requiere hacer una devolución.  Una vez reportado nosotros  le proporcionaremos una guía de paquetería para que nos envié el producto.
+                    </p>
+            </div>
+        </div> 
 
+        <div class="col-xs-12">
+            <br>            
+        </div>
+        <div class="col-xs-12">
+            <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_7()">
+                	¿El reembolso  será por el monto que pague?
+            </button>
+            <div class="col-xs-12" *ngIf="muestra_pr_7">
+                    <br>
+                    <p class="cls_parrafo">
+                        Si usted requiere devolver todo los productos de la compra, se le reembolsara el importe total de la compra. Si usted requiere devolver parcialmente su compra se le reembolsara lo proporcional a estos productos.
+                    </p>
+            </div>
+        </div> 
+        <div class="col-xs-12">
+            <br>            
+        </div>
+        <div class="col-xs-12">
+            <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_8()">
+                	¿Cómo puedo saber el estatus de mi devolución?
+            </button>
+            <div class="col-xs-12" *ngIf="muestra_pr_8">
+                    <br>
+                    <p class="cls_parrafo">
+                        Comunícate al Call Center (81) 1312 7511 y te apoyaremos a aclarar tus dudas.
+                    </p>
+            </div>
+        </div> 
+        <div class="col-xs-12">
+            <br>            
+        </div>
+        <div class="col-xs-12">
+            <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_9()">
+                    ¿Tengo problemas con mi reembolso y devolución?
+            </button>
+            <div class="col-xs-12" *ngIf="muestra_pr_9">
+                    <br>
+                    <p class="cls_parrafo">
+                        Comunícate al Call Center (81) 1312 7511 y te apoyaremos a aclarar tus dudas.
+                    </p>
+            </div>
+        </div> 
 
+        <div class="col-xs-12">
+            <br>            
+        </div>
+        <div class="col-xs-12">
+            <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_10()">
+                	¿Recuperar producto que no fue aprobado para devolución?
+            </button>
+            <div class="col-xs-12" *ngIf="muestra_pr_10">
+                    <br>
+                    <p class="cls_parrafo">
+                        En caso de que su producto no sea aprobado para ser devuelto, nosotros le enviaremos el producto a la misma dirección registrada al hacer la compra.
+                    </p>
+            </div>
+        </div> 
 
+        <div class="col-xs-12">
+            <br>            
+        </div>
+        <div class="col-xs-12">
+            <button  class="btn btn-default btn-block cls_boton_item"  (click)="fn_muestra_pr_11()">
+                	¿Cómo recibiré el reembolso de mi dinero?
+            </button>
+            <div class="col-xs-12" *ngIf="muestra_pr_11">
+                    <br>
+                    <p class="cls_parrafo">
+                        Se te reembolsara a la misma tarjeta con la que hiciste el pago.
+                    </p>
+            </div>
+        </div> 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+</div>
