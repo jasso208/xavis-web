@@ -26,6 +26,8 @@ import { ConsultaVentasTokenComponent } from './consulta-ventas/consulta-ventas-
 import { ConsultaVentasValidaTokenComponent } from './consulta-ventas/consulta-ventas-valida-token/consulta-ventas-valida-token.component';
 import { ConsultaVentasGridComponent } from './consulta-ventas/consulta-ventas-grid/consulta-ventas-grid.component';
 import { PruebaComponent } from './prueba/prueba.component';
+import { PagoTarjetaComponent } from './pago-tarjeta/pago-tarjeta.component';
+import { CategoriasComponent } from './categorias/categorias.component';
 const rutas: Routes = [
 
 	{ path: '', redirectTo: '/home',pathMatch:'full'},
@@ -34,7 +36,8 @@ const rutas: Routes = [
   { path: 'detalle_producto/:id_producto', component: DetalleProductoComponent },  
   { path: 'bolsa_compra', component: CarritoComprasComponent },  
 	{ path: 'informacion_envio', component: InformacionEnvioComponent },
-  { path: 'forma_pago', component: FormaPagoComponent },
+  { path: 'forma_pago', component: FormaPagoComponent },  
+  { path: 'pago_tarjeta', component: PagoTarjetaComponent },
   { path: 'consulta_ventas_invitado', component: ConsultaVentasInvitadoComponent },  
   { path: 'detalle_blog/:id_blog', component: BlogComponent },
   { path: 'costo_envio', component: CostoEnvioComponent },
@@ -45,7 +48,9 @@ const rutas: Routes = [
   { path: 'politica_privacidad', component: PoliticaPrivacidadComponent },
   { path: 'consulta_ventas', component: ConsultaVentasTokenComponent },
   { path: 'valida_token', component: ConsultaVentasValidaTokenComponent },
+  
   { path: 'listado_ventas/:token', component: ConsultaVentasGridComponent },
+  { path: 'categorias', component: CategoriasComponent },
   
   
   
@@ -74,7 +79,9 @@ const rutas: Routes = [
     ConsultaVentasTokenComponent,
     ConsultaVentasValidaTokenComponent,
     ConsultaVentasGridComponent,
-    PruebaComponent
+    PruebaComponent,
+    PagoTarjetaComponent,
+    CategoriasComponent
   ],
   imports: [
     BrowserModule,   

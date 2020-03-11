@@ -188,6 +188,14 @@ h1
 {
     font-size: 15px;;
 }
+.cls_btn_categoria
+{
+    background-color: gray;
+    font-size:15px;
+    color:white;
+    padding-top:15px;
+    padding-bottom: 15px;
+}
 	@media (min-width: 375px) {
 		.img_envio,.img_devolucion,.img_seguridad
 		{

@@ -17,9 +17,9 @@
 			</div>  
 
 			<div class="col-xs-12">
-                <button class="btn btn-default btn-block" style="text-align: left;padding-top:20px;padding-bottom: 20px;" (click)="fn_pago_tarjeta()">>      Pagar con tarjeta.</button>
+                <button class="btn btn-default btn-block" style="text-align: left;padding-top:20px;padding-bottom: 20px;" [routerLink]="['../pago_tarjeta']">>      Pagar con tarjeta.</button>
 			</div>						
-
+			
             <div class="col-xs-12">
                 <br>
                 <br>
@@ -40,114 +40,7 @@
 		</div>
 		
 </div>
-<div  *ngIf="mostrar_msj_aviso_1" style="width: 100%;height: 100%;position: fixed;top:0;left: 0;z-index: 100; background-color: black;opacity: 0.7;">
 
-</div>
-<div id="div_msj_aviso_1" *ngIf="mostrar_msj_aviso_1" style="background-color:white;">
-	<div class="container" >
-		<div class="row">
-			<div class="col-xs-12" style="color:black;padding-top:10px;padding-bottom:10px;">
-					<h1>
-						<strong>Pago con Tarjeta de Credito o Debito</strong>
-					</h1>
-			</div>
-		</div>
-		<div class="row" style="background-color:white">
-			<div class="col-xs-12">
-					<form action="#" method="POST" id="payment-form" class="form">
-							<input type="hidden" name="token_id" id="token_id">
-							<input type="hidden" name="use_card_points" id="use_card_points" value="false">
-							
-							<div class="form-group">
-								<label>Nomnbre del titular</label>
-								<input class="form-control" type="text" placeholder="Como aparece en la tarjeta" autocomplete="off" [(ngModel)]="holder_name" id="holder_name"  data-openpay-card="holder_name"  [ngModelOptions]="{standalone:true}">
-								<div class="row">
-									<div
-									class="col-xs-12 error"
-									  id="error_nombre_tarjeta" style="display:none">
-									  <a>El nombre del titular requerido</a>
-									</div>
-                                </div>
-							</div>
-							<div class="form-group">
-								<label>Numero de Tarjeta</label>
-								<input class="form-control" type="number" placeholder="16 digitos" autocomplete="off" data-openpay-card="card_number" id="card_number">
-								<div class="row">
-									<div
-									class="col-xs-12 error"
-									  id="error_txt_num_tarjeta" style="display:none">
-										<a id="error_num_tarjeta"></a>
-									</div>
-								</div>
-								
-								
-							</div>
-							<div class="row">
-								<div class="col-xs-7">
-									<div class="form-group">
-										<label>Fecha de expiración</label>
-										<div class="row">
-											<div class="col-xs-6">
-												<input class="form-control" type="number" placeholder="MM" data-openpay-card="expiration_month" id="expiration-month">
-											</div>
-											<div class="col-xs-6">
-												<input class="form-control" type="number" placeholder="YY" data-openpay-card="expiration_year" id="expiration-year">
-											</div>
-										</div>									
-										<div class="row">
-											<div
-											class="col-xs-12 error"
-											  id="error_fecha_exp" style="display:none;text-align:center">
-												<a id="error_txt_fecha_exp" ></a>
-											</div>
-										</div>									
-									</div>
-								</div>
-							
-								<div class="col-xs-5">
-									<div class="form-group">
-									<label>CVV</label>
-									<div class="row">
-										<div class="col-xs-12">										
-											<input class="form-control col-xs-3" type="number" placeholder="3 digitos" autocomplete="off" data-openpay-card="cvv2" id="cvv2">							
-										</div>
-									</div>
-									<div class="row">
-										<div
-										class="col-xs-12 error"
-										  id="error_cvv" style="display:none;text-align:center">
-											<a >El codigo de seguridad es incorrecto</a>
-										</div>
-									</div>
-									
-									</div>	
-								</div>
-							</div>
-													
-							<div class="form-group">								
-								<label>Tarjetas de Credito</label>
-								<br>
-								<img style="width:50%" src="../../assets/img/cards1.png">
-							</div>
-							
-							<div class="form-group">
-								<label>Tarjetas de Debito</label>
-								<br>
-								<img  style="width:100%" src="../../assets/img/cards2.png">
-							</div>
-						</form>
-					</div>									
-		</div>
-		
-	</div>
-
-    
-    
-
-    <button id="prueba" class="btn btn-primary center-block" style="margin:0 auto ;"  onclick="fn_pagar();" >
-        Pagar
-    </button>
-</div>
 <div class="preloader-fondo" *ngIf="cargando" >    
     <div class="preloader">
 
@@ -188,32 +81,7 @@
     </button>
 </div>
 
-<div  id="mostrar_conf_pedido_2" onclick="fn_oculta_form_pagar()"  style="width: 100%;height: 100%;position: fixed;top:0;left: 0;z-index: 10001; background-color: black;opacity: 0.7;display: none;">
 
-</div>
-<div id="div_msj_aviso_2" style="display: none;z-index: 10001" >
-    <div style="width: 100%;text-align: center;">
-        <img src="../../assets/img/logo_peque.png" style="width:70px;margin:0 auto" >
-    </div>
-    <h1>
-		<strong>
-			<span id="folio_compra_2"></span>
-		</strong>
-        
-        
-        <br><br>
-        Gracias por su preferencia    
-        <br>
-        <br>
-            Se le notificara via correo electronico cuando su paquete este en camino.
-        <br>
-        <br>        
-    </h1>
-    <hr>
-    <button class="btn btn-primary center-block" style="margin:0 auto ;" (click)="fn_ocultar_msj()" [routerLink]="['/home']">
-        Continuar
-    </button>
-</div>
 
 <div style=" position: fixed;padding:10px; top: 0; right: 0;z-index: 1000; "   *ngIf="mostrar_msj_aviso_1">
     <a (click)="fn_ocultar_form_pago()" style="color: white;font-size:30px" >
@@ -222,6 +90,3 @@
   </div>
 
 
-<div class="cls_error_msj" id="muestra_error_general" style="display: none;">
-    <p id="msj_error_general_pago"></p>
-</div>

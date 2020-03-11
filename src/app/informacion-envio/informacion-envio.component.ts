@@ -79,7 +79,7 @@ export class InformacionEnvioComponent implements OnInit {
 	this.costo_envio=0.00;
 	this.total_pagar=0.00;
 	this.muestra_prod_carrito=false;
-	this.msj_btn_mostrar="Muestra productos en la Bolsa";
+	this.msj_btn_mostrar="Muestra productos en el carrito";
 	this.mostrar_msj_aviso=true;
 	this.mostrar_conf_pedido=false;
     this.cliente=new FormGroup({
@@ -133,11 +133,11 @@ export class InformacionEnvioComponent implements OnInit {
 	  this.muestra_prod_carrito=!this.muestra_prod_carrito;
 	  if (this.muestra_prod_carrito)
 	  {
-		this.msj_btn_mostrar="Ocultar productos en la Bolsa";
+		this.msj_btn_mostrar="Ocultar productos en el carrito";
 	  }
 	  else
 	  {
-		this.msj_btn_mostrar="Muestra productos en la Bolsa";
+		this.msj_btn_mostrar="Muestra productos en el carrito";
 	  }
 	  
   }

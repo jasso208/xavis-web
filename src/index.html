@@ -54,7 +54,7 @@
 			if(fn_valida_formulario()==1)
 			{
           $("#div_cargando").show();
-          console.log("empieza");
+          
           //si el token se ejecuta correctamente ejecutamos la funcion: sucess_callbak
           //si el token no se genera correctamente ejecutamos la funcion: error_callbak
           OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak); 
@@ -126,7 +126,7 @@
     }
     function fn_oculta_form_pagar()
     {      
-      alert("funciona");
+      
       $("#mostrar_conf_pedido_2").hide();      
       $("#div_msj_aviso_2").hide();
       $("#btn_cerrar_form_pago").hide();

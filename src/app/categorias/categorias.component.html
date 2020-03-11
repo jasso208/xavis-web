@@ -1,0 +1,154 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12" class="cls_container_posicion">
+            <a [routerLink]="['/home']" class="cls_link_posicion" >Home</a><a class="cls_link_posicion"> / </a><a class="cls_link_posicion">Categorias</a>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <div class="row">
+            
+        <div class="col-xs-12">
+                <h1>
+                    Descubre nuestras categorías
+                </h1>
+                <hr>
+        </div>
+    </div>
+</div>
+
+    <div class="container-fluid"  >
+        <div class="row" >
+            <h1>Jeans</h1>
+            <hr>
+            <div class="col-xs-6  col-sm-3" *ngFor="let prod of jeans">
+                <div class="row cls_item_resultado_busqueda"  [routerLink]="['/detalle_producto',prod.id]">
+                    <div class="col-xs-12">
+                        <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
+                    </div>
+                    <div class="col-xs-12">
+                        <a class="cls_nompre_producto_resultado_busqueda">
+                            {{prod.nombre}}
+                        </a>
+                    </div>
+                    <div class="col-xs-12">                    
+                        <a class="cls_precio_prod">
+                            ${{prod.precio | number: '1.2-2'}}
+                        </a>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <button class="btn btn-primary btn-block cls_btn_categoria"  [routerLink]="['/de_passo',1,31]">Ver todos los Jeans</button>
+            </div>
+        </div>    
+        <div class="col-xs-12">
+                <hr>
+        </div>
+    </div>
+
+    <div class="container-fluid"   >
+        <div class="row">
+            <h1>Blusas</h1>
+            <hr>
+            <div class="col-xs-6  col-sm-3" *ngFor="let prod of blusa">
+                <div class="row cls_item_resultado_busqueda"  [routerLink]="['/detalle_producto',prod.id]">
+                    <div class="col-xs-12">
+                        <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
+                    </div>
+                    <div class="col-xs-12">
+                        <a class="cls_nompre_producto_resultado_busqueda">
+                            {{prod.nombre}}
+                        </a>
+                    </div>
+                    <div class="col-xs-12">                    
+                        <a class="cls_precio_prod">
+                            ${{prod.precio | number: '1.2-2'}}
+                        </a>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <button class="btn btn-primary btn-block cls_btn_categoria"  [routerLink]="['/de_passo',1,26]">Ver todas las Blusas</button>
+            </div>
+        </div>
+    
+        <div class="col-xs-12">
+                <hr>
+        </div>
+    </div>
+    
+    
+    <div class="container-fluid"   >
+        <div class="row">
+            <h1>BackPacks</h1>
+            <hr>
+            <div class="col-xs-6  col-sm-3" *ngFor="let prod of bolsos">
+                <div class="row cls_item_resultado_busqueda"  [routerLink]="['/detalle_producto',prod.id]">
+                    <div class="col-xs-12">
+                        <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
+                    </div>
+                    <div class="col-xs-12">
+                        <a class="cls_nompre_producto_resultado_busqueda">
+                            {{prod.nombre}}
+                        </a>
+                    </div>
+                    <div class="col-xs-12">                    
+                        <a class="cls_precio_prod">
+                            ${{prod.precio | number: '1.2-2'}}
+                        </a>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <button class="btn btn-primary btn-block cls_btn_categoria"  [routerLink]="['/de_passo',1,40]">Ver todas las BackPacks</button>
+            </div>
+        </div>
+    
+        <div class="col-xs-12">
+                <hr>
+        </div>
+    </div>
+    
+    
+    <div class="container-fluid"   >
+        <div class="row">
+            <h1>Carteras</h1>
+            <hr>
+            <div class="col-xs-6  col-sm-3" *ngFor="let prod of carteras">
+                <div class="row cls_item_resultado_busqueda"  [routerLink]="['/detalle_producto',prod.id]">
+                    <div class="col-xs-12">
+                        <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
+                    </div>
+                    <div class="col-xs-12">
+                        <a class="cls_nompre_producto_resultado_busqueda">
+                            {{prod.nombre}}
+                        </a>
+                    </div>
+                    <div class="col-xs-12">                    
+                        <a class="cls_precio_prod">
+                            ${{prod.precio | number: '1.2-2'}}
+                        </a>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <button class="btn btn-primary btn-block cls_btn_categoria" [routerLink]="['/de_passo',1,42]">Ver todas las Carteras</button>
+            </div>
+        </div>
+    
+        <div class="col-xs-12">
+                <hr>
+        </div>
+    </div>
+    
+    <div class="preloader-fondo" *ngIf="cargando">    
+        <div class="preloader">
+    
+        </div>
+    </div>
