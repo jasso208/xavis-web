@@ -23,75 +23,57 @@
                     </div>
             </div>            
             <div *ngIf="muestra_grid">
-                    <div class="row">
-                        <div class="col-xs-12 ">
+
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        <hr>
+                    </div>
+                </div>
+
+                    <div class="row" *ngFor="let v of ventas">
+                        <div class="col-xs-5">
+                            <div *ngIf="v.solo_1">
+                                <div class="col-xs-12">
+                                    <img onerror="this.src='../../../assets/img/productos/default.png'" src="../../../assets/img/productos/{{v.img_1}}.png" style="width: 100%;">
+                                </div>
+                            </div>
+                            <div *ngIf="!v.solo_1">
+                                <div class="col-xs-6">
+                                    <img onerror="this.src='../../../assets/img/productos/default.png'" src="../../../assets/img/productos/{{v.img_1}}.png" style="width: 100%;">
+                                </div>
+                                <div class="col-xs-6">
+                                    <img onerror="this.src='../../../assets/img/productos/default.png'"  src="../../../assets/img/productos/{{v.img_2}}.png" style="width: 100%;">
+                                </div>
+                                <div class="col-xs-6">
+                                    <img onerror="this.src='../../../assets/img/productos/default.png'"  src="../../../assets/img/productos/{{v.img_3}}.png" style="width: 100%;">
+                                </div>
+                                <div class="col-xs-6">
+                                    <img onerror="this.src='../../../assets/img/productos/default.png'"  src="../../../assets/img/productos/{{v.img_4}}.png" style="width: 100%;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="col-xs-12 text-center">
+                                <a >Fec Venta: 02-07-2020</a>                                
+                            </div>
+                            <hr>
+                            <div class="col-xs-6">
+                                <button class="btn btn-primary" style="font-size:10px;background-color: gray;"  (click)="fn_consulta_detalle_ventas(v.folio)">Detalle Venta</button>
+                            </div>                            
+                            <div class="col-xs-6">
+                                <div *ngIf="v.enviado">
+                                    <a class="btn btn-primary" style="font-size:10px" href="{{v.seguimiento}}">Seguir Envío</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">                            
                             <hr>
                         </div>
                     </div>
-                    <div class="row" >
-                            <div class="col-xs-12 ">
-                                    <br>
-                            </div>
-                            <div class="col-xs-2  cls_encabezado_grid">
-                                    <p class="cls_encabezado" >Folio:</p>                
-                            </div>
-                            
-                            <div class="col-xs-3 cls_encabezado_grid">
-                                    <p class="cls_encabezado">Fecha:</p>                
-                            </div>
-                            
-                            <div class="col-xs-2 cls_encabezado_grid">
-                                    <p class="cls_encabezado">Estatus: </p>
-                            </div>
-                            <div class="col-xs-2 cls_encabezado_grid" >
-                                    <p class="cls_encabezado">Importe</p>
-                                </div>
-                            <div class="col-xs-3">
-                            </div>
-                            <div class="col-xs-12">
-                                    <hr>
-                            </div>
-                        </div> 
-                        <div class="row" *ngFor="let v of ventas">
-                                <div class="col-xs-12">
-                                        <br>
-                                </div>
-            
-                            <div class="col-xs-2">
-                                    <br>
-                                    <p class="cls_item_grid" >{{v.folio}}</p>                
-                            </div>
-                            
-                            <div class="col-xs-3">
-                                    <br>
-                                    <p class="cls_item_grid" >{{v.fecha}}</p>                
-                            </div>
-                            
-                            <div class="col-xs-2">
-                                    <br>
-                                    <p class="cls_item_grid" >{{v.estatus}}</p>
-                            </div>
-                            <div class="col-xs-2">
-                                    <br>
-                                    <p class="cls_item_grid">${{v.total | number:'1.2-2'}}</p>
-                                </div>
-                            <div class="col-xs-3">
-                                <button  class="btn btn-outline-info  " >Seguir Envio</button>
-                                <a class="cls_btn_detalle_venta" (click)="fn_consulta_detalle_ventas(v.folio)">Detalle</a>
-                            </div>
-            
-                            <div class="col-xs-12">
-                                    <hr>
-                            </div>
-                        </div>   
-                        <div class="row">
-                                <div class="col-xs-12">
-                                        <button class="btn btn-primary" [routerLink]="['/home']">
-                                            Continuar Comprando
-                                        </button>
-                
-                                </div>
-                            </div>
+
+
+
+
             </div>
             <div *ngIf="!muestra_grid">
                 <div class="row">

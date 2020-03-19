@@ -54,7 +54,7 @@ export class ConsultaVentasGridComponent implements OnInit {
             {
               this.cargando=false;
               this.ventas=data[0].ventas;
-             
+              console.log(this.ventas);         
             }
             
           }
