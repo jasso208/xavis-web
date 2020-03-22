@@ -32,6 +32,9 @@
 
                     <div class="row" *ngFor="let v of ventas">
                         <div class="col-xs-5">
+                            <div>
+                                <p><strong>Folio: {{v.folio_0}}</strong></p>
+                            </div>
                             <div *ngIf="v.solo_1">
                                 <div class="col-xs-12">
                                     <img onerror="this.src='../../../assets/img/productos/default.png'" src="../../../assets/img/productos/{{v.img_1}}.png" style="width: 100%;">
@@ -53,18 +56,33 @@
                             </div>
                         </div>
                         <div class="col-xs-7">
-                            <div class="col-xs-12 text-center">
-                                <a >Fec Venta: 02-07-2020</a>                                
+                            <div class="col-xs-12">
+                                <p >Fec Venta: 02-07-2020</p>                                
                             </div>
                             <hr>
                             <div class="col-xs-6">
-                                <button class="btn btn-primary" style="font-size:10px;background-color: gray;"  (click)="fn_consulta_detalle_ventas(v.folio)">Detalle Venta</button>
+                                <button class="btn btn-primary" style="font-size:10px;background-color: gray;"  (click)="fn_consulta_detalle_ventas(v.folio,v.seguimiento,v.enviado)">Detalle Venta</button>
                             </div>                            
                             <div class="col-xs-6">
                                 <div *ngIf="v.enviado">
                                     <a class="btn btn-primary" style="font-size:10px" href="{{v.seguimiento}}">Seguir Envío</a>
                                 </div>
                             </div>
+                            <div class="col-xs-12">
+                                <br>
+                                <p *ngIf="v.enviado">
+                                    <strong>
+                                        Enviado
+                                    </strong>
+                                </p>
+                                 <p *ngIf="!v.enviado">
+                                    <strong>
+                                        Pendiente de Envio
+                                    </strong>
+                                </p>
+                            </div>
+
+
                         </div>
                         <div class="col-xs-12">                            
                             <hr>
@@ -109,10 +127,12 @@
                             Folio Venta:
                         </div>
                         <div class="col-xs-2">
-                                {{folio_venta}}
+                            {{folio_venta}}
                         </div>
-                        <div class="col-xs-6 text-right">
-                             <button class="btn btn-outline-info ">Seguir Envio</button>
+                        <div class="col-xs-6 text-right" *ngIf="is_enviado">
+                            <a class="btn btn-primary" style="font-size:10px" href="{{link_seg}}">
+                                Seguir Envio
+                            </a>
                         </div>
                     </div>
                     <div class="row">
@@ -217,13 +237,22 @@
 
 
 <div class="preloader-fondo" *ngIf="cargando">    
-        <div class="preloader">
+    <div class="preloader">
 
-        </div>
     </div>
+</div>
 
 
-    <div class="cls_error_msj" *ngIf="muestra_error">
-            <p>{{msj_error}}</p>
-        </div>
-            
+<div class="cls_error_msj" *ngIf="muestra_error">
+    <p>{{msj_error}}</p>
+</div>
+
+<div class="container" style="position: fixed;bottom: 0;left: 0;z-index: 1001; width: 100%; background-color: white"> 
+    <div class="col-xs-12">
+        <br>
+        <button class="btn btn-primary btn-block" style="font-size: 15px" [routerLink]="['/categorias']">
+            Seguir comprando
+        </button>
+        <br>
+    </div>
+</div>            

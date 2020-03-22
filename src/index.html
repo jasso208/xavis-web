@@ -23,16 +23,16 @@
 
 
 <script >
-		var deviceSessionId = OpenPay.deviceData.setup("formId", "deviceIdHiddenFieldName");
-		OpenPay.setId('myllylbt6vwlywximkxg');
-		OpenPay.setApiKey('pk_c5b567e442c344f4b0e34e21262cb90a');
-		OpenPay.setSandboxMode(true);
-    
-    $("#muestra_error_general").hide();
-    $("#mostrar_conf_pedido_2").hide();
-    $("#div_msj_aviso_2").hide();
-    $("#btn_cerrer_form_pago").hide();
-    
+		
+    var deviceSessionId = OpenPay.deviceData.setup("formId", "deviceIdHiddenFieldName");
+            OpenPay.setId('myllylbt6vwlywximkxg');
+            OpenPay.setApiKey('pk_c5b567e442c344f4b0e34e21262cb90a');
+            OpenPay.setSandboxMode(true);
+            
+            $("#muestra_error_general").hide();
+            $("#mostrar_conf_pedido_2").hide();
+            $("#div_msj_aviso_2").hide();
+            $("#btn_cerrer_form_pago").hide();
 		function fn_pagar()
 		{
 			//ocultamos todos los msj de errores para que solo se muestre los reales.
@@ -58,14 +58,14 @@
           //si el token se ejecuta correctamente ejecutamos la funcion: sucess_callbak
           //si el token no se genera correctamente ejecutamos la funcion: error_callbak
           OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak); 
-          console.log("termina");
+          
                 
       }
       
 		}
 		function sucess_callbak(response)
 		{ 
-      console.log("exito");
+      
 			var content = '';
 			content += 'Id tarjeta: ' + response.data.id+ '<br />';
 			content += 'A nombre de: ' + response.data.holder_name + '<br />';
@@ -87,8 +87,8 @@
         };
 
         var request = $.ajax({
-            url: "http://127.0.0.1:8000/ventas/guarda_venta/",//qa
-            //url: "https://admin.jassdel.com/ventas/guarda_venta/",//produccion
+            
+            url: localStorage.getItem("local_url")+"ventas/guarda_venta/",
             data:params,
             method: "POST"
         });
@@ -198,6 +198,9 @@
             autosize(document.getElementById("txt_desc_prod"));
             $("#div_cargando").hide();
             $("#div_error").hide();
+
+
+
 
 			/* 
 			var fn_valida_formulario=function()

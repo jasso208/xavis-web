@@ -20,6 +20,8 @@ export class ConsultaVentasGridComponent implements OnInit {
   public costo_envio:number;
   public folio_venta:number;
   public detalle_venta:any;
+  public link_seg:string;
+  public is_enviado:boolean;
   constructor( private rutaActiva: ActivatedRoute,private cvi:ConsultaVentasInvitadoService) { }
 
   ngOnInit() {
@@ -54,18 +56,20 @@ export class ConsultaVentasGridComponent implements OnInit {
             {
               this.cargando=false;
               this.ventas=data[0].ventas;
-              console.log(this.ventas);         
+                  
             }
             
           }
       );
   }
-  public fn_consulta_detalle_ventas(id_venta:string)
+  public fn_consulta_detalle_ventas(id_venta:string,link_seguimiento:string,enviado:boolean)
   {
     this.total_pagar=0;
     this.costo_envio=0;
     this.cargando=true;
     this.folio_venta=parseInt(id_venta);
+    this.link_seg=link_seguimiento;
+    this.is_enviado=enviado;
     this.cvi.fn_consulta_detalle_ventas(id_venta)
     .subscribe(
       data=>
