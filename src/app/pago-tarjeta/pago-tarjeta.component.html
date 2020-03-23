@@ -14,6 +14,7 @@
         </div>
 
 			<div class="col-xs-12">
+
 					<form action="#" method="POST" id="payment-form" class="form">
 							<input type="hidden" name="token_id" id="token_id">
 							<input type="hidden" name="use_card_points" id="use_card_points" value="false">
@@ -31,7 +32,8 @@
 							</div>
 							<div class="form-group">
 								<label>Numero de Tarjeta</label>
-								<input class="form-control" type="number" placeholder="16 digitos" autocomplete="off" data-openpay-card="card_number" id="card_number">
+								<input class="form-control" type="number" placeholder="16 digitos" autocomplete="off" data-openpay-card="card_number" id="card_number" maxlength="16" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+								>
 								<div class="row">
 									<div
 									class="col-xs-12 error"
@@ -48,10 +50,10 @@
 										<label>Fecha de expiración</label>
 										<div class="row">
 											<div class="col-xs-6">
-												<input class="form-control" type="number" placeholder="MM" data-openpay-card="expiration_month" id="expiration-month">
+												<input class="form-control" type="number" placeholder="MM" data-openpay-card="expiration_month" id="expiration-month" maxlength="2"  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
 											</div>
 											<div class="col-xs-6">
-												<input class="form-control" type="number" placeholder="YY" data-openpay-card="expiration_year" id="expiration-year">
+												<input class="form-control" type="number" placeholder="YY" data-openpay-card="expiration_year" id="expiration-year" maxlength="2"  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
 											</div>
 										</div>									
 										<div class="row">
@@ -69,7 +71,7 @@
 									<label>CVV</label>
 									<div class="row">
 										<div class="col-xs-12">										
-											<input class="form-control col-xs-3" type="number" placeholder="3 digitos" autocomplete="off" data-openpay-card="cvv2" id="cvv2">							
+											<input class="form-control col-xs-3" type="number" placeholder="3 digitos" autocomplete="off" data-openpay-card="cvv2" id="cvv2" maxlength="4"  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >							
 										</div>
 									</div>
 									<div class="row">
@@ -95,11 +97,26 @@
 								<br>
 								<img  style="width:100%" src="../../assets/img/cards2.png">
 							</div>
+							<div class="form-group">
+								
+										<div class="col-xs-8">
+											<label>Transacciones realizadas via:</label>
+										</div>																		
+										<div class="col-xs-4">
+											<img  style="width:100%" src="../../assets/img/openpay.png">
+										</div>										
+
+
+							</div>
+							<div class="form-group">
+								<br><br>	
+			                    <button id="prueba" class="btn btn-primary center-block" style="margin:0 auto ;"  onclick="fn_pagar();" >
+			                        Pagar
+			                    </button>
+							</div>
 						</form>
-                    </div>		
-                    <button id="prueba" class="btn btn-primary center-block" style="margin:0 auto ;"  onclick="fn_pagar();" >
-                        Pagar
-                    </button>							
+                    </div>	
+                   							
 		
     </div>
 
