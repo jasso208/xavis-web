@@ -41,12 +41,9 @@
 }
 
 @media (min-width: 768px) {
-    #bolsa_compras_movil
-    {
-        display: none;
-    }
+    
     #bolsa_compras_pc
     {
-        display: block;
+        display: none;
     }
 }

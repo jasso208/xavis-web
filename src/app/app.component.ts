@@ -49,36 +49,26 @@ export class AppComponent {
 					data=>
 					{
 						this.cont_prod=data[0].cantidad__sum;
-						//this.cont_prod_carrito.fn_establece_cont(data[0].cantidad__sum);
-
 					}
 				) ;
   }
 
-  fn_muestra_submenu_ropa()
+
+ public fn_muestra_menu_navegacion()
   {
-    this.muestra_menu_ropa=!this.muestra_menu_ropa;
-  }
-  fn_muestra_menu_calzado()
-  {
-    this.muestra_menu_dama_calzado=!this.muestra_menu_dama_calzado;    
-  }
-  fn_muestra_submenu_calzado_caballero()
-  {
-    this.muestra_menu_calzado_cab=!this.muestra_menu_calzado_cab;
+    
+    this.mostrar_menu=false;
+    this.mostrar_menu_navegacion=!this.mostrar_menu_navegacion;    
+    this.mostrar_form_buscar=false;
+    
   }
 
-  fn_reinicia_menu()
-  {
-      this.muestra_menu_dama=true;
-      this.muestra_menu_dama_bolsos=false;
-      this.muestra_menu_dama_ropa=false;
-      this.muestra_menu_dama_ocacion=false;
-  }
-  public fn_oculta_menu()
-  {
-    this.mostrar_menu=false;
-  }
+fn_oculta_menu(evento)
+{
+  this.mostrar_menu_navegacion=evento;
+}
+ 
+  
   public fn_go_carrito_compras()
   {
     this.router.navigate(["/bolsa_compra"]);
@@ -104,14 +94,8 @@ export class AppComponent {
     this.muestra_menu_calzado_cab=false;
     this.txt_buscar="";
   }
-  public fn_muestra_submenu_ropa_caballero()
-  {
-    this.muestra_menu_ropa_cab=!this.muestra_menu_ropa_cab;
-  }
-  public fn_muestra_menu_caballero()
-  {
-    this.muestra_menu_caballero=!this.muestra_menu_caballero;
-  }
+
+
   public fn_muestra_form_buscar()
   {
     this.muestra_form_buscar=true;
@@ -121,14 +105,8 @@ export class AppComponent {
   {
     this.mostrar_menu=!this.mostrar_menu;
   }
-  public fn_muestra_menu_accesorios()
-  {
-    this.muestra_menu_dama_accesorios=!this.muestra_menu_dama_accesorios;
-  }
-  fn_muestra_menu_dama()
-  {
-    this.muestra_menu_dama=!this.muestra_menu_dama;
-  }
+
+ 
   fn_muestra_submenu_bolsos()
   {
     this.muestra_menu_dama_bolsos=!this.muestra_menu_dama_bolsos;
@@ -141,14 +119,7 @@ export class AppComponent {
   {
     this.muestra_menu_dama_ropa=!this.muestra_menu_dama_ropa;
   }
-  public fn_muestra_menu_navegacion()
-  {
-    this.fn_reinicia_menu();
-    this.mostrar_menu=false;
-    this.mostrar_menu_navegacion=!this.mostrar_menu_navegacion;    
-    this.mostrar_form_buscar=false;
-    
-  }
+
   public fn_muestra_form_busqueda()
   {    
     this.mostrar_menu=false;  

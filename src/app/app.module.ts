@@ -28,6 +28,7 @@ import { ConsultaVentasGridComponent } from './consulta-ventas/consulta-ventas-g
 import { PruebaComponent } from './prueba/prueba.component';
 import { PagoTarjetaComponent } from './pago-tarjeta/pago-tarjeta.component';
 import { CategoriasComponent } from './categorias/categorias.component';
+import { MenuNavComponent } from './menu-nav/menu-nav.component';
 const rutas: Routes = [
 
 	{ path: '', redirectTo: '/home',pathMatch:'full'},
@@ -81,7 +82,8 @@ const rutas: Routes = [
     ConsultaVentasGridComponent,
     PruebaComponent,
     PagoTarjetaComponent,
-    CategoriasComponent
+    CategoriasComponent,
+    MenuNavComponent
   ],
   imports: [
     BrowserModule,   

@@ -1,5 +1,5 @@
 body{
-	max-width: 750px;
+	max-width: 900px;
 	margin:0 auto;
 }
 /* You can add global styles to this file, and also import other style files */
@@ -110,7 +110,7 @@ h1
 		height: 70px;
 		margin: 0 auto;
 		margin-top:50%;
-		border: 10px solid #eee;
+		border: 10px solid white;
 		border-top: 10px solid #666;
 		border-radius: 50%;
 		animation-name: girar;
@@ -190,9 +190,9 @@ h1
 }
 .cls_btn_categoria
 {
-    background-color: gray;
+    
     font-size:15px;
-    color:white;
+    
     padding-top:15px;
     padding-bottom: 15px;
 }
@@ -236,5 +236,30 @@ h1
 			width: 90%;
 			margin-left: 5%;;
 		}    
+
+
+	.cls_nompre_producto_resultado_busqueda
+	{
+	   font-size:10px;
+	    color:black;
+	    display: block;
+	    text-align: center;
+	    height: 40px;
+	    overflow: hidden;
+	}
+
+.cls_btn_categoria
+{
+    
+    font-size:10px;
+    padding-top:5px;
+    padding-bottom: 5px;
+}
+.cls_link_posicion
+{
+    font-size:7px;
+    color:gray;
+    padding-right: 5px;
+}
 
 	}

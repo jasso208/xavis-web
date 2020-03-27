@@ -1,5 +1,5 @@
 
-<div class="container">
+<div >
 		<div class="row">			
 			<div class="col-xs-12" class="cls_container_posicion">
 				<a [routerLink]="['/home']" class="cls_link_posicion" >Home</a><a class="cls_link_posicion">/</a><a class="cls_link_posicion">Resultado Busqueda</a><a class="cls_link_posicion">/</a><a class="cls_link_posicion">Detalle Productos</a>
@@ -7,7 +7,7 @@
 		</div>
 </div>
 <hr>
-<div class="container-fluid" id="detalle_producto">
+<div id="detalle_producto">
     <div class="row">
 		<div class="col-xs-12" *ngIf="muestra_galeria">
 			<div class="col-xs-12">
@@ -47,10 +47,10 @@
 					<hr>
 				</div>
 				<div class="col-xs-3">
-					<input [className]="cls_cantidad"  type="number" style="border:2px solid black;	font-size:13px;	padding:10px; width: 100%;" placeholder="cantidad" [(ngModel)]="cantidad" >
+					<input [className]="cls_cantidad"  type="number" id="cantidad-form" placeholder="cantidad" [(ngModel)]="cantidad" >
 				</div>
-				<div class="col-xs-5" *ngIf="muestra_galeria">
-					<select style="border:2px solid black;	font-size:13px;	padding:10px; width: 100%;"   [(ngModel)]="id_talla" name="id_talla" id="id_talla_detalle_producto" [className]="cls_talla" >
+				<div class="col-xs-5 "  *ngIf="muestra_galeria">
+					<select    [(ngModel)]="id_talla" name="id_talla" id="id_talla_detalle_producto" [className]="cls_talla" >
 						<option value="0">Talla</option>
 						<option *ngFor="let talla of productos.tallas" [value]="talla.id_talla">
 							{{talla.talla}}
@@ -129,11 +129,7 @@
 								</div>
 						</div>
 			-->
-						<div class="row">
-							<div class="col-xs-12">
-									<hr>
-							</div>
-						</div>
+						
 				</div>
 			</div>
 		</div>			

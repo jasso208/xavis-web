@@ -188,32 +188,8 @@
     height: 40px;
     margin-top:10px;
 }
-#btn_salir_menu_hover 
-{
-    text-align: right;
-}
-#btn_salir_menu_hover > a
-{
-    text-align: right;
-    color:white;    
-    font-size: 15px;
-    display: inline-block;
-    margin-top:20px;
-    padding-top:10px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-weight: bold;;
 
-}
-.cls_item_menu_hover
-{
-    font-size:20px;
-    color:white;
-    display: inline-block;
-    padding-left:40px;
-    float:left;
-}
+
 .cls_icon_desplega
 {
     font-size:20px;
@@ -228,26 +204,8 @@
     padding-bottom:10px;
     border-bottom: 1px solid white;;
 }
-.cls_sub_item_menu_hover 
-{
-    color:white;
-    text-decoration: none;
-    font-size:15px;
-    padding-left: 50px;
-    padding-top:15px;
-    padding-bottom: 15px;
-    display: block;
-}
-.cls_sub_sub_item_menu_hover
-{
-    color:white;
-    text-decoration: none;
-    font-size:15px;
-    padding-left: 70px;
-    padding-top:15px;
-    padding-bottom: 15px;
-    display: block;
-}
+
+
 
 
 #buscar_form
@@ -280,13 +238,7 @@
 {
     font-size:15px;
 }
-.cls_encabezado_hover
-{
-    color:white;
-    text-align: center;
-    font-size:25px;
-    margin-top:30px;
-}
+
 
 #cont_prod_carrito
 {
@@ -355,11 +307,59 @@
     display: block;
 }
 
+#politicas_movil
+{
+    display: block;
+}
+
+#politicas_pc
+{
+    display: none;
+}
 #pie_pc
 {
     display: none;
 }
 
+ #ayuda_movil
+    {
+        display: block;
+    }
+    #ayuda_pc
+    {
+        display: none;
+    }
+
+    #jassdel_movil
+    {
+         display: block;
+    }
+    #jassdel_pc
+    {
+         display: none;
+    }
+
+.cls_form_busqueda
+{
+    height: 30px;
+    margin-top:1px;
+    font-size:15px;
+}
+#busqueda_movil
+{
+    display: block;
+    background-color:black; 
+    padding-bottom: 10px;
+}
+.cls_busqueda_pc
+{
+    display: none;
+}
+#div_menu_pc
+{
+    display: none;
+    padding-left: 0;
+}
 @media (min-width: 375px) {
    
   }
@@ -368,16 +368,75 @@
   
   }
 
-  @media (min-width: 768px) {
-      
-#pie_movil
-{
-    display: none;
-}
-#pie_pc
-{
-    display: block;
-}
+  @media (min-width: 750px) {
+          
+    #encabezado
+    {   
+        height: 40px;
+        background-color:black;
+    }
+
+    #logo >img
+    {
+        height:30px;
+        text-align: center;
+        
+        margin-top:  15px;
+    }  
+
+    #bolsa_compras img
+    {    
+        top: 60px;
+        width: 30px;
+        
+
+    }
+    #menu >a
+    {
+        display: none;
+
+        font-size:20px;    
+        
+    }
+
+    #cont_prod_carrito
+    {
+
+        top:25px;
+        font-size: 10px;
+
+    }
+
+
+
+    .cls_form_busqueda
+    {
+        height: 20px;
+        margin-top:1px;
+        font-size:10px;
+        margin-top:20px;
+    }
+    .btn-primary
+    {
+        padding: 0;
+    }
+    #busqueda_movil
+    {
+        display: none;
+    }
+
+    .cls_busqueda_pc
+    {
+        display: block;
+    }
+
+
+
+
+    #pie_pc
+    {
+        display: block;
+    }
     #logo>span
     {
         color:white;
@@ -410,4 +469,38 @@
         width: 400px;
 
     }
+    #div_menu_pc
+    {
+        display: block;
+    }
+
+
+    #politicas_movil
+    {
+        display: none;
+    }
+
+    #politicas_pc
+    {
+        display: block;
+    }
+
+    #ayuda_movil
+    {
+        display: none;
+    }
+    #ayuda_pc
+    {
+        display: block;
+    }
+
+     #jassdel_movil
+    {
+         display: none;
+    }
+    #jassdel_pc
+    {
+         display: block;
+    }
+
   }

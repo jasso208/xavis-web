@@ -63,7 +63,7 @@ public holder_name:string="";
         this.folio_compra="0";
         this.mostrar_conf_pedido=false;
 		
-        //this.initConfig();    
+      console.log(localStorage.getItem("total_pagar"));
   
   }
 

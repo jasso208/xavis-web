@@ -1,19 +1,19 @@
 <hr>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12">
+<div >
+    <div class="row" style="padding: 0">
+        <div class="col-xs-12" style="padding: 0">
             <a [routerLink]="['../forma_pago']"> < Cambiar forma pago</a>
         </div>
-        <div class="col-xs-12">
+        <div class="col-xs-12" style="padding: 0">
             <h1>
                 Pago con tarjeta
             </h1>
         </div>
-        <div class="col-xs-12">
+        <div class="col-xs-12" style="padding: 0">
 			<hr>
         </div>
 
-			<div class="col-xs-12">
+			<div class="col-xs-12" style="padding: 0">
 
 					<form action="#" method="POST" id="payment-form" class="form">
 							<input type="hidden" name="token_id" id="token_id">
@@ -85,29 +85,41 @@
 									</div>	
 								</div>
 							</div>
-													
-							<div class="form-group">								
-								<label>Tarjetas de Credito</label>
-								<br>
-								<img style="width:50%" src="../../assets/img/cards1.png">
-							</div>
+
+							<div class="row">
+								<div class="col-xs-12 col-sm-6" >
+									<div class="form-group">								
+										<label>Tarjetas de Credito</label>
+										<br>
+										<img style="width:50%" src="../../assets/img/cards1.png">
+									</div>									
+								</div>
+								<div class="col-xs-12 col-sm-6" >
+									<div class="form-group">
+										<label>Tarjetas de Debito</label>
+										<br>
+										<img  style="width:100%" src="../../assets/img/cards2.png">
+									</div>									
+								</div>
+								<div class="col-xs-12 ">
+									<div class="form-group">
+										
+												<div class="col-xs-8 col-sm-6" style="padding: 0">
+													<label>Transacciones realizadas via:</label>
+												</div>																		
+												<div class="col-xs-4 col-sm-2" style="padding: 0">
+													<img  style="width:100%" src="../../assets/img/openpay.png">
+												</div>										
+
+
+									</div>
+								</div>
+							</div>	
+
+
 							
-							<div class="form-group">
-								<label>Tarjetas de Debito</label>
-								<br>
-								<img  style="width:100%" src="../../assets/img/cards2.png">
-							</div>
-							<div class="form-group">
-								
-										<div class="col-xs-8">
-											<label>Transacciones realizadas via:</label>
-										</div>																		
-										<div class="col-xs-4">
-											<img  style="width:100%" src="../../assets/img/openpay.png">
-										</div>										
 
 
-							</div>
 							<div class="form-group">
 								<br><br>	
 			                    <button id="prueba" class="btn btn-primary center-block" style="margin:0 auto ;"  onclick="fn_pagar();" >

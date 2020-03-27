@@ -4,3 +4,32 @@
     width: 100%;
     border:1px solid black;
 }
+
+#carrusel-pc
+{
+	display: none;
+	background-color:white;
+}
+
+#carrusel-movil
+{
+	display: block;
+}
+
+
+@media (min-width: 736px) 
+{
+
+	#carrusel-pc
+	{
+		display: block;
+	}
+
+	#carrusel-movil
+	{
+		display: none;
+	}
+
+
+}
+

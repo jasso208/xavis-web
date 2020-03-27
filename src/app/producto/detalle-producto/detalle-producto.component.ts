@@ -79,7 +79,7 @@ export class DetalleProductoComponent implements OnInit {
     this.muestra_error=false;
     this.mostrar_msj_exito=false;
     this.cls_talla=" forms_control ";
-    this.cls_cantidad=" forms_control";
+    this.cls_cantidad=" forms_control ";
   }
   fn_agregar_bolsa_compras()
   {
@@ -121,14 +121,16 @@ export class DetalleProductoComponent implements OnInit {
           this.mostrar_msj_exito=true;
           this.msj_exito="El producto se agrego correctamente.";
           setInterval(()=>{this.fn_oculta_msj_exito()},4000)
+
           this.cont_prod_carrito.fn_cont_prod_carrito()
             .subscribe(
               data=>
               {
                 this.cont_prod_carrito.fn_establece_cont(data[0].cantidad__sum);
-                //this.c_c.fn_actualiza_cantidad_carrito(data[0].cantidad__sum);
+                
               }
             ) ;
+
             this.cargando=false;
               
         }
