@@ -152,6 +152,7 @@ h1
 	.cls_item_resultado_busqueda
 {
     overflow: hidden;
+    cursor: pointer;
 }
 
 .cls_nompre_producto_resultado_busqueda
@@ -162,6 +163,7 @@ h1
     text-align: center;
     height: 40px;
     overflow: hidden;
+    	    text-decoration: none;
 }
 
 .cls_precio_prod
@@ -246,6 +248,7 @@ h1
 	    text-align: center;
 	    height: 40px;
 	    overflow: hidden;
+	    text-decoration: none;
 	}
 
 .cls_btn_categoria
@@ -262,4 +265,6 @@ h1
     padding-right: 5px;
 }
 
+    	
+    	
 	}
