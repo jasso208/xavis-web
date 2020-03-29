@@ -20,7 +20,8 @@ export class DePasoComponent implements OnInit {
     this.param_1=this.ruta_activa.snapshot.params.param_1;    
     this.param_2=this.ruta_activa.snapshot.params.param_2;
 
-    this.router.navigate(['/resultado_busqueda',this.param_1,this.param_2]);
+   
+    //this.router.navigate(['/resultado_busqueda',this.param_1,this.param_2]);
   }
 
 }

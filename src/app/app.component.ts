@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component,HostListener } from '@angular/core';
 import { CuentaProdBolsaService } from './servicios/cuenta-prod-bolsa.service';
 import {SessionService} from './servicios/session.service';
 import { Router }          from '@angular/router';
+import { PasoParamBuscarService } from './servicios/paso-param-buscar.service';
+import { BuscaProductosService } from './servicios/busca-productos.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,10 @@ import { Router }          from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+public cargando:boolean;
+public muestra_msj_no_prod:boolean;
   title = 'JassDel.com';
+  public productos:any;
   public mostrar_menu:boolean;
   public mostrar_menu_navegacion:boolean;
   public mostrar_form_buscar:boolean;
@@ -29,7 +34,7 @@ export class AppComponent {
   public muestra_menu_caballero:boolean;
   public muestra_menu_ropa_cab:boolean;
   public muestra_menu_calzado_cab:boolean;
-  constructor(private cont_prod_carrito:CuentaProdBolsaService,private session:SessionService, private router: Router)
+  constructor(private cont_prod_carrito:CuentaProdBolsaService,private session:SessionService, private router: Router,private buscar_ser:PasoParamBuscarService,public bps:BuscaProductosService)
   {
     
   }
@@ -42,6 +47,7 @@ export class AppComponent {
 
       this.cont_prod_carrito.change.subscribe(cont_prod=>{
       this.cont_prod=cont_prod;
+      this.cargando=false;
     });
 
     this.cont_prod_carrito.fn_cont_prod_carrito()
@@ -68,7 +74,41 @@ fn_oculta_menu(evento)
   this.mostrar_menu_navegacion=evento;
 }
  
-  
+  fn_buscar()
+  {    
+
+    this.buscar();
+    this.router.navigate(['/resultado_busqueda',2,this.txt_buscar]);
+  }
+
+  @HostListener('buscar')
+  buscar()
+  {
+    this.muestra_msj_no_prod=true;
+   this.bps.busca_productos("2",this.txt_buscar)
+    .subscribe(
+      data=>
+      {
+
+
+        if (data.length>0)
+        {           
+          this.muestra_msj_no_prod=false;            
+        }
+        else
+        {
+          this.muestra_msj_no_prod=true;            
+        }
+        console.log(this.muestra_msj_no_prod);
+        this.productos=data;
+        this.buscar_ser.fn_buscar(this.productos,this.muestra_msj_no_prod);
+       
+      }
+    );
+
+   
+  }
+
   public fn_go_carrito_compras()
   {
     this.router.navigate(["/bolsa_compra"]);
@@ -120,14 +160,7 @@ fn_oculta_menu(evento)
     this.muestra_menu_dama_ropa=!this.muestra_menu_dama_ropa;
   }
 
-  public fn_muestra_form_busqueda()
-  {    
-    this.mostrar_menu=false;  
- 
-    this.mostrar_form_buscar=!this.mostrar_form_buscar;
   
-    this.mostrar_menu_navegacion=false;
-  }
   public fn_muestra_menu_jassdel()
   {
     this.muestra_menu_jassdel=!this.muestra_menu_jassdel;

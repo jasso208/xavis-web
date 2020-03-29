@@ -1,3 +1,4 @@
+
 <!--<div id="encabezado" >-->
 <div class="container-fluid" id="encabezado">
         <div class="row">
@@ -17,28 +18,38 @@
                                 <a id="cont_prod_carrito">{{cont_prod}}</a>  
                 </div>
 
-                <div class="col-xs-8 col-sm-3 cls_busqueda_pc" >
-                    <input type="text" class="form-control col-xs-12 cls_form_busqueda"   [(ngModel)]="txt_buscar" >                
-                </div>
-                <div class="col-xs-4 col-sm-2 cls_busqueda_pc ">
-                    <button class="btn btn-primary btn-block cls_form_busqueda"   (click)="fn_muestra_form_busqueda()" [routerLink]="['/de_passo',2,txt_buscar]"> Buscar</button>                                   
-                </div>
+                <form (ngSubmit)="fn_buscar()">
+                    <div class="col-xs-8 col-sm-3 cls_busqueda_pc" >
+                        <input type="text" class="form-control col-xs-12 cls_form_busqueda"   [(ngModel)]="txt_buscar" name="txt_buscar" >                
+                    </div>
+                    <div class="col-xs-4 col-sm-2 cls_busqueda_pc ">
+                        <button class="btn btn-primary btn-block cls_form_busqueda"> 
+                            Buscar
+                        </button>                                   
+                    </div>    
+                </form>
+
 
         </div>  
 </div>
 <div id="pie_menu">
 </div>
+
+
 <div id="busqueda_movil" class="container"  >
     <div class="row">
-        <div class="col-xs-12 col-sm-7">
-            
-        </div>
-        <div class="col-xs-8 col-sm-3 ">
-            <input type="text" class="form-control col-xs-12 cls_form_busqueda"   [(ngModel)]="txt_buscar" >                
-        </div>
-        <div class="col-xs-4 col-sm-2 ">
-            <button class="btn btn-primary btn-block cls_form_busqueda"   (click)="fn_muestra_form_busqueda()" [routerLink]="['/de_passo',2,txt_buscar]"> Buscar</button>                                   
-        </div>
+       <form (ngSubmit)="fn_buscar()">           
+            <div class="col-xs-12 col-sm-7">
+                
+            </div>
+            <div class="col-xs-8 col-sm-3 ">
+                <input type="text" class="form-control col-xs-12 cls_form_busqueda"   [(ngModel)]="txt_buscar"  name="txt_buscar">                
+            </div>
+            <div class="col-xs-4 col-sm-2 ">
+                <button class="btn btn-primary btn-block cls_form_busqueda"> Buscar</button>                                   
+            </div>
+       </form> 
+
     </div>
 </div>
 
@@ -331,3 +342,8 @@
 
 
 
+<div class="preloader-fondo" *ngIf="cargando">    
+        <div class="preloader">
+
+        </div>
+</div>
