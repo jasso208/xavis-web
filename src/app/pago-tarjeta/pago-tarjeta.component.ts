@@ -11,11 +11,17 @@ export class PagoTarjetaComponent implements OnInit {
   public total_pagar:number;
   public productos:any;
   public holder_name:string="";
-  constructor(private car_service:CarritoComprasService,private router:Router) { }
+  constructor(private car_service:CarritoComprasService,private r:Router) { }
 
   ngOnInit() {
 
     this.fn_consulta_carrito();
+
+  }
+  fn_continuar()
+  {
+    localStorage.setItem("cupon_valido","NO");
+    this.r.navigate(["/home"]);
 
   }
   public fn_consulta_carrito()

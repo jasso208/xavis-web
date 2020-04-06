@@ -2,6 +2,26 @@
 {
     width: 100%;
 }
+#btn_agregar_cupon
+{
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.cls_btn_elimimnar
+{
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    color: gray;
+    font-weight: bold;
+}
+.cls_nombre_prod
+{
+    cursor: pointer;    
+    font-weight: bold;
+    text-decoration: none;
+}
 #label_total_pagar
 {
     font-size: 13px;
@@ -17,6 +37,32 @@
 {
     font-size:20px;
 }
+#div-hover-msj
+{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.7;
+    z-index: 500;
+}
+
+#div-msj
+{
+    width: 90%;
+    left: 5%;
+    background-color: white;
+    border-radius: 5px;
+    position: fixed;
+    top:100px;    
+    z-index: 501;
+}
+.btn-primary
+{
+    font-size: 15px;
+}
 @media (min-width: 768px) {
     .cls_img_carrito
     {
@@ -24,4 +70,24 @@
         width: 60%;
         margin:0 auto;
     }
+    #div-msj
+    {
+        width: 50%;
+        left: 25%;        
+        top:200px;    
+        
+    }
+
+}
+
+@media (min-width: 1000px) {
+    
+    #div-msj
+    {
+        width: 30%;
+        left: 35%;        
+        top:200px;    
+        
+    }
+
 }

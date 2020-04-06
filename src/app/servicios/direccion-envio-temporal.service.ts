@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http,Response,URLSearchParams} from '@angular/http';
 import{map} from 'rxjs/operators';
+
 import {environment} from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,35 @@ export class DireccionEnvioTemporalService {
 		}
 	)
 	.pipe(map((res:Response)=>res.json()))
+  }
+
+  fn_inserta_email(email:string)
+  {
+ 	  let urlSearchParams=new URLSearchParams();
+	  urlSearchParams.append("session",localStorage.getItem("session"));
+	  urlSearchParams.append("nombre","");
+	  urlSearchParams.append("apellido_p","");
+	  urlSearchParams.append("apellido_m","");
+	  urlSearchParams.append("telefono","");
+	  urlSearchParams.append("e_mail",email);
+	  urlSearchParams.append("rfc","");
+	  urlSearchParams.append("calle","");
+	  urlSearchParams.append("numero_interior","");
+	  urlSearchParams.append("numero_exterior","");
+	  urlSearchParams.append("cp","");
+	  urlSearchParams.append("municipio","");
+	  urlSearchParams.append("estado","");
+	  urlSearchParams.append("pais","");
+	  urlSearchParams.append("referencia","");
+	  urlSearchParams.append("colonia","");
+	  return this.http.post(environment.api_url+'direccion_envio_temporal/',
+			urlSearchParams
+		)
+		.pipe(
+			map(
+				(res:Response)=>res.json()
+			)
+		);
   }
 
   fn_direccion_envio_temporal_inserta(cliente_temporal)

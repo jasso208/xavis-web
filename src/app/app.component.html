@@ -23,7 +23,7 @@
                         <input type="text" class="form-control col-xs-12 cls_form_busqueda"   [(ngModel)]="txt_buscar" name="txt_buscar" >                
                     </div>
                     <div class="col-xs-4 col-sm-2 cls_busqueda_pc ">
-                        <button class="btn btn-primary btn-block cls_form_busqueda"> 
+                        <button class="btn btn-primary btn-block cls_form_busqueda" id="btn_buscar" > 
                             Buscar
                         </button>                                   
                     </div>    
@@ -58,9 +58,9 @@
 <div class="container-fluid" id="esquema-pc" >
     <div class="row-fluid"  >
         <div class="col-xs-12 col-sm-3" id="div_menu_pc"  >
-            <app-menu-nav (evento)="fn_oculta_menu($event)"></app-menu-nav>
+            <app-menu-nav (vbuscar)="fn_buscar_2($event)"></app-menu-nav>
         </div> 
-        <div class="col-xs-12 col-sm-9" >
+        <div class="col-xs-12 col-sm-9" style="padding: 0">
             <router-outlet></router-outlet>
         </div>        
     </div>
@@ -329,21 +329,62 @@
     </div>
 </div>
     <div  id="menu_navegacion"  *ngIf="mostrar_menu_navegacion">
-        <app-menu-nav (evento)="fn_oculta_menu($event)"></app-menu-nav>
+        <app-menu-nav   (vbuscar)="fn_buscar_2($event)"></app-menu-nav>
         
     </div>
 
   </div>
 
 <!--Menu navegacion-->
-
-
-
-
-
-
 <div class="preloader-fondo" *ngIf="cargando">    
         <div class="preloader">
 
         </div>
+</div>
+
+<div id="div_hover_cupon" (click)="fn_cerrar_cupon()" *ngIf="muestra_cupon" >
+    
+</div>
+<div id="div_cont_cupon" *ngIf="muestra_cupon" >
+        <div id="cupon" *ngIf="muestra_form_cupon">
+            <br>
+            <img src="../assets/img/logo_peque.png" id="logo_peque_cupon">
+            <h2>Regístrate!! y obtén</h2>            
+            <h1>$150.00</h1>
+            <h2>de descuento en tu primera compra.</h2>
+            <br>
+            <form #form_cupon="ngForm" (ngSubmit)="fn_obten_cupon()" >
+               <div class="form-row">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Correo electronico" name="email" #email="ngModel" [(ngModel)]="form_mail.email" id="txt_email" >
+                       <div class="row">
+                            <div
+                            class="col-xs-12 error"
+                              *ngIf="show_error_email">
+                              <a>El correo electronico es requerido.</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-11">
+                            <br>
+                          <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>                     
+                </div>              
+            </form>          
+        </div>
+        <div id="notificacion" *ngIf="!muestra_form_cupon">
+            <br>
+            <img src="../assets/img/logo_peque.png" id="logo_peque_cupon">
+            <h2>{{msj_respuesta}}</h2>   
+            <br>
+            <button class="btn btn-primary" (click)="fn_cerrar_cupon()">
+                Continuar
+            </button>
+            <br>
+        </div>
+</div>
+<div id="div_boton_cerrar" *ngIf="muestra_cupon" >
+
+        <a (click)="fn_cerrar_cupon()">cerrar</a>
 </div>

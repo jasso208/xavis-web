@@ -2,7 +2,7 @@
 
 </div>
 
-<DIV class="container" id="div_form">
+<DIV class="container"   id="div_form" >
     <div class="row">
         <div class="col-xs-12">            
             <div class="row" style="background-color:black;">
@@ -186,7 +186,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-9">
-                            <p id="label_total_pagar">Sub Total: </p>
+                            <p id="label_total_pagar">Subtotal: </p>
                             
                         </div>
                         <div class="col-xs-3">
@@ -201,6 +201,26 @@
                         </div>
                         <div class="col-xs-3">
                             <p id="label_precio">{{costo_envio | number:'1.2-2'}}</p>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <p id="label_total_pagar">Subtotal: </p>
+                            
+                        </div>
+                        <div class="col-xs-3">
+                            <p id="label_precio">{{subtotal_2 | number:'1.2-2'}}</p>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <p id="label_total_pagar">Descuento por cupón: </p>
+                            
+                        </div>
+                        <div class="col-xs-3">
+                            <p id="label_precio">{{desc_por_cupon | number:'1.2-2'}}</p>
                             
                         </div>
                     </div>

@@ -14,11 +14,114 @@
 #carrusel-movil
 {
 	display: block;
+	padding: 0;
+}
+
+#cont-img-envio
+{
+	display: none;
+}
+
+#cont-txt-envio
+{
+        background-color:black;
+        height: 50px; 
+        text-align: center;
+}
+
+#cont-txt-envio > p
+{
+	color: #daba0b;
+	font-family: arial;	
+	font-size: 15px;
+	margin-top: 15px;
+}
+#cont-txt-envio > p > span
+{
+	font-weight: bold;
+	color:red;
 }
 
 
+.cls-contenedor-img
+{
+	width: 100%;
+
+}
+
+.cls-contenedor-img>img
+{
+	width: 100%;
+}
+
+.cls-publicidad-1
+{
+	padding: 0;
+	cursor: pointer;
+}
+.cls-div-txt-publicidad
+{
+	width: 100%;
+	text-align: center;
+	margin-top: 20%;
+	position: absolute;
+}
+.cls-div-txt-publicidad >a
+{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: white;
+	text-decoration: none;
+	font-weight: bold;
+	color:black;
+}
+
+.cls-txt-publicidad
+{
+	display: block;
+}
+.cls-hover-publicidad
+{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	opacity: 0.7;
+	display: none;
+}
+
 @media (min-width: 736px) 
 {
+
+
+	#cont-txt-envio
+	{
+	        
+	        height: 70px; 
+	        text-align: center;
+	}
+	#cont-txt-envio > p
+	{
+		
+		font-size: 20px;
+		margin-top: 20px;
+	}
+
+	#cont-img-envio
+	{
+		background-color: black;		
+		height: 70px;
+		display: block;
+		text-align: center;
+	}
+
+	#cont-img-envio>img
+	{
+		height: 100%;
+		margin:0 auto;
+	}
 
 	#carrusel-pc
 	{
@@ -29,6 +132,49 @@
 	{
 		display: none;
 	}
+.cls-contenedor-img
+{
+	width: 100%;
+
+}
+
+.cls-contenedor-img>img
+{
+	width: 100%;
+}
+
+.cls-publicidad-1
+{
+	padding: 0;
+	cursor: pointer;
+}
+.cls-div-txt-publicidad
+{
+	width: 100%;
+	text-align: center;
+	margin-top: 20%;
+	position: absolute;
+}
+.cls-div-txt-publicidad >a
+{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: white;
+	text-decoration: none;
+	font-weight: bold;
+	color:black;
+}
+
+.cls-txt-publicidad
+{
+	display: none;
+}
+.cls-publicidad-1:hover .cls-txt-publicidad
+{
+	display: block;
+}
 
 
 }

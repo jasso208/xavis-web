@@ -25,15 +25,7 @@
         <a href="https://listado.mercadolibre.com.mx/_CustId_476284938">
             <img src="../../assets/img/publicidad-pc-2.png" alt="uno" style="width: 100%;"> 
         </a>
-        <div class="container">
-            <div class="carousel-caption text-left">                                   
-                <p>
-                    <a class="btn  btn-primary" style="font-size: 15px;" href="https://listado.mercadolibre.com.mx/_CustId_476284938" role="button">
-                        Ir a Mercado Libre
-                    </a>
-                </p>
-            </div>             
-        </div>
+       
         </div>
         
     </div>
@@ -54,7 +46,7 @@
 
 <div  id="carrusel-movil">
  
-    <div id="mycarousel" class="carousel slide" data-ride="carousel">
+    <div id="mycarousel" style="padding: 0;" class="carousel slide" data-ride="carousel">
 
     
     <ol class="carousel-indicators">
@@ -63,27 +55,19 @@
         <li data-target="#mycarousel" data-slide-to="1" class="active"></li>        
 
     </ol>
-    <div class="carousel-inner">
+    <div class="carousel-inner" style="padding: 0;" >
         <div class="item active">
                
                <a >
-                <img src="../../assets/img/Prueba_Publicidad.png" alt="uno" style="width: 100%;"> 
+                <img src="../../assets/img/publicidad-pc-1.png" alt="uno" style="width: 100%;"> 
             </a>
            
         </div>
         <div class="item ">
         <a href="https://listado.mercadolibre.com.mx/_CustId_476284938">
-            <img src="../../assets/img/Prueba_Publicidad_2.png" alt="uno" style="width: 100%;"> 
+            <img src="../../assets/img/publicidad-pc-2.png" alt="uno" style="width: 100%;"> 
         </a>
-        <div class="container">
-            <div class="carousel-caption text-left">                                   
-                <p>
-                    <a class="btn  btn-primary" style="font-size: 15px;" href="https://listado.mercadolibre.com.mx/_CustId_476284938" role="button">
-                        Ver Mas
-                    </a>
-                </p>
-            </div>             
-        </div>
+       
         </div>
         
     </div>
@@ -98,122 +82,71 @@
 
     </div>
 </div>
+
+
+
+
+
 <hr>
 
 <div   >
     <div class="row" style="padding: 0" >
-        <div class="col-xs-12 col-sm-6" style="padding: 0">
-                <h1>Jeans</h1>
-                <hr>
-                <div class="col-xs-6  " *ngFor="let prod of jeans">
-                    <div class="row cls_item_resultado_busqueda"  [routerLink]="['/detalle_producto',prod.id]">
-                        <div class="col-xs-12">
-                            <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
-                        </div>
-                        <div class="col-xs-12">
-                            <a class="cls_nompre_producto_resultado_busqueda">
-                                {{prod.nombre}}
-                            </a>
-                        </div>
-                        <div class="col-xs-12">                    
-                            <a class="cls_precio_prod">
-                                ${{prod.precio | number: '1.2-2'}}
-                            </a>
-                        </div>
-                       
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <button class="btn btn-primary btn-block cls_btn_categoria"  [routerLink]="['/de_passo',1,31]">Ver todos los Jeans</button>
-                </div>
-                <div class="col-xs-12">
-                        <hr>
-                </div>
-        </div>
-        <div class="col-xs-12 col-sm-6" style="padding: 0">
-                <h1>Blusas</h1>
-                <hr>
-                <div class="col-xs-6  " *ngFor="let prod of blusa">
-                    <div class="row cls_item_resultado_busqueda"  [routerLink]="['/detalle_producto',prod.id]">
-                        <div class="col-xs-12">
-                            <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
-                        </div>
-                        <div class="col-xs-12">
-                            <a class="cls_nompre_producto_resultado_busqueda">
-                                {{prod.nombre}}
-                            </a>
-                        </div>
-                        <div class="col-xs-12">                    
-                            <a class="cls_precio_prod">
-                                ${{prod.precio | number: '1.2-2'}}
-                            </a>
-                        </div>
-                       
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <button class="btn btn-primary btn-block cls_btn_categoria"  [routerLink]="['/de_passo',1,26]">Ver todas las Blusas</button>
-                </div>
+        <div class="col-xs-12"   >
 
-                <div class="col-xs-12">
-                    <hr>
-                </div>
+            <div class="col-xs-2 col-sm-2" id="cont-img-envio" style="" >
+                <img src="../assets/img/img-envio-pc.png" >
+            </div>
+            <div class="col-xs-12 col-sm-10" id="cont-txt-envio" >
+                <p style="">Envío gratis en compras mayores a <span>$500.00.</span></p>
+            </div>
+            
         </div>
-        <div class="col-xs-12 col-sm-6" style="padding: 0">
-                <h1>BackPacks</h1>
-                <hr>
-                <div class="col-xs-6 " *ngFor="let prod of bolsos">
-                    <div class="row cls_item_resultado_busqueda"  [routerLink]="['/detalle_producto',prod.id]">
-                        <div class="col-xs-12">
-                            <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
-                        </div>
-                        <div class="col-xs-12">
-                            <a class="cls_nompre_producto_resultado_busqueda">
-                                {{prod.nombre}}
-                            </a>
-                        </div>
-                        <div class="col-xs-12">                    
-                            <a class="cls_precio_prod">
-                                ${{prod.precio | number: '1.2-2'}}
-                            </a>
-                        </div>
-                       
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <button class="btn btn-primary btn-block cls_btn_categoria"  [routerLink]="['/de_passo',1,40]">Ver todas las BackPacks</button>
-                </div>
-                <div class="col-xs-12">
-                    <hr>
-                </div>
+        <div class="col-xs-12">
+            <h1 class="page-header"> Dama </h1>
+
         </div>
-        <div class="col-xs-12 col-sm-6" style="padding: 0">
-            <h1>Carteras</h1>
-            <hr>
-            <div class="col-xs-6 " *ngFor="let prod of carteras">
-            <div class="row cls_item_resultado_busqueda"  [routerLink]="['/detalle_producto',prod.id]">
-                    <div class="col-xs-12">
-                        <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
+        <div class="col-xs-12 col-sm-6 cls-publicidad-1"  [routerLink]="['/resultado_busqueda',1,31]"  >
+                <div class="col-xs-12">
+                    <div class="cls-contenedor-img">
+                        <img src="../assets/img/jeans-img.png">
                     </div>
-                    <div class="col-xs-12">
-                        <a class="cls_nompre_producto_resultado_busqueda">
-                            {{prod.nombre}}
-                        </a>
-                    </div>
-                    <div class="col-xs-12">                    
-                        <a class="cls_precio_prod">
-                            ${{prod.precio | number: '1.2-2'}}
-                        </a>
-                    </div>
-                   
+                </div>   
+                <div class="cls-txt-publicidad cls-hover-publicidad">
+                    
                 </div>
-            </div>
-            <div class="col-xs-12">
-                <button class="btn btn-primary btn-block cls_btn_categoria" [routerLink]="['/de_passo',1,42]">Ver todas las Carteras</button>
-            </div>
-            <div class="col-xs-12">
-                <hr>
-            </div>
+                <div  class="cls-txt-publicidad cls-div-txt-publicidad" >
+                        <a >Jeans</a>
+                </div>        
+        </div>
+
+         <div class="col-xs-12 col-sm-6 cls-publicidad-1"   [routerLink]="['/resultado_busqueda',1,26]"  >
+                
+                <div class="col-xs-12">
+                    <div class="cls-contenedor-img">
+                        <img src="../assets/img/blusas-img.png">
+                    </div>
+                </div>   
+                <div class="cls-txt-publicidad cls-hover-publicidad">
+                    
+                </div>
+                <div  class="cls-txt-publicidad cls-div-txt-publicidad" >
+                        <a >Blusas</a>
+                </div>        
+        </div>
+
+        <div class="col-xs-12  cls-publicidad-1"   [routerLink]="['/resultado_busqueda',1,40]" >
+                <br>
+                <div class="col-xs-12">
+                    <div class="cls-contenedor-img">
+                        <img src="../assets/img/accesorios-img.png">
+                    </div>
+                </div>   
+                 <div class="cls-txt-publicidad cls-hover-publicidad" >
+                    
+                </div>
+                <div  class="cls-txt-publicidad cls-div-txt-publicidad" >
+                        <a >Accesorios</a>
+                </div>        
         </div>
     </div>
 </div>

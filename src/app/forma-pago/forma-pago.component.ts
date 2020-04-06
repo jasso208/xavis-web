@@ -63,7 +63,6 @@ public holder_name:string="";
         this.folio_compra="0";
         this.mostrar_conf_pedido=false;
 		
-      console.log(localStorage.getItem("total_pagar"));
   
   }
 
@@ -78,7 +77,7 @@ public holder_name:string="";
 	  this.gvs.fn_inserta_venta()
 	  .subscribe(
 		  data=>{
-        console.log(data);
+        
 			this.cargando=false;
 			  if(data[0].estatus=="0")
 			  {
@@ -115,6 +114,9 @@ public holder_name:string="";
   fn_ocultar_msj()
   {
     this.mostrar_msj_aviso=false;
+    localStorage.setItem("cupon_valido","NO");
+    this.r.navigate(["/home"]);
+
   }
   fn_consulta_total_costo()
   {
@@ -141,7 +143,7 @@ public holder_name:string="";
             this.costo_envio=0;
           }
           this.amount= this.total_pagar;
-          console.log("entro");
+         
           this.cargando=false;
       }
       );

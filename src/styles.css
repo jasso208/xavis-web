@@ -1,7 +1,4 @@
-body{
-	max-width: 900px;
-	margin:0 auto;
-}
+
 /* You can add global styles to this file, and also import other style files */
 .cls_fondo_encabezado
 {
@@ -262,7 +259,7 @@ h1
 {
     font-size:7px;
     color:gray;
-    padding-right: 5px;
+    
 }
 
     	

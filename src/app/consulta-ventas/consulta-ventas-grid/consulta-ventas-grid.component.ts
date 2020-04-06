@@ -20,7 +20,11 @@ export class ConsultaVentasGridComponent implements OnInit {
   public costo_envio:number;
   public folio_venta:number;
   public detalle_venta:any;
+  public venta:any;
   public link_seg:string;
+  public subtotal_2:number;
+  public desc_por_cupon:number;
+
   public is_enviado:boolean;
   constructor( private rutaActiva: ActivatedRoute,private cvi:ConsultaVentasInvitadoService) { }
 
@@ -74,23 +78,22 @@ export class ConsultaVentasGridComponent implements OnInit {
     .subscribe(
       data=>
       {
-        this.detalle_venta=data;
+
+
+        this.detalle_venta=data[1].detalle;
+        this.venta=data[2].venta[0];
         var x=0;
         for(x=0;x<this.detalle_venta.length;x++)
         {
             this.total_pagar=this.total_pagar+parseFloat(this.detalle_venta[x].precio_unitario);
         }
+
         this.subtotal=this.total_pagar;
 
-        if(this.total_pagar<800)
-        {
-          this.total_pagar=this.total_pagar+100;
-          this.costo_envio=100;
-        }
-        else
-        {
-          this.costo_envio=0;
-        }
+        this.costo_envio=this.venta.costo_envio;
+        this.subtotal_2=this.subtotal+this.costo_envio;
+        this.desc_por_cupon=this.venta.descuento_cupon;
+        this.total_pagar=this.venta.total;
         this.cargando=false;
 
 

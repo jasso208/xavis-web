@@ -12,7 +12,7 @@ declare var $:any;
   styleUrls: ['./detalle-producto.component.css']
 })
 export class DetalleProductoComponent implements OnInit {
-
+  public muetra_zoom:boolean;
   public id_producto:number;
   public productos:any;
   public precio_venta:string="0.00";
@@ -55,9 +55,12 @@ export class DetalleProductoComponent implements OnInit {
     this.fn_consulta_producto();
     
     setInterval(()=>{this.fn_cambia_img_automatico()},4000);
-    
+    this.muetra_zoom=false;
   }
-
+  fn_muestra_zoom()
+  {
+    this.muetra_zoom=!this.muetra_zoom;
+  }
   fn_muestra_mas_detalle()
   {
       this.val_overflow_b=!this.val_overflow_b;

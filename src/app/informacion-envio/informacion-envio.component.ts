@@ -67,7 +67,9 @@ export class InformacionEnvioComponent implements OnInit {
 	public msj_error:string;
 	public msj_exito:string;
 	public costo_envio:number;
+	public subtotal:number;
 	public total_pagar:number;
+	public desc_x_p:number;
 	public productos:any;
 	public msj_btn_mostrar:string;
 	public mostrar_conf_pedido:boolean;
@@ -77,6 +79,8 @@ export class InformacionEnvioComponent implements OnInit {
   ngOnInit() {
 	window.scrollTo(0,0);
 	this.costo_envio=0.00;
+	this.subtotal=0.00;
+	this.desc_x_p=0.00;
 	this.total_pagar=0.00;
 	this.muestra_prod_carrito=false;
 	this.msj_btn_mostrar="Muestra productos en el carrito";
@@ -144,24 +148,35 @@ export class InformacionEnvioComponent implements OnInit {
   public fn_consulta_carrito()
   {
 
-    this.total_pagar=0.00;
+    this.subtotal=0.00;
     this.car_service.consultaCarrito()
       .subscribe(data=>{
-          this.productos=data;
+          this.productos=data[0].carrito;
+          console.log(data);
+          if (data[1].cupon!=0)
+          {
+            this.desc_x_p=150.00;
+          }
+
           var x=0;
           for(x=0;x<this.productos.length;x++)
           {
-              this.total_pagar=this.total_pagar+parseFloat(this.productos[x].precio);
+              this.subtotal=this.subtotal+parseFloat(this.productos[x].precio);
           }
-          if(this.total_pagar<500)
+          if(this.subtotal<500)
           {
-            this.total_pagar=this.total_pagar+100;
+            this.subtotal=this.subtotal+100;
             this.costo_envio=100;
           }
           else
           {
             this.costo_envio=0;
 		  }
+
+		  this.total_pagar=this.subtotal-this.desc_x_p;
+          
+
+
 		  localStorage.setItem("total_pagar",this.total_pagar.toString());
           this.cargando=false;
       }

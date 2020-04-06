@@ -21,7 +21,6 @@
         src="https://openpay.s3.amazonaws.com/openpay.v1.min.js"></script>
 <script type='text/javascript' src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js"></script>
 
-
 <script >
 		
     var deviceSessionId = OpenPay.deviceData.setup("formId", "deviceIdHiddenFieldName");
@@ -70,7 +69,7 @@
 			content += 'Id tarjeta: ' + response.data.id+ '<br />';
 			content += 'A nombre de: ' + response.data.holder_name + '<br />';
 			content += 'Marca de tarjeta usada: ' + response.data.brand + '<br />';
-			
+
 			guarda_venta(response);
 			
     }
@@ -105,6 +104,7 @@
           }
           else
           {
+
             $("#div_cargando").hide();
             $("#mostrar_conf_pedido_2").show();
             
@@ -112,6 +112,8 @@
             $("#folio_compra_2").text(data[0].folio);
 
             $(".cls_muestra_tiket").show();
+            //al hacer la venta correctamete, el cliente podra volver acapturar otro cupon
+            localStorage.setItem("cupon_valido","NO");
           }
 
 
