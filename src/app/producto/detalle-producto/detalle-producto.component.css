@@ -98,10 +98,17 @@
 
 	margin:0 auto;
 	margin-top:10px;
+	
 }
 #img_mostrar>img
 {
 	width:100%;
+	transition: transform .3s;
+	z-index: 4000;
+}
+#img_mostrar >img:hover
+{
+	transform: scale(1.5);
 }
 #linea_boton_galeria
 {
@@ -130,6 +137,14 @@ margin-right:5px;
 	{
 		border:2px solid black;	font-size:13px;	padding:10px; width: 100%;
 	}
+	#btn_mas_informacion
+	{
+		font-size: 10px;
+	}
+	#btn_mas_informacion img
+	{
+		width: 25px;
+	}
   @media (min-width: 750px) 
   {
 		h1
@@ -149,15 +164,25 @@ margin-right:5px;
 		#cantidad-form,#id_talla_detalle_producto,#btn_agregar_a_bolsa
 		{
 			border:1px solid black;	
-			font-size:10px;	
-			padding:3px; 
+			font-size:15px;	
+			padding:5px; 
 			width: 100%;
+		}
+
+		#titulo_detalle_producto
+		{
+			font-size:30px;
+		
 		}
 		.cls_caracteristicas_detalle_prod
 		{
 			color:black;
-			font-size:10px;
+			font-size:15px;
 			width: 100%;
+		}
+		#nombre_producto
+		{
+			font-size: 30px;
 		}
 		.cls_caracteristicas_detalle_prod span
 		{

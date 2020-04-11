@@ -66,6 +66,7 @@
 	margin-top: 20%;
 	position: absolute;
 }
+
 .cls-div-txt-publicidad >a
 {
 	padding-left: 10px;
@@ -92,6 +93,50 @@
 	display: none;
 }
 
+	.cls-div-txt-publicidad_2
+	{
+		width: 100%;
+		text-align: center;
+		margin-top: 10%;
+		position: absolute;
+	}
+
+
+	.cls-div-txt-publicidad_2 >a
+	{
+		
+		text-decoration: none;
+		font-weight: bold;
+		color:white;
+		font-size: 30px;
+	}
+	.cls-div-txt-publicidad_2 >a>span
+	{
+		font-size: 15px;
+		margin-top: 60px;
+	}
+
+	.cls-txt-publicidad_2
+	{
+		display: block;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+	
+		opacity: 0.2;
+		
+	}
+	#btn_publicidad
+	{
+		
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top:5px;
+		padding-bottom: 5px;
+		background-color:black;
+		color:#4fb416;
+		font-size: 15px;
+	}
 @media (min-width: 736px) 
 {
 
@@ -132,50 +177,98 @@
 	{
 		display: none;
 	}
-.cls-contenedor-img
-{
-	width: 100%;
+	.cls-contenedor-img
+	{
+		width: 100%;
 
-}
+	}
 
-.cls-contenedor-img>img
-{
-	width: 100%;
-}
+	.cls-contenedor-img>img
+	{
+		width: 100%;
+	}
 
-.cls-publicidad-1
-{
-	padding: 0;
-	cursor: pointer;
-}
-.cls-div-txt-publicidad
-{
-	width: 100%;
-	text-align: center;
-	margin-top: 20%;
-	position: absolute;
-}
-.cls-div-txt-publicidad >a
-{
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	background-color: white;
-	text-decoration: none;
-	font-weight: bold;
-	color:black;
-}
+	.cls-publicidad-1
+	{
+		padding: 0;
+		cursor: pointer;
+	}
+	.cls-div-txt-publicidad
+	{
+		width: 100%;
+		text-align: center;
+		margin-top: 20%;
+		position: absolute;
+	}
+	.cls-div-txt-publicidad >a
+	{
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background-color: white;
+		text-decoration: none;
+		font-weight: bold;
+		color:black;
+	}
 
-.cls-txt-publicidad
-{
-	display: none;
-}
-.cls-publicidad-1:hover .cls-txt-publicidad
-{
-	display: block;
-}
 
+
+
+	.cls-txt-publicidad
+	{
+		display: none;
+	}
+	.cls-publicidad-1:hover .cls-txt-publicidad
+	{
+		display: block;
+	}
+
+	.cls-div-txt-publicidad_2
+	{
+		width: 100%;
+		text-align: center;
+		margin-top: 20%;
+		position: absolute;
+	}
+
+
+	.cls-div-txt-publicidad_2 >a
+	{
+		
+		text-decoration: none;
+		font-weight: bold;
+		color:white;
+		font-size: 60px;
+	}
+	.cls-div-txt-publicidad_2 >a>span
+	{
+		font-size: 40px;
+		margin-top: 60px;
+	}
+
+	.cls-txt-publicidad_2
+	{
+		display: block;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		
+		opacity: 0.2;
+		
+	}
+	#btn_publicidad
+	{
+		
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-top:10px;
+		padding-bottom: 10px;
+		background-color:black;
+		color:#4fb416;
+		font-size: 15px;
+		font-weight:lighter;
+	}
 
 }
 

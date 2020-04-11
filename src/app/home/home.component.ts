@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter,Output } from '@angular/core';
 import { ProdXBloqueService } from '../servicios/prod-x-bloque.service';
 
 @Component({
@@ -18,17 +18,16 @@ export class HomeComponent implements OnInit {
   public muestra_bolsos:boolean;
   public muestra_carteras:boolean;  
   public cargando:boolean;
-  
+
+
   ngOnInit() {
     window.scrollTo(0,0);
     this.fn_consulta_prod_x_bloque();
     this.muestra_jeans=false;
     this.muestra_blusa=false;
+
   }
-  fn_muestra_menu_cliente()
-  {
-    
-  }
+  
   fn_consulta_prod_x_bloque()
   {
     this.cargando=true;

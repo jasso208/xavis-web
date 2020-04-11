@@ -1,4 +1,9 @@
 
+body
+{
+	max-width: 1200px;
+	margin: 0 auto;
+}
 /* You can add global styles to this file, and also import other style files */
 .cls_fondo_encabezado
 {
@@ -147,20 +152,26 @@ h1
 		display:none;
 	}
 	.cls_item_resultado_busqueda
-{
-    overflow: hidden;
-    cursor: pointer;
-}
+	{
+	    overflow: hidden;
+	    cursor: pointer;
+	    transition: transform .2s; /* Animation */
+	}
+	.cls_item_resultado_busqueda:hover
+	{
+		transform: scale(1.1); 
+	}
 
 .cls_nompre_producto_resultado_busqueda
 {
+	cursor: pointer;
     font-size:15px;
     color:black;
     display: block;
     text-align: center;
     height: 40px;
     overflow: hidden;
-    	    text-decoration: none;
+    text-decoration: none;
 }
 
 .cls_precio_prod
@@ -169,6 +180,8 @@ h1
     color:red;
     display: block;
     text-align: center;
+    text-decoration: none;
+    cursor: pointer;
 }
 .cls_img_resultado_busqueda
 {
@@ -239,11 +252,11 @@ h1
 
 	.cls_nompre_producto_resultado_busqueda
 	{
-	   font-size:10px;
+	   font-size:20px;
 	    color:black;
 	    display: block;
 	    text-align: center;
-	    height: 40px;
+	    height: 60px;
 	    overflow: hidden;
 	    text-decoration: none;
 	}

@@ -28,18 +28,18 @@
         </div>
     </div>
     <div class="row"  style="padding: 0" *ngIf="!muestra_msj_no_prod">
-        <div  class="col-xs-6  col-sm-3 cls_padding_cero"   *ngFor="let prod of productos">
+        <div  class="col-xs-6  col-sm-4 cls_padding_cero"   *ngFor="let prod of productos">
             <div class="row cls_item_resultado_busqueda cls_padding_cero"  [routerLink]="['/detalle_producto',prod.id]">
                 <div class="col-xs-12">
                     <img src="../assets/img/productos/{{prod.str_id}}_1.png" class="cls_img_resultado_busqueda" >
                 </div>
                 <div class="col-xs-12">
-                    <a class="cls_nompre_producto_resultado_busqueda">
+                    <a class="cls_nompre_producto_resultado_busqueda" style="text-decoration: none;">
                         {{prod.nombre}}
                     </a>
                 </div>
                 <div class="col-xs-12">                    
-                    <a class="cls_precio_prod">
+                    <a class="cls_precio_prod" style="text-decoration: none;">
                         ${{prod.precio | number: '1.2-2'}}
                     </a>
                 </div>

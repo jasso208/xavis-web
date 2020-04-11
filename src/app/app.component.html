@@ -1,5 +1,29 @@
 
+<div style="position: fixed;right: 0;bottom: 50px;z-index: 2000;text-align: center;">
+    <a href="https://api.whatsapp.com/send?phone=528113127511" target="_blank">
+      <img src="../assets/img/whatsapp-icon-grende.png" style="width: 50px">        
+    </a>
+</div>
+
+
 <!--<div id="encabezado" >-->
+    <div class="container-fluid" style="background-color: black">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 pull-right cls-anuncio-superior" id="div-anuncio-superior-1">
+                <a  href="https://api.whatsapp.com/send?phone=528113127511" target="_blank">
+                        <img src="../assets/img/whatsapp-icon.png"> 
+                        WhatsApp: (81) 13127511
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-3 pull-right cls-anuncio-superior"  id="div-anuncio-superior-2">
+                <a > 
+                    <img src="../assets/img/envio-icon.png">
+                        Envío gratis a partir de $500.00
+                </a>
+            </div>
+            
+        </div>
+    </div>
 <div class="container-fluid" id="encabezado">
         <div class="row">
                 <div class="col-xs-6 col-sm-4 text-center" id="logo" (click)="fn_go_home()"  >
@@ -60,8 +84,8 @@
         <div class="col-xs-12 col-sm-3" id="div_menu_pc"  >
             <app-menu-nav (vbuscar)="fn_buscar_2($event)"></app-menu-nav>
         </div> 
-        <div class="col-xs-12 col-sm-9" style="padding: 0">
-            <router-outlet></router-outlet>
+        <div class="col-xs-12 col-sm-9" style="padding:0">
+            <router-outlet  ></router-outlet>
         </div>        
     </div>
 </div>
@@ -172,13 +196,12 @@
                                 En Jassdel nos gustaria saber de ti, no dudes en hacernos saber tus comentarios y/o opiniones:
                                 <br>
                                 <br>
-                                Whatsapp: (81)-1312-7511
+                                 
+                                <img src="../assets/img/whatsapp-icon-grende.png" style="width: 30px;">
+                                (81)-1312-7511
                                 <br>
                                 <br>
                                 e-mail: gerencia.jassdel@jassdel.com
-                                <br>
-                                <br>
-                                Llamada telefonica: (81)-1312-7511
                                 <br>
                                 <br>              
 
@@ -228,15 +251,14 @@
                                 En Jassdel nos gustaria saber de ti, no dudes en hacernos saber tus comentarios y/o opiniones:
                                 <br>
                                 <br>
-                                Whatsapp: (81)-1312-7511
+                                
+                                <img src="../assets/img/whatsapp-icon-grende.png" style="width: 30px;">
+                                : (81) 13127511
                                 <br>
                                 <br>
                                 e-mail: gerencia.jassdel@jassdel.com
                                 <br>
-                                <br>
-                                Llamada telefonica: (81)-1312-7511
-                                <br>
-                                <br>              
+                                <br>                               
 
                             </p>
                             <h1 >
@@ -361,7 +383,7 @@
                             <div
                             class="col-xs-12 error"
                               *ngIf="show_error_email">
-                              <a>El correo electronico es requerido.</a>
+                              <a>{{msj_error}}</a>
                             </div>
                         </div>
 

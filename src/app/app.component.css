@@ -1,3 +1,22 @@
+.cls-anuncio-superior
+{    
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.cls-anuncio-superior a
+{
+    color: #daba0b; 
+    font-weight: bold;
+    font-size: 10px;
+    margin-top: 10px;
+    text-decoration:none;
+}
+.cls-anuncio-superior > a > img
+{
+    height: 15px;
+    padding-right: 10px;
+}
 #div_boton_cerrar
 {
     position: fixed;
@@ -5,6 +24,7 @@
     top: 5px;  
     z-index: 4002;  
 }
+
 .preloader-fondo
 {
     z-index: 4004;
@@ -466,7 +486,11 @@
   }
 
   @media (min-width: 750px) {
-          
+    .cls-anuncio-superior
+    {
+        border-left: 1px solid white; 
+        
+    }
     #encabezado
     {   
         height: 50px;

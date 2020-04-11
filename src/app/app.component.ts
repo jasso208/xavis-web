@@ -1,7 +1,7 @@
 import { Component,HostListener } from '@angular/core';
 import { CuentaProdBolsaService } from './servicios/cuenta-prod-bolsa.service';
 import {SessionService} from './servicios/session.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { PasoParamBuscarService } from './servicios/paso-param-buscar.service';
 import { BuscaProductosService } from './servicios/busca-productos.service';
 import { GeneraCuponService } from './servicios/genera-cupon.service';
@@ -17,6 +17,7 @@ export class AppComponent {
   public muestra_form_cupon:boolean;
   public form_mail: FormMail;
 public cargando:boolean;
+public msj_error:string;
 public muestra_msj_no_prod:boolean;
   title = 'JassDel.com';
   public productos:any;
@@ -42,13 +43,16 @@ public muestra_msj_no_prod:boolean;
   public muestra_cupon:boolean;
   public show_error_email:boolean;
   public email:string;
-  constructor(private cont_prod_carrito:CuentaProdBolsaService,private session:SessionService, private router: Router,private buscar_ser:PasoParamBuscarService,public bps:BuscaProductosService,public gcp:GeneraCuponService)
+  constructor(private ruta_actual:ActivatedRoute,private cont_prod_carrito:CuentaProdBolsaService,private session:SessionService, private router: Router,private buscar_ser:PasoParamBuscarService,public bps:BuscaProductosService,public gcp:GeneraCuponService)
   {
      this.form_mail=new FormMail(""); 
+     console.log(this.router.url);
   }
   
   ngOnInit()
   {    
+    
+
       this.form_mail.email="";
       this.muestra_form_cupon=true;
       this.show_error_email=false;
@@ -76,12 +80,33 @@ public muestra_msj_no_prod:boolean;
 				) ;
   }
 
+fn_email_valido(email: string):boolean {
+    let mailValido = false;
+      'use strict';
+
+      var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+      if (email.match(EMAIL_REGEX)){
+        mailValido = true;
+      }
+    return mailValido;
+  }
+
 fn_obten_cupon()
 {
   if(this.form_mail.email=="")
   {
+      this.msj_error="El correo electronico es requerido.";
       this.show_error_email=true;
       return 0;
+  }
+  
+
+  if (!this.fn_email_valido(this.form_mail.email))
+  {
+     this.msj_error="Debe ingresar un email valido.";
+     this.show_error_email=true;
+     return 0;
   }
 
 this.cargando=true;
@@ -97,11 +122,13 @@ this.cargando=true;
     }
     );
 }
+
 public fn_cerrar_cupon()
 {
   this.muestra_cupon=!this.muestra_cupon;
   localStorage.setItem("muestra_cupon","NO");
 }
+
  public fn_muestra_menu_navegacion()
   {
     
@@ -111,12 +138,13 @@ public fn_cerrar_cupon()
     
   }
 
-fn_oculta_menu(evento)
-{
-  this.mostrar_menu_navegacion=evento.mostrar;
-}
- fn_buscar_2(vbuscar)
- {
+  fn_oculta_menu(evento)
+  {
+    this.mostrar_menu_navegacion=evento.mostrar;
+  }
+
+  fn_buscar_2(vbuscar)
+  {
       if (vbuscar.productos.length>0)
         {           
           this.muestra_msj_no_prod=false;            
@@ -130,7 +158,7 @@ fn_oculta_menu(evento)
 
    this.buscar_ser.fn_buscar(vbuscar.productos,this.muestra_msj_no_prod);
    
- }
+  }
 
   fn_buscar()
   {    

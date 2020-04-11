@@ -6,7 +6,7 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
   
 
 
@@ -194,109 +194,47 @@
 			
 		}
 		
-		
-        $(document).ready(function() {
-		
-            autosize(document.getElementById("txt_desc_prod"));
-            $("#div_cargando").hide();
-            $("#div_error").hide();
+      $(document).ready(function() {
+	
+          autosize(document.getElementById("txt_desc_prod"));
+          $("#div_cargando").hide();
+          $("#div_error").hide();
 
+          $("#div-anuncio-superior-2").show();
+          $("#div-anuncio-superior-1").hide(); 
 
-
-
-			/* 
-			var fn_valida_formulario=function()
-			{
-				if($("#nom_titular").val()=="")
-				{
-					$("#error_nombre_tarjeta").show();
-					return 0;
-				}
-				return 1;
-				
-			}
-
-            var sucess_callbak = function(response) {
-              console.log(response);              
-              console.log($("#deviceIdHiddenFieldName").val());
-              guarda_venta(response);
-             // console.log(response.data);
-              var token_id = response.data.id;
-              $('#token_id').val(token_id);
-
-           //   $('#payment-form').submit();
-             
-            };
-
-            var guarda_venta=function(response)
-            {
-              var params = {
-                  'session':localStorage.getItem("session"), //aqui defines el valor del parametro
-                  'token_id': response.data.id,
-                  'amount':$("#amount").val(),
-                  'description':$("#description").val(),
-                  'deviceIdHiddenFieldName':$("#deviceIdHiddenFieldName").val()
-              };
-
-              var request = $.ajax({
-                  url: "http://127.0.0.1:8000/ventas/guarda_venta/",//qa
-                 //url: "http://pollo146.pythonanywhere.com/ventas/guarda_venta/",//produccion
-                  data:params,
-                  method: "POST"
-              });
-
-              request.done(function( data ) {
-                //si es cero es porque marco error
-                if (data[0].estatus=="0")
-                {
-                  $("#div_cargando").hide();
-                  $("#div_error").show();
-                  $("#error_tarjeta").text(data[0].msj);
-                  $("#pay-button").prop("disabled", false);
-                  setInterval(
-                    ()=>
-                    {
-                      $("#div_error").hide();
-                      clearInterval();
-                    }
-                  ,8000)
-                }
-                else
-                {
-                  $("#div_cargando").hide();
-                  $("#folio_compra").text("Folio Compra "+data[0].folio);
-                  $(".cls_muestra_tiket").show();
-                }
-
-
-
-              });
-
+      });
+        var cont="1";
+        var myVar = setInterval(setColor, 3000);
+        
+        function setColor() {
+          
+          if ($(window).width()<750)
+          {
+            if (cont=="1")
+            {             
                 
-              request.fail(function( error ) {
-                  console.log( 'Error: ' , error );
-                  $("#div_cargando").hide();
-              });
+                $("#div-anuncio-superior-1").show();
+                $("#div-anuncio-superior-2").hide(); 
+                cont="2";
             }
+            else
+            {
+                
+                $("#div-anuncio-superior-2").show();
+                $("#div-anuncio-superior-1").hide(); 
+                cont="1"; 
+            }  
+          }
+          else
+          {
+                $("#div-anuncio-superior-2").show();
+                $("#div-anuncio-superior-1").show(); 
+          }
 
-            var error_callbak = function(response) {
-              $("#div_cargando").hide();
-                $("#div_error").show();
-                
-                
-                var desc = response.data.description != undefined ? response.data.description : response.message;
-                $("#error_tarjeta").text("ERROR [" + response.status + "] " + desc);
-                $("#pay-button").prop("disabled", false);
-                setInterval(
-                  ()=>
-                  {
-                    $("#div_error").hide();
-                    clearInterval();
-                  }
-                ,8000)
-            };
-		*/
-        });
+          
+        }
+         
     </script>
 
 </head>
@@ -304,6 +242,5 @@
   <app-root></app-root>
 
  
-
 </body>
 </html>
