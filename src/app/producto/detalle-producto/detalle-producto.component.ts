@@ -149,7 +149,7 @@ export class DetalleProductoComponent implements OnInit {
   }
   fn_cambia_img(id:number)
   {
-    this.img="../assets/img/productos/"+this.img_principal+"_"+String(id)+".png";
+    this.img="../assets/img/productos/"+this.img_principal+"_"+String(id)+".jpg";
 
   }
   public fn_cambia_img_automatico()

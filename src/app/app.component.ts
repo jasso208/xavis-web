@@ -56,10 +56,10 @@ public muestra_msj_no_prod:boolean;
       this.form_mail.email="";
       this.muestra_form_cupon=true;
       this.show_error_email=false;
-      if (localStorage.getItem("muestra_cupon")!="NO")
-      {
-        this.muestra_cupon=true;  
-      }      
+      //if (sessionStorage.getItem("muestra_cupon")!="NO")
+      //{
+      //  this.muestra_cupon=true;  
+      //}      
       this.fn_reinicia_style();   
       //esta funcion ejecuta el algoritmo para generar la session, solo en caso de que no exista
       this.session.setSession();
@@ -68,7 +68,8 @@ public muestra_msj_no_prod:boolean;
       this.cont_prod=cont_prod;
       this.cargando=false;
 
-      
+      //este se habilita hasta que se habilite el pago con tarjeta.
+      this.muestra_cupon=false;  
     });
 
     this.cont_prod_carrito.fn_cont_prod_carrito()
@@ -123,11 +124,11 @@ this.cargando=true;
     );
 }
 
-public fn_cerrar_cupon()
-{
-  this.muestra_cupon=!this.muestra_cupon;
-  localStorage.setItem("muestra_cupon","NO");
-}
+  public fn_cerrar_cupon()
+  {
+    this.muestra_cupon=!this.muestra_cupon;
+    sessionStorage.setItem("muestra_cupon","NO");
+  }
 
  public fn_muestra_menu_navegacion()
   {

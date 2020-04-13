@@ -98,9 +98,9 @@ public fn_reinicia_style()
     this.muestra_menu_jassdel=false;
     this.muestra_menu_politicas=false;
     this.muestra_menu_ayuda=false;
-    this.muestra_menu_ropa=false;
-    this.muestra_menu_dama_calzado=false;
-    this.muestra_menu_dama_accesorios=false;
+    this.muestra_menu_ropa=true;
+    this.muestra_menu_dama_calzado=true;
+    this.muestra_menu_dama_accesorios=true;
     this.muestra_menu_caballero=true;
     this.muestra_menu_dama=true;
     this.muestra_menu_ropa_cab=false;
