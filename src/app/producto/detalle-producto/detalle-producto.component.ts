@@ -86,7 +86,7 @@ export class DetalleProductoComponent implements OnInit {
   }
   fn_agregar_bolsa_compras()
   {
-   
+   this.muestra_error=false;
     this.fn_reinicia_form();
     if(this.id_talla=="0")
     {
@@ -114,9 +114,7 @@ export class DetalleProductoComponent implements OnInit {
             this.muestra_error=true;						
             this.msj_error=data[0].msj;
             this.cargando=false;
-            setInterval(()=>{
-              this.muestra_error=false;
-            },4000)
+            
 				}
 				else
 				{
