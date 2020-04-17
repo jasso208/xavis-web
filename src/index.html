@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <title>Jassdel.com</title>
   <base href="/">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  
+    <link rel="icon" type="https://cdn.sstatic.net/Sites/es/img/pple-touch-icon.png?v=7739871010e6
+">
 
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
@@ -22,7 +23,73 @@
 <script type='text/javascript' src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js"></script>
 
 <script >
-		
+		 
+
+     setInterval(()=>{
+
+        //esta hora se pone cuando el afiliado agrega productos por primera vez al carrito
+        //ya que la vigencia del carrito solo es de 10 minutos.        
+        //si esta hora esta vacio, es porque aun no agrega productos al carrito.
+        if (localStorage.getItem("hora_actual")!="" & localStorage.getItem("hora_actual")!=null)
+        {          
+            $("#fecha_carrito").val(localStorage.getItem("hora_actual"));
+            var deadline = new Date();
+            var ahorita  =new Date(localStorage.getItem("hora_actual"));
+            var diff     = deadline - ahorita;
+            
+            //los 600 seg son 10 min
+            var diez_min=600;
+            var diff_seg = Math.floor(diff / 1000);
+            var tiempo_falta=diez_min-diff_seg;
+
+            //cuando llegue a 1 minuto le avisamos al cliente que su tiempo
+            //en el carrito esta por terminar.
+            if (tiempo_falta>=0   & tiempo_falta<=60)
+            {
+                $(".cls_msj_carrito_x_caducar").show();
+
+              $("#form_msj_carrito_caduco").hide();
+            }
+
+            //cuando se agoten los 10 minutos se liberaran los productos.
+            if (tiempo_falta<=0)
+            {
+              localStorage.setItem("hora_actual","");
+              fn_libera_carrito();
+              $("#form_msj_carrito_x_caducar").hide();
+              $("#form_msj_carrito_caduco").show();
+              
+              
+            }
+
+            var seg = tiempo_falta % 60;
+            var min = Math.floor(tiempo_falta / 60) % 60;             
+            $("#tiempo_restante").text(min + ':' + seg);
+            $("#div_contador").show();
+
+        }
+        else
+        {
+          $("#div_contador").hide(); 
+        }
+
+     },1000);
+
+
+      function fn_libera_carrito()
+      {
+        var params={
+          'session':localStorage.getItem("session")
+        }
+        var request=$.ajax(
+            {
+              url:localStorage.getItem("local_url")+"ventas/libera_carrito/",
+              data:params,
+              method:"POST"
+            }
+          );
+      }
+
     var deviceSessionId = OpenPay.deviceData.setup("formId", "deviceIdHiddenFieldName");
             OpenPay.setId('myllylbt6vwlywximkxg');
             OpenPay.setApiKey('pk_c5b567e442c344f4b0e34e21262cb90a');
@@ -73,7 +140,7 @@
 			guarda_venta(response);
 			
     }
-    
+
     function guarda_venta(response)
     {
         var params = {
@@ -239,6 +306,7 @@
 
 </head>
 <body>
+
   <app-root></app-root>
 
  

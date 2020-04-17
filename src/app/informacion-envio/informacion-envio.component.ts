@@ -74,7 +74,7 @@ export class InformacionEnvioComponent implements OnInit {
 	public msj_btn_mostrar:string;
 	public mostrar_conf_pedido:boolean;
 	public nom_titular:string="";
-  constructor(private gvs:GuardaVentaService,private det:DireccionEnvioTemporalService,private router:Router,private car_service:CarritoComprasService) { }
+  constructor(private r: Router,private gvs:GuardaVentaService,private det:DireccionEnvioTemporalService,private router:Router,private car_service:CarritoComprasService) { }
 
   ngOnInit() {
 	window.scrollTo(0,0);
@@ -152,7 +152,7 @@ export class InformacionEnvioComponent implements OnInit {
     this.car_service.consultaCarrito()
       .subscribe(data=>{
           this.productos=data[0].carrito;
-          console.log(data);
+          
           if (data[1].cupon!=0)
           {
             this.desc_x_p=150.00;
@@ -162,6 +162,10 @@ export class InformacionEnvioComponent implements OnInit {
           for(x=0;x<this.productos.length;x++)
           {
               this.subtotal=this.subtotal+parseFloat(this.productos[x].precio);
+          }
+          if(this.subtotal==0)
+          {
+          	    this.r.navigate(["/home"]);
           }
           if(this.subtotal<500)
           {

@@ -22,6 +22,19 @@ export class CarritoComprasService {
     this.mostrar=true;
   	this.change.emit(this.mostrar);
   }
+
+  fn_reinicia_tiempo_carrito()
+  {
+  	let urlSearchParams=new URLSearchParams();
+  	urlSearchParams.append("session",localStorage.getItem("session"));
+  	return this.http.post(environment.api_url+'ventas/reinicia_tiempo_carrito/',urlSearchParams)
+  	.pipe(
+  		map(
+  			(res:Response)=>res.json()
+  			)
+  		);
+  }
+  
   consultaCarrito()
   {
     return this.http.get(environment.api_url+'ventas/carrito_compras/',
