@@ -73,6 +73,7 @@ public holder_name:string="";
 
   fn_guarda_venta()
   {
+
 	  this.cargando=true;
 	  this.gvs.fn_inserta_venta()
 	  .subscribe(
@@ -84,11 +85,19 @@ public holder_name:string="";
           this.muestra_error=true;
           this.msj_error=data[0].msj;
          
-          setInterval(()=>{this.fn_oculta_msj_temporal()},4000);
+          setInterval(
+              ()=>
+              {
+                  this.fn_oculta_msj_temporal();
+                  clearInterval()
+              },
+           4000);
 			  }
 			  else
 			  {
-          
+
+          localStorage.setItem("hora_actual","");      
+
           this.folio_compra=data[0].folio;
           this.mostrar_conf_pedido=true;
           
@@ -120,6 +129,7 @@ public holder_name:string="";
   }
   fn_consulta_total_costo()
   {
+
     this.total_pagar=0.00;
     this.car_service.consultaCarrito()
       .subscribe(data=>{
@@ -129,6 +139,7 @@ public holder_name:string="";
           {
               this.total_pagar=this.total_pagar+parseFloat(this.productos[x].precio);
           }
+          
           if(this.total_pagar==0.00)
           {
             this.r.navigate(["/home"]);

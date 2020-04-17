@@ -5,7 +5,9 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { PasoParamBuscarService } from './servicios/paso-param-buscar.service';
 import { BuscaProductosService } from './servicios/busca-productos.service';
 import { GeneraCuponService } from './servicios/genera-cupon.service';
-
+import { CarritoComprasService }  from './servicios/carrito-compras.service';
+declare var jQuery:any;
+declare var $:any;
 import { FormMail } from './form-model';
 @Component({
   selector: 'app-root',
@@ -43,15 +45,71 @@ public muestra_msj_no_prod:boolean;
   public muestra_cupon:boolean;
   public show_error_email:boolean;
   public email:string;
-  constructor(private ruta_actual:ActivatedRoute,private cont_prod_carrito:CuentaProdBolsaService,private session:SessionService, private router: Router,private buscar_ser:PasoParamBuscarService,public bps:BuscaProductosService,public gcp:GeneraCuponService)
+  public _MS_PER_DAY:number;
+  constructor(private ruta_actual:ActivatedRoute,private cont_prod_carrito:CuentaProdBolsaService,private session:SessionService, private router: Router,private buscar_ser:PasoParamBuscarService,public bps:BuscaProductosService,public gcp:GeneraCuponService,public ccs:CarritoComprasService)
   {
      this.form_mail=new FormMail(""); 
      console.log(this.router.url);
+     this._MS_PER_DAY= 1000 * 60 * 60 * 24;
   }
-  
+  fn_reload()
+  {
+    window.location.reload();
+  }
+  fn_mas_tiempo_carrito()
+  {
+    var d = new Date();
+               var mes=(d.getMonth()+1).toString();
+               var day=d.getDate().toString();
+               var hora=d.getHours().toString();
+               var min=d.getMinutes().toString();
+               var seg=d.getSeconds().toString();
+
+               if((d.getMonth()+1)<10)
+               {
+                 mes='0'+(d.getMonth()+1).toString(); 
+               }
+
+               if(d.getDate()<10)
+               {
+                 day='0'+(d.getDate()).toString(); 
+               }
+
+               if(d.getHours()<10)
+               {
+                 hora='0'+(d.getHours()).toString(); 
+               }
+
+
+              
+               if(d.getMinutes()<10)
+               {
+                 min='0'+(d.getMinutes()).toString(); 
+               }
+
+               if(d.getSeconds()<10)
+               {
+                 seg='0'+(d.getSeconds()).toString(); 
+               }
+               var strDate = d.getFullYear() + "-" + mes + "-" + day + "T" + hora + ":" + min + ":" + seg;
+
+               localStorage.setItem("hora_actual",strDate);
+
+               //este servicios es para poner la hora actual en el carrito-compras
+               //para que los productos no sean liberados en el proceso automatico.
+               $(".cls_msj_carrito_x_caducar").hide();
+               this.ccs.fn_reinicia_tiempo_carrito()
+               .subscribe(
+                   data=>
+                   {
+
+                   }
+                 );
+
+  }
   ngOnInit()
   {    
-    
+   
 
       this.form_mail.email="";
       this.muestra_form_cupon=true;
@@ -80,6 +138,14 @@ public muestra_msj_no_prod:boolean;
 					}
 				) ;
   }
+
+ dateDiffInDays(a, b) {
+  // Discard the time and time-zone information.
+  const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+  const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+
+  return Math.floor((utc2 - utc1) / this._MS_PER_DAY);
+}
 
 fn_email_valido(email: string):boolean {
     let mailValido = false;

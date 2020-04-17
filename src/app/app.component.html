@@ -77,7 +77,16 @@
     </div>
 </div>
 
-
+<div class="container-fluid" style="padding:0px">
+    <div class="row-fluid" style="background-color:red;padding:0px">
+        <div class="col-xs-12" id="div_contador">
+                <div>
+                    Tu carrito estará vigente por: <a id="tiempo_restante"></a> minutos   
+                </div>
+                
+            </div> 
+    </div>
+</div>
 
 <div class="container-fluid" id="esquema-pc" >
     <div class="row-fluid"  >
@@ -85,7 +94,8 @@
             <app-menu-nav (vbuscar)="fn_buscar_2($event)"></app-menu-nav>
         </div> 
         <div class="col-xs-12 col-sm-9" style="padding:0">
-            <router-outlet  ></router-outlet>
+            
+            <router-outlet ></router-outlet>
         </div>        
     </div>
 </div>
@@ -409,4 +419,53 @@
 <div id="div_boton_cerrar" *ngIf="muestra_cupon" >
 
         <a (click)="fn_cerrar_cupon()">cerrar</a>
+</div>
+<div style="width: 100%;height: 100%; background-color: black;opacity: 0.7;position: fixed;z-index: 6000;top:0;left: 0;" class="cls_msj_carrito_x_caducar">
+    
+</div>
+<div id="form_msj_carrito_x_caducar" class="cls_msj_carrito_x_caducar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+               <h1 class="page-header">
+                   Tu carrito de compras esta por caducar, ¿necesitas mas tiempo?
+               </h1> 
+            </div>
+            <div class="col-xs-12 text-center"> 
+                <button class="btn btn-primary" (click)="fn_mas_tiempo_carrito()">
+                   Si
+               </button>
+             
+               
+            </div>
+            <div class="col-xs-12">
+               <br> 
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div id="form_msj_carrito_caduco" class="cls_msj_carrito_x_caducar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+               <h1 class="page-header">
+                   Tu carrito de compras ha caducado.
+               </h1> 
+            </div>
+            <div class="col-xs-12 text-center"> 
+                <button class="btn btn-primary" (click)="fn_reload()">
+                    Continuar
+               </button>
+             
+               
+            </div>
+            <div class="col-xs-12">
+               <br> 
+            </div>
+
+        </div>
+    </div>
 </div>

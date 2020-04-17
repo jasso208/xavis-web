@@ -121,8 +121,50 @@ export class DetalleProductoComponent implements OnInit {
 					this.id_talla="0";
           this.mostrar_msj_exito=true;
           this.msj_exito="El producto se agrego correctamente.";
-          setInterval(()=>{this.fn_oculta_msj_exito()},4000)
+          setInterval(()=>{this.fn_oculta_msj_exito()},4000);
 
+           //si aun no existe la variable "hora_actual" le asignamos un valor.
+           if (localStorage.getItem("hora_actual")=="" || localStorage.getItem("hora_actual")==null)
+           {               
+               
+               var d = new Date();
+               var mes=(d.getMonth()+1).toString();
+               var day=d.getDate().toString();
+               var hora=d.getHours().toString();
+               var min=d.getMinutes().toString();
+               var seg=d.getSeconds().toString();
+
+               if((d.getMonth()+1)<10)
+               {
+                 mes='0'+(d.getMonth()+1).toString(); 
+               }
+
+               if(d.getDate()<10)
+               {
+                 day='0'+(d.getDate()).toString(); 
+               }
+
+               if(d.getHours()<10)
+               {
+                 hora='0'+(d.getHours()).toString(); 
+               }
+
+
+              
+               if(d.getMinutes()<10)
+               {
+                 min='0'+(d.getMinutes()).toString(); 
+               }
+
+               if(d.getSeconds()<10)
+               {
+                 seg='0'+(d.getSeconds()).toString(); 
+               }
+               var strDate = d.getFullYear() + "-" + mes + "-" + day + "T" + hora + ":" + min + ":" + seg;
+
+               localStorage.setItem("hora_actual",strDate);
+           }
+          
           this.cont_prod_carrito.fn_cont_prod_carrito()
             .subscribe(
               data=>
