@@ -7,15 +7,15 @@
 
 
 <!--<div id="encabezado" >-->
-    <div class="container-fluid" style="background-color: black">
+    <div class="container-fluid" style="background-color: #848484">
         <div class="row">
-            <div class="col-xs-12 col-sm-3 pull-right cls-anuncio-superior" id="div-anuncio-superior-1">
+            <div class="col-xs-12 col-sm-4 col-md-3 pull-right cls-anuncio-superior" id="div-anuncio-superior-1">
                 <a  href="https://api.whatsapp.com/send?phone=528113127511" target="_blank">
                         <img src="../assets/img/whatsapp-icon.png"> 
                         WhatsApp: (81) 13127511
                 </a>
             </div>
-            <div class="col-xs-12 col-sm-3 pull-right cls-anuncio-superior"  id="div-anuncio-superior-2">
+            <div class="col-xs-12 col-sm-4 col-md-3 pull-right cls-anuncio-superior"  id="div-anuncio-superior-2">
                 <a > 
                     <img src="../assets/img/envio-icon.png">
                         Envío gratis a partir de $500.00
@@ -24,11 +24,11 @@
             
         </div>
     </div>
-<div class="container-fluid" id="encabezado">
+<div class="container-fluid" id="encabezado" >
         <div class="row">
                 <div class="col-xs-6 col-sm-4 text-center" id="logo" (click)="fn_go_home()"  >
-                        <img src="../assets/img/logo_grande.png" alt="" id="logo_peque">
-                        <img src="../assets/img/logo_grande.png" alt="" id="logo_grande">                      
+                        <img src="../assets/img/logo_grande.jpg" alt="" id="logo_peque">
+                        <img src="../assets/img/logo_grande.jpg" alt="" id="logo_grande">                      
                 </div>                            
                 <div class="col-xs-2 col-sm-1 text-center" >                
                 </div>               
@@ -37,25 +37,45 @@
                                 <span class="glyphicon glyphicon-align-justify"></span>
                         </a>      
                 </div>                
-                <div class="col-xs-2 col-sm-1 text-center" id="bolsa_compras" (click)="fn_go_carrito_compras()">                   
-                                <img src="../assets/img/bolsa_compras.png" >  
+                <div class="col-xs-2 col-sm-1 text-center" id="bolsa_compras" (click)="fn_go_carrito_compras()">                  
+                                <img src="../assets/img/bolsa_compras_movil.jpg" id="img_bolsa_compra_movil" >  
+                                <img src="../assets/img/bolsa_compras_pc.jpg" id="img_bolsa_compra_pc" >  
                                 <a id="cont_prod_carrito">{{cont_prod}}</a>  
                 </div>
 
                 <form (ngSubmit)="fn_buscar()">
-                    <div class="col-xs-8 col-sm-3 cls_busqueda_pc" >
-                        <input type="text" class="form-control col-xs-12 cls_form_busqueda"   [(ngModel)]="txt_buscar" name="txt_buscar" >                
+                    <div class="col-xs-8 col-sm-4 cls_busqueda_pc" >
+                        <input type="text" class="form-control col-xs-12 cls_form_busqueda"   [(ngModel)]="txt_buscar" name="txt_buscar" placeholder="Productos, Marcas, etc" >                
                     </div>
-                    <div class="col-xs-4 col-sm-2 cls_busqueda_pc ">
-                        <button class="btn btn-primary btn-block cls_form_busqueda" id="btn_buscar" > 
-                            Buscar
+                    <div class="col-xs-4 col-sm-1 cls_busqueda_pc ">
+                        <button class="btn btn-primary btn-block cls_form_busqueda" id="btn_buscar" style="background-color: gray" > 
+                            <span class="glyphicon glyphicon-search"></span>
                         </button>                                   
                     </div>    
                 </form>
-
-
         </div>  
 </div>
+
+<div class="container-fluid" id="div_menu_pc" style="background-color: #f8f8f8; margin-top: 5px">
+    <div class="col-xs-16 text-right" > 
+        <a class="cls_btn_menu_pc" >
+            Artesanias            
+        </a>
+        <a class="cls_btn_menu_pc" >
+            Bebes            
+        </a>
+        <a class="cls_btn_menu_pc" >
+            Descuentos            
+        </a>
+
+        <a id="btn-categorias_pc" class="cls_btn_menu_pc"  (click)="fn_muestra_menu_navegacion()">
+           Todas las  Categorias
+            <span _ngcontent-rgf-c0="" class="glyphicon glyphicon-align-justify"></span>
+        </a>        
+
+    </div>
+</div>
+
 <div id="pie_menu">
 </div>
 
@@ -66,11 +86,13 @@
             <div class="col-xs-12 col-sm-7">
                 
             </div>
-            <div class="col-xs-8 col-sm-3 ">
+            <div class="col-xs-10 col-sm-3 ">
                 <input type="text" class="form-control col-xs-12 cls_form_busqueda"   [(ngModel)]="txt_buscar"  name="txt_buscar">                
             </div>
-            <div class="col-xs-4 col-sm-2 ">
-                <button class="btn btn-primary btn-block cls_form_busqueda"> Buscar</button>                                   
+            <div class="col-xs-2 col-sm-2 ">
+                <button class="btn btn-primary btn-block cls_form_busqueda"> 
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>                                   
             </div>
        </form> 
 
@@ -78,25 +100,23 @@
 </div>
 
 <div class="container-fluid" style="padding:0px">
-    <div class="row-fluid" style="background-color:red;padding:0px">
+    <div class="row-fluid" style="padding:0px">
         <div class="col-xs-12" id="div_contador">
-                <div>
-                    Tu carrito estará vigente por: <a id="tiempo_restante"></a> minutos   
-                </div>
-                
-            </div> 
+            <div>
+                Tu carrito estará vigente por: <a id="tiempo_restante"></a> minutos   
+            </div>
+            
+        </div> 
     </div>
 </div>
 
 <div class="container-fluid" id="esquema-pc" >
     <div class="row-fluid"  >
-        <div class="col-xs-12 col-sm-3" id="div_menu_pc"  >
-            <app-menu-nav (vbuscar)="fn_buscar_2($event)"></app-menu-nav>
-        </div> 
-        <div class="col-xs-12 col-sm-9" style="padding:0">
-            
+
+        <div class="col-xs-12" style="padding:0">
             <router-outlet ></router-outlet>
         </div>        
+
     </div>
 </div>
 
@@ -169,7 +189,6 @@
                 <div class="col-xs-12 cls_item_pie">
                     <a (click)="fn_muestra_menu_ayuda()" >
                         AYUDA   
-                        
                     </a>
                 </div>
 

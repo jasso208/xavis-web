@@ -23,13 +23,14 @@ export class MenuNavComponent implements OnInit {
   public muestra_menu_caballero:boolean;
   public muestra_menu_ropa_cab:boolean;
   public muestra_menu_calzado_cab:boolean;
-    public mostrar_menu:boolean;
+  public mostrar_menu:boolean;
   public mostrar_menu_navegacion:boolean;
   public mostrar_form_buscar:boolean;
-    public txt_buscar:string;
+  public txt_buscar:string;
   public cont_prod:string;
   public muestra_msj_no_prod:boolean;
   public productos:any;
+  public cargando:boolean;
 //  @Output()
   //evento=new EventEmitter();
 
@@ -42,22 +43,27 @@ export class MenuNavComponent implements OnInit {
   }
 
   fn_buscar(id:string)
-  {    
-    window.scrollTo(0,0);
-    this.buscar(id);
-    this.router.navigate(['/resultado_busqueda',1,id]);
+  {
+     
+      window.scrollTo(0,0);
+      this.buscar(id);  
+      
+      this.router.navigate(['/resultado_busqueda',1,id]);  
+
+
   }
+
   /*
   @HostListener('buscar')
   */
   buscar(id:string)
   {
+    this.cargando=true;
     this.muestra_msj_no_prod=true;
     this.bps.busca_productos("1",id)
     .subscribe(
       data=>
       {
-
 
         if (data.length>0)
         {           
@@ -66,13 +72,11 @@ export class MenuNavComponent implements OnInit {
         else
         {
           this.muestra_msj_no_prod=true;            
-        }
+        } 
 
-        
         this.productos=data;
-        this.vbuscar.emit({'productos':this.productos,'mostrar':false})
-        //this.buscar_ser.fn_buscar(this.productos,this.muestra_msj_no_prod);
-       
+        this.vbuscar.emit({'productos':this.productos,'mostrar':false});    
+        this.cargando=false;
       }
     );
 
@@ -99,8 +103,8 @@ public fn_reinicia_style()
     this.muestra_menu_politicas=false;
     this.muestra_menu_ayuda=false;
     this.muestra_menu_ropa=true;
-    this.muestra_menu_dama_calzado=true;
-    this.muestra_menu_dama_accesorios=true;
+    this.muestra_menu_dama_calzado=false;
+    this.muestra_menu_dama_accesorios=false;
     this.muestra_menu_caballero=true;
     this.muestra_menu_dama=true;
     this.muestra_menu_ropa_cab=false;
@@ -109,11 +113,13 @@ public fn_reinicia_style()
   }
   public fn_muestra_menu_navegacion(id:string)
   {
-      this.fn_reinicia_menu();
-      this.mostrar_menu=false;
-      //this.evento.emit({'mostrar':false});    
-      this.mostrar_form_buscar=false;    
-      this.fn_buscar(id);
+        this.fn_reinicia_menu();
+        this.mostrar_menu=false;
+        //this.evento.emit({'mostrar':false});    
+        this.mostrar_form_buscar=false;    
+        this.fn_buscar(id);  
+
+      
   }
    fn_muestra_menu_dama()
   {

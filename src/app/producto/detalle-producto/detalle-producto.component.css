@@ -112,9 +112,10 @@
 }
 #linea_boton_galeria
 {
-	height:60px;
+	height:80px;
 	width:auto;
 	margin:0 auto;
+	cursor: pointer;
 }
 
 .cls_boton_img_galeria
@@ -153,7 +154,7 @@ margin-right:5px;
 		}
 		#detalle_producto #precio_producto
 		{
-			font-size:15px;
+			font-size:25px;
 			display:block;
 			text-align:center;
 			color:red;

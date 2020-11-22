@@ -1,4 +1,5 @@
 
+/*movil*/
 #div_contador
     {
         padding:0px;
@@ -9,7 +10,7 @@
 {
     text-align: center;
     width: 100%;    
-    background-color: black; 
+    background-color: gray; 
     color: white;
     border-top:1px solid white;
 
@@ -19,6 +20,34 @@
     color: #daba0b; 
 }
 
+.cls_btn_menu_pc
+{
+    color:white;
+    font-weight: bold;
+    font-size: 17px;
+    
+    text-decoration:none;
+    cursor:pointer;
+    font-family: Sans-serif;
+    
+    font-weight: 1px;
+
+    display: inline-block;
+    color: black;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-right: 20px
+}
+.cls_btn_menu_pc > img
+{
+
+    height:25px;
+}
+
+
+
+
 .cls-anuncio-superior
 {    
     text-align: center;
@@ -27,7 +56,9 @@
 }
 .cls-anuncio-superior a
 {
-    color: #daba0b; 
+    /*color: #daba0b; */
+    color:white;
+
     font-weight: bold;
     font-size: 10px;
     margin-top: 10px;
@@ -126,17 +157,19 @@
     font-size: 20px; 
 }
 
+/*movil*/
 #logo_peque_cupon
 {
     width: 40px;
 
 }
+/*movil*/
 #encabezado
 {   
     height: 60px;
-    background-color:black;
+    background-color:white;
 }
-
+/*movil*/
 #logo
 {
     cursor: pointer;
@@ -148,7 +181,7 @@
     
     margin-top: 15px;
 }
-
+/*movil*/
 #menu
 {
 
@@ -160,19 +193,22 @@
 #menu >a
 {
     display:block;
-    color:white;
+    color:gray;
     font-size:25px;    
     text-decoration: none;
 }
 
+/*movil*/
 #bolsa_compras{
     position: relative;
     cursor: pointer;
     
   }
+  /*movil*/
 #bolsa_compras:hover{
     border-color:black;
 }
+/*movil*/
 #bolsa_compras img
 {    
     position: absolute;
@@ -187,7 +223,7 @@
 
 #pie_menu
 {
-    background-color:black;
+    background-color:white;
     height: 10px;
     width: 100%;
     z-index: -1;
@@ -315,8 +351,11 @@
     position: fixed;
     top:0;
     left:0;    
-    background-color: black;
+    background-color: white;
     overflow-y: scroll;
+
+
+   
 }
 
 #img_logo_menu_hover>img
@@ -375,7 +414,7 @@
     font-size:15px;
 }
 
-
+/*movil*/
 #cont_prod_carrito
 {
     color:red;
@@ -477,17 +516,19 @@
          display: none;
     }
 
+/*movil*/
 .cls_form_busqueda
 {
-    height: 30px;
-    margin-top:1px;
-    font-size:15px;
+    height: 35px;
+    margin-top:10px;
+    
 }
+
 #busqueda_movil
 {
     display: block;
-    background-color:black; 
-    padding-bottom: 10px;
+    background-color:white; 
+    padding-bottom: 10px;    
 }
 .cls_busqueda_pc
 {
@@ -496,7 +537,7 @@
 #div_menu_pc
 {
     display: none;
-    padding-left: 0;
+    
 }
 
 .cls_msj_carrito_x_caducar
@@ -536,6 +577,7 @@
 
     }
 
+    /*pc*/
     #div_contador
     {
         padding:0px;
@@ -560,24 +602,20 @@
         border-left: 1px solid white; 
         
     }
+    /*pc*/
     #encabezado
     {   
-        height: 50px;
-        background-color:black;
+        margin-top: 30px;
+        margin-bottom: 30px;        
+        height: 70px;
+        background-color:white;
     }
 
-    #logo >img
-    {
-        height:30px;
-        text-align: center;
-        
-        margin-top:  15px;
-    }  
-
+    /*pc*/
     #bolsa_compras img
     {    
-        top: 60px;
-        width: 40px;
+        top: 70px;
+        width: 50px;
         
 
     }
@@ -592,18 +630,20 @@
     #cont_prod_carrito
     {
 
-        top:20px;
+        top:25px;
         font-size: 15px;
+        font-weight: bold;
 
     }
 
 
 
+    /*PC*/
     .cls_form_busqueda
     {
-        height: 25px;
+        height: 35px;
         margin-top:1px;
-        font-size:15px;
+        font-size:20px;
         margin-top:20px;
     }
    
@@ -690,9 +730,10 @@
          display: block;
     }
 
+    /*pc*/
     #logo >img
     {
-        height:40px;
+        height:60px;
         text-align: center;
         
         margin-top: 10px;
